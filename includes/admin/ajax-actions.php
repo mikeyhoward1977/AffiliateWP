@@ -23,6 +23,8 @@ function affwp_search_users() {
 		'search_columns' => array( 'user_login', 'display_name', 'user_email' )
 	);
 
+	$affiliate_users = array();
+
 	if ( isset( $_REQUEST['status'] ) ) {
 		$status = mb_strtolower( htmlentities2( trim( $_REQUEST['status'] ) ) );
 
