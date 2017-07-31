@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: AffiliateWP\n"
 "Report-Msgid-Bugs-To: https://affiliatewp.com/support/\n"
 "POT-Creation-Date: 2017-06-28 16:58:31+00:00\n"
-"PO-Revision-Date: 2017-06-01 00:44-0600\n"
+"PO-Revision-Date: 2017-07-29 01:58+0500\n"
 "Last-Translator: Andrew Munro, Sumobi <andrew@sumobi.com>\n"
 "Language-Team: AffiliateWP <support@affiliatewp.com>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -37,7 +37,7 @@ msgstr ""
 #: includes/REST/class-rest.php:62 includes/admin/ajax-actions.php:224
 #: includes/admin/tools/tools.php:667
 msgid "Nonce verification failed"
-msgstr ""
+msgstr "Ошибка проверки"
 
 #: includes/REST/class-rest.php:62 includes/REST/class-rest.php:68
 #: includes/REST/class-rest.php:81 includes/REST/class-rest.php:84
@@ -50,8 +50,7 @@ msgstr ""
 #: includes/admin/affiliates/actions.php:185
 #: includes/admin/affiliates/actions.php:189
 #: includes/admin/class-addon-updater.php:283
-#: includes/admin/class-notices.php:564
-#: includes/admin/creatives/actions.php:16
+#: includes/admin/class-notices.php:564 includes/admin/creatives/actions.php:16
 #: includes/admin/creatives/actions.php:44
 #: includes/admin/creatives/actions.php:48
 #: includes/admin/creatives/actions.php:52
@@ -63,82 +62,84 @@ msgstr ""
 #: includes/admin/tools/import/class-batch-import-affiliates.php:102
 #: includes/admin/tools/import/class-batch-import-referrals.php:94
 #: includes/admin/tools/import/import.php:24
-#: includes/admin/tools/import/import.php:30
-#: includes/admin/tools/tools.php:668 includes/admin/tools/tools.php:676
-#: includes/admin/tools/tools.php:686
+#: includes/admin/tools/import/import.php:30 includes/admin/tools/tools.php:668
+#: includes/admin/tools/tools.php:676 includes/admin/tools/tools.php:686
 msgid "Error"
 msgstr "Ошибка"
 
 #: includes/REST/class-rest.php:68
 msgid "User ID Required"
-msgstr "ID пользователя"
+msgstr "Требуется ID пользователя"
 
 #. translators: 1: Generate, regenerate, or revoke
 #: includes/REST/class-rest.php:81 includes/REST/class-rest.php:84
 msgid "You do not have permission to %s API keys for this user."
-msgstr "У Вас нет разрешения экспортировать данные."
+msgstr "У вас нет разрешения на %s API ключей для этого пользователя."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:61
 msgid "Whether to include a modified user object in the response."
-msgstr ""
+msgstr "Включать ли измененный пользовательский объект в ответ."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:67
 msgid "Whether to include the affiliate meta in the response."
-msgstr "Имя пользователя Партнера на сайте"
+msgstr "Следует ли включать партнерскую мета-информацию в ответ."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:219
 #: includes/REST/v1/class-referrals-endpoints.php:181
 msgid "The affiliate ID or array of IDs to query for."
-msgstr ""
+msgstr "ID партнера или множество ID для обработки."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:227
 msgid "The user ID or array of IDs to query payouts for."
-msgstr ""
+msgstr "Идентификатор пользователя или массив ID для запроса на выплату."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:235
 msgid "Affiliate ID or array of IDs to exclude from the query."
-msgstr ""
+msgstr "Идентификатор филиала или множество ID, чтобы исключить из запроса."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:242
 msgid "Terms to search for affiliates. Accepts an affiliate ID or a string."
 msgstr ""
+"Условия, чтобы искать партнеров. Принимает идентификатор партнера или "
+"последовательность."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:249
 msgid ""
 "The affiliate status. Accepts 'active', 'inactive', 'pending', or 'rejected'."
 msgstr ""
+"Статус партнера. Принимает 'active', 'inactive', 'pending', or 'rejected'."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:256
 msgid "Affiliates table column to order by."
-msgstr "Плагин для создания партнерской программы на WordPress"
+msgstr "Столбец таблицы партнеров для сортировки."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:263
 msgid "The date array or string to query affiliate registrations within."
-msgstr "Спасибо вам за регистрацию на партнерской программе {site_name}."
+msgstr "Дата выбора или строка для запроса партнерской регистрации."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:274
 msgid "Use any get_affiliates() arguments to modify the response."
-msgstr ""
+msgstr "Используйте любой get_affiliates () аргументы, чтобы изменить ответ."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:297
 msgid "The unique affiliate ID."
-msgstr "ID Партнера"
+msgstr "Уникальный ID Партнера."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:301
 msgid "ID for the user account associated with the affiliate."
-msgstr ""
+msgstr "ID учетной записи пользователя привлеченного партнером."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:305
 msgid "The affiliate rate."
-msgstr "Ставка Партнера "
+msgstr "Ставка Партнера."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:309
 msgid "The affiliate rate, as it exists in the database"
-msgstr ""
+msgstr "Ставка вознаграждения партнера, если существует в БД"
 
 #: includes/REST/v1/class-affiliates-endpoints.php:313
 msgid "The affiliate rate, as inherited from global settings."
-msgstr "Реферальная ссылка Партнера"
+msgstr "Партнерская ставка, наследованная из глобальных настроек."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:319
 msgid "The affiliate rate type"
@@ -146,11 +147,11 @@ msgstr "Вид партнерской ставки"
 
 #: includes/REST/v1/class-affiliates-endpoints.php:323
 msgid "The affiliate rate type, as it exists in the database"
-msgstr ""
+msgstr "Тип вознаграждения партнера, если существует в БД"
 
 #: includes/REST/v1/class-affiliates-endpoints.php:327
 msgid "The affiliate rate type, as inherited from global settings."
-msgstr "Реферальная ссылка Партнера"
+msgstr "Тип ставки партнера, наследовано из глобальных настроек."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:333
 msgid "The affiliate account email. Synced with the associated user account."
@@ -160,73 +161,73 @@ msgstr ""
 
 #: includes/REST/v1/class-affiliates-endpoints.php:338
 msgid "The affiliate payment email address."
-msgstr "Ваш аккаунт Партнера не активен"
+msgstr "Платежный email партнера."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:342
 msgid "The affiliate payment email address, as it exists in the database"
-msgstr ""
+msgstr "Платежный email партнера, если есть в БД"
 
 #: includes/REST/v1/class-affiliates-endpoints.php:346
 msgid ""
 "The affiliate payment email address, as inherited from the user email "
 "address."
-msgstr ""
+msgstr "Платежный email партнера, наследованный из глобальных настроек."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:352
 msgid "The affiliate status."
-msgstr "Статус Партнера"
+msgstr "Статус Партнера."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:356
 msgid "Unpaid affiliate earnings."
-msgstr "Настройки Партнера"
+msgstr "Невыплаченное партнерское вознаграждение."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:360
 msgid "Affiliate earnings."
-msgstr "Настройки Партнера"
+msgstr "Вознаграждение партнерам."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:364
 msgid "The number of paid referrals associated with the affiliate."
-msgstr ""
+msgstr "Количество оплаченных рефералов привлеченных партнером."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:368
 msgid "The number of visits associated with the affiliate."
-msgstr "Вебсайт Партнера"
+msgstr "Количество визитов ассоциированных с партнером."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:372
 msgid "The date the affiliate was registered."
-msgstr "Запрос Партнера был отклонен"
+msgstr "Дата регистрации партнера."
 
 #: includes/REST/v1/class-creatives-endpoints.php:166
 msgid "The creative ID or array of IDs to query for."
-msgstr ""
+msgstr "ID баннера или диапазон для запроса."
 
 #: includes/REST/v1/class-creatives-endpoints.php:174
 msgid "The creative status. Accepts 'active' or 'inactive'."
-msgstr ""
+msgstr "Статус баннера. Принимает 'active' or 'inactive'."
 
 #: includes/REST/v1/class-creatives-endpoints.php:181
 msgid "Creatives table column to order by."
-msgstr ""
+msgstr "Столбец таблицы Creatives, для сортировки."
 
 #: includes/REST/v1/class-creatives-endpoints.php:192
 msgid "Use any get_creatives() arguments to modify the response."
-msgstr ""
+msgstr "Используйте любой get_creatives () аргументы, чтобы изменить ответ."
 
 #: includes/REST/v1/class-creatives-endpoints.php:215
 msgid "The unique creative ID."
-msgstr "Текст для баннера."
+msgstr "Уникальный ID баннера."
 
 #: includes/REST/v1/class-creatives-endpoints.php:219
 msgid "Name of the creative."
-msgstr "Текст для баннера."
+msgstr "Название баннера."
 
 #: includes/REST/v1/class-creatives-endpoints.php:223
 msgid "Description for the creative."
-msgstr "Текст для баннера."
+msgstr "Описание для баннера."
 
 #: includes/REST/v1/class-creatives-endpoints.php:227
 msgid "URL the creative points to."
-msgstr ""
+msgstr "URL путь баннера."
 
 #: includes/REST/v1/class-creatives-endpoints.php:231
 msgid "Text for the creative."
@@ -234,273 +235,286 @@ msgstr "Текст для баннера."
 
 #: includes/REST/v1/class-creatives-endpoints.php:235
 msgid "ID of the media library image associated with the creative"
-msgstr ""
+msgstr "ID медиафайла который связан с баннером"
 
 #: includes/REST/v1/class-creatives-endpoints.php:239
 msgid "The creative status."
-msgstr "(Текущий пользователь не будет удален)"
+msgstr "Статус баннера."
 
 #: includes/REST/v1/class-creatives-endpoints.php:243
 msgid "The date the creative was created."
-msgstr "Рекламный материал успешно добавлен"
+msgstr "Дата создания баннера."
 
 #: includes/REST/v1/class-payouts-endpoints.php:178
 msgid "The payout ID or array of IDs to query for."
-msgstr ""
+msgstr "ID или диапазон ID выплат для запроса."
 
 #: includes/REST/v1/class-payouts-endpoints.php:186
 msgid "The affiliate ID or array of IDs to query payouts for."
-msgstr ""
+msgstr "ID партнера ли несколько ID для создания запроса на выплату."
 
 #: includes/REST/v1/class-payouts-endpoints.php:194
 msgid "Referral ID or array of referral IDs to retrieve payouts for."
 msgstr ""
+"Реферальный идентификатор или массив идентификаторов ссылок для получения "
+"выплаты по."
 
 #: includes/REST/v1/class-payouts-endpoints.php:201
 msgid "Payout amount (float) or min/max range (array) to retrieve payouts for."
 msgstr ""
+"Сумма выплат (поплавок) или мин/макс диапазон (массив) для получения выплаты "
+"по."
 
 #: includes/REST/v1/class-payouts-endpoints.php:208
 msgid ""
 "Comparison operator used with 'amount'. Accepts '>', '<', '>=', '<=', '=', "
 "or '!='."
 msgstr ""
+"Оператор сравнения, который используется с \"сумма\". Принимает '>', '<', "
+"'>=', '<=', '=', или '!='."
 
 #: includes/REST/v1/class-payouts-endpoints.php:215
 msgid "ID or array of IDs for users who generated payouts. Default empty."
 msgstr ""
+"Идентификатор или массив идентификаторов для пользователей, которые "
+"генерируются выплаты. По умолчанию пустые."
 
 #: includes/REST/v1/class-payouts-endpoints.php:222
 msgid "The payout status. Accepts 'paid' or 'failed'."
-msgstr ""
+msgstr "Статус выплат. Можно \"оплачено\" или \"не удалось\"."
 
 #: includes/REST/v1/class-payouts-endpoints.php:229
 msgid "Payouts table column to order by."
-msgstr ""
+msgstr "Столбец выплат для сортировки."
 
 #: includes/REST/v1/class-payouts-endpoints.php:236
 msgid "The date array or string to query payouts within."
-msgstr ""
+msgstr "The date array or string to query payouts within."
 
 #: includes/REST/v1/class-payouts-endpoints.php:247
 msgid "Use any get_payouts() arguments to modify the response."
-msgstr ""
+msgstr "Использовать любые get_payouts() аргументы, чтобы изменить ответ."
 
 #: includes/REST/v1/class-payouts-endpoints.php:270
 msgid "The unique payout ID."
-msgstr ""
+msgstr "Уникальный идентификатор выплаты."
 
 #: includes/REST/v1/class-payouts-endpoints.php:274
 msgid "The affiliate ID associated with the payout."
-msgstr "Вы уверены, что хотите удалить этот баннер?"
+msgstr "ID партнера ассоциированного с выплатой."
 
 #: includes/REST/v1/class-payouts-endpoints.php:278
 msgid "ID of the user who generated the payout."
-msgstr ""
+msgstr "Идентификатор пользователя, который создал запрос на выплату."
 
 #: includes/REST/v1/class-payouts-endpoints.php:282
 msgid "The number of referrals associated with the affiliate."
-msgstr ""
+msgstr "Количество рефералов, связанных с партнером."
 
 #: includes/REST/v1/class-payouts-endpoints.php:289
 msgid "Total referrals amount for the payout."
-msgstr "Отменить рефералы на этот продукт"
+msgstr "Итоговая сумма по рефералам к выплате."
 
 #: includes/REST/v1/class-payouts-endpoints.php:293
 msgid "Method used to process the payout."
-msgstr ""
+msgstr "Метод, используемый для обработки выплаты."
 
 #: includes/REST/v1/class-payouts-endpoints.php:297
 msgid "The payout status."
-msgstr ""
+msgstr "Состояние выплаты."
 
 #: includes/REST/v1/class-payouts-endpoints.php:301
 msgid "The date the payout was generated."
-msgstr ""
+msgstr "Дата создания выплаты."
 
 #: includes/REST/v1/class-referrals-endpoints.php:173
 msgid "The referral ID or array of IDs to query for."
-msgstr ""
+msgstr "Реферал ID или массив идентификаторов для запроса."
 
 #: includes/REST/v1/class-referrals-endpoints.php:189
 msgid "Reference information (product ID) for the referral."
-msgstr ""
+msgstr "Справочная информация (код продукта) для передачи."
 
 #: includes/REST/v1/class-referrals-endpoints.php:198
 msgid "The context under which the referral was created (integration)."
-msgstr ""
+msgstr "Контекст, под которым реферал был создан (интеграции)."
 
 #: includes/REST/v1/class-referrals-endpoints.php:206
 #: includes/REST/v1/class-visits-endpoints.php:217
 msgid "The associated campaign."
-msgstr ""
+msgstr "Связанные кампании."
 
 #: includes/REST/v1/class-referrals-endpoints.php:214
 msgid "The referral status or array of statuses."
-msgstr ""
+msgstr "Статус передачи или массив статусов."
 
 #: includes/REST/v1/class-referrals-endpoints.php:221
 msgid "Referrals table column to order by."
-msgstr ""
+msgstr "Столбец в порядке таблицы ссылок."
 
 #: includes/REST/v1/class-referrals-endpoints.php:228
 msgid "A referral ID or the search string to query for referrals with."
-msgstr ""
+msgstr "Реферал-ID или строку поиска для запроса ссылки с."
 
 #: includes/REST/v1/class-referrals-endpoints.php:236
 msgid "The date array or string to query referrals within."
-msgstr ""
+msgstr "Дата массива или строки запроса ссылки внутри."
 
 #: includes/REST/v1/class-referrals-endpoints.php:247
 msgid "Use any get_referrals() arguments to modify the response."
-msgstr ""
+msgstr "Используйте любой get_creatives () аргументы, чтобы изменить ответ."
 
 #: includes/REST/v1/class-referrals-endpoints.php:270
 msgid "The unique referral ID."
-msgstr "Количество рефералов, такое как 15."
+msgstr "Уникальный ID реферала."
 
 #: includes/REST/v1/class-referrals-endpoints.php:274
 msgid "ID for the affiliate account associated with the referral."
-msgstr "Ваш запрос на аккаунт Партнера был отклонен"
+msgstr "ID партнера ассоциированного с рефералом."
 
 #: includes/REST/v1/class-referrals-endpoints.php:278
 msgid "ID for the visit associated with the referral."
-msgstr "Выберите статус реферала."
+msgstr "ID визита связанного с рефералом."
 
 #: includes/REST/v1/class-referrals-endpoints.php:282
 msgid "Referral description."
-msgstr "Описание реферала"
+msgstr "Описание реферала."
 
 #: includes/REST/v1/class-referrals-endpoints.php:286
 msgid "The referral status."
-msgstr "Статусы реферал:"
+msgstr "Статус реферала."
 
 #: includes/REST/v1/class-referrals-endpoints.php:290
 msgid "Referral amount."
-msgstr "Реферальная ставка"
+msgstr "Реферальная ставка."
 
 #: includes/REST/v1/class-referrals-endpoints.php:294
 msgid "Currency for the referral amount."
-msgstr "Реферальная ставка"
+msgstr "Валюта для реферальной ставки."
 
 #: includes/REST/v1/class-referrals-endpoints.php:298
 msgid "Custom referral data."
-msgstr "Рефералы не найдены."
+msgstr "Пользовательские данные реферала."
 
 #: includes/REST/v1/class-referrals-endpoints.php:302
 msgid ""
 "Context under which the referral was generated (usually the ontegration)."
-msgstr ""
+msgstr "Контекст, под которым реферал был сгенерирован (обычно ontegration)."
 
 #: includes/REST/v1/class-referrals-endpoints.php:306
 msgid "Campaign associated with the referral."
-msgstr ""
+msgstr "Кампании, связанные с рефералом."
 
 #: includes/REST/v1/class-referrals-endpoints.php:310
 msgid "Referral reference (usually a link to a specific sale)."
-msgstr ""
+msgstr "Ссылка реферала (обычно ссылка на конкретные продажи)."
 
 #: includes/REST/v1/class-referrals-endpoints.php:314
 msgid "Products associated with the referral."
-msgstr ""
+msgstr "Продукты, связанные с передачи."
 
 #: includes/REST/v1/class-referrals-endpoints.php:318
 msgid "The date the referral was generated."
-msgstr "Количество рефералов, такое как 15."
+msgstr "Дата создания реферала."
 
 #: includes/REST/v1/class-rest-controller.php:64
 msgid "object_type must be defined by the extending class: %s"
 msgstr ""
+"аргумент object_type должны быть определены путем расширения класса: %s"
 
 #: includes/REST/v1/class-rest-controller.php:94
 msgid "The number of items to query for. Use -1 for all."
-msgstr ""
+msgstr "Количество элементов для запроса. Используйте значение -1 для всех."
 
 #: includes/REST/v1/class-rest-controller.php:101
 msgid "The number of items to offset in the query."
-msgstr ""
+msgstr "Количество элементов, чтобы компенсировать в запросе."
 
 #: includes/REST/v1/class-rest-controller.php:108
 msgid "How to order results. Accepts ASC (ascending) or DESC (descending)."
 msgstr ""
+"Как упорядочить результаты. Принимает ASC (по возрастанию), либо DESC (по "
+"убыванию)."
 
 #: includes/REST/v1/class-rest-controller.php:114
 msgid "Fields to limit the selection for. Accepts 'ids'. Default '*' for all."
 msgstr ""
+"Поля, чтобы ограничить выбор. Принимает «коды». По умолчанию ' *' для всех."
 
 #: includes/REST/v1/class-rest-controller.php:146
 msgid ""
 "Scope under which the request is made; determines fields present in response."
 msgstr ""
+"Область, в которой выполняется запрос; Определяет поля, присутствующие в "
+"ответе."
 
 #: includes/REST/v1/class-visits-endpoints.php:175
 msgid "The visit ID or array of IDs to query visits for."
-msgstr ""
+msgstr "Для посещений визит ID или массив идентификаторов для запроса."
 
 #: includes/REST/v1/class-visits-endpoints.php:183
 msgid "The affiliate ID or array of IDs to query visits for."
-msgstr ""
+msgstr "ID партнера или множество ID для обработки."
 
 #: includes/REST/v1/class-visits-endpoints.php:191
 msgid "The referral ID or array of IDs to query visits for."
-msgstr ""
+msgstr "Реферал ID или массив идентификаторов для запроса."
 
 #: includes/REST/v1/class-visits-endpoints.php:199
 msgid "The referral status or array of statuses to retrieve visits for."
-msgstr ""
+msgstr "Статус передачи или массив статусов."
 
 #: includes/REST/v1/class-visits-endpoints.php:207
 msgid "The context under which the visit was created."
-msgstr "Настройки успешно импортированы"
+msgstr "Контекст, в котором этот визит был создан."
 
 #: includes/REST/v1/class-visits-endpoints.php:225
 msgid "Visits table column to order by."
-msgstr ""
+msgstr "Выплаты столбце таблицы в порядке."
 
 #: includes/REST/v1/class-visits-endpoints.php:236
 msgid "Use any get_visits() arguments to modify the response."
-msgstr ""
+msgstr "Используйте любые аргументы get_visits() для изменения ответа."
 
 #: includes/REST/v1/class-visits-endpoints.php:259
 msgid "The unique visit ID."
-msgstr ""
+msgstr "Идентификатор уникального визита."
 
 #: includes/REST/v1/class-visits-endpoints.php:263
 msgid "ID for the affiliate account associated with the visit."
-msgstr "Ваш аккаунт Партнера не активен"
+msgstr "ID партнера ассоциированного с этим визитом."
 
 #: includes/REST/v1/class-visits-endpoints.php:267
 msgid "ID for the referral associated with the visit."
-msgstr ""
+msgstr "ID реферала связанного с этим визитом."
 
 #: includes/REST/v1/class-visits-endpoints.php:271
 msgid "The visit URL."
-msgstr "URL сайта"
+msgstr "URL визита."
 
 #: includes/REST/v1/class-visits-endpoints.php:275
 msgid "Visit referrer."
-msgstr "Учесть последнего пригласившего"
+msgstr "Учесть последнего пригласившего."
 
 #: includes/REST/v1/class-visits-endpoints.php:279
 msgid "Campaign associated with the visit."
-msgstr ""
+msgstr "Связанные кампании."
 
 #: includes/REST/v1/class-visits-endpoints.php:283
 msgid "Context under which the visit was generated."
-msgstr "Настройки успешно импортированы"
+msgstr "Контекст, в котором этот визит был сгенерирован."
 
 #: includes/REST/v1/class-visits-endpoints.php:287
 msgid "Visitor IP address."
-msgstr ""
+msgstr "IP-адрес посетителя."
 
 #: includes/REST/v1/class-visits-endpoints.php:291
 msgid "The date the visit was generated."
-msgstr "Настройки успешно импортированы"
+msgstr "Дата создания визита."
 
 #: includes/abstracts/class-affwp-reports-tab.php:135
-#, fuzzy
 msgid "Filters"
-msgstr "Фильтр"
+msgstr "Фильтры"
 
 #: includes/abstracts/class-affwp-reports-tab.php:151
 #: includes/admin/referrals/class-list-table.php:582
@@ -510,15 +524,15 @@ msgstr "Фильтр"
 
 #: includes/abstracts/class-affwp-reports-tab.php:172
 msgid "Quick Stats"
-msgstr ""
+msgstr "Быстрая статистика"
 
 #: includes/abstracts/class-affwp-reports-tab.php:207
 msgid "Trends"
-msgstr ""
+msgstr "Тенденции"
 
 #: includes/abstracts/class-affwp-reports-tab.php:381
 msgid "No data for the current date range."
-msgstr ""
+msgstr "Нет данных для текущей даты диапазона."
 
 #: includes/abstracts/class-affwp-reports-tab.php:433
 #: includes/class-graph.php:361
@@ -573,14 +587,13 @@ msgstr "В прошлому году"
 #. translators: 1: Starting date, 2: Ending date
 #: includes/abstracts/class-affwp-reports-tab.php:452
 msgid "%1$s to %2$s"
-msgstr ""
+msgstr "%1$s to %2$s"
 
 #: includes/abstracts/class-affwp-reports-tab.php:499
 #: includes/admin/referrals/class-list-table.php:568
-#: includes/admin/referrals/referrals.php:64
-#: includes/admin/tools/tools.php:152 includes/admin/tools/tools.php:308
-#: includes/admin/tools/tools.php:335 includes/admin/tools/tools.php:359
-#: includes/admin/visits/visits.php:55
+#: includes/admin/referrals/referrals.php:64 includes/admin/tools/tools.php:152
+#: includes/admin/tools/tools.php:308 includes/admin/tools/tools.php:335
+#: includes/admin/tools/tools.php:359 includes/admin/visits/visits.php:55
 msgid "Affiliate name"
 msgstr "Имя Партнера"
 
@@ -656,7 +669,7 @@ msgstr ""
 #: includes/admin/affiliates/actions.php:154
 #: includes/admin/affiliates/actions.php:185
 msgid "You do not have permission to manage affiliates"
-msgstr "У Вас нет разрешения "
+msgstr "У Вас нет разрешения на управление партнерами"
 
 #: includes/admin/affiliates/actions.php:99
 msgid "You do not have permission to delete affiliate accounts"
@@ -664,8 +677,7 @@ msgstr "У Вас нет разрешения удалять аккаунты П
 
 #: includes/admin/affiliates/actions.php:103
 #: includes/admin/affiliates/actions.php:189
-#: includes/admin/class-notices.php:564
-#: includes/admin/creatives/actions.php:48
+#: includes/admin/class-notices.php:564 includes/admin/creatives/actions.php:48
 #: includes/admin/referrals/actions.php:20
 #: includes/admin/referrals/actions.php:51
 #: includes/admin/referrals/actions.php:82
@@ -676,8 +688,8 @@ msgstr "Ошибка проверки безопасности"
 msgid "No affiliate IDs specified for deletion"
 msgstr "Отсутствуют ID партнеров, указанных для удаления"
 
-#: includes/admin/affiliates/affiliates.php:59
-#: includes/admin/class-menu.php:11 includes/admin/class-menu.php:14
+#: includes/admin/affiliates/affiliates.php:59 includes/admin/class-menu.php:11
+#: includes/admin/class-menu.php:14
 #: includes/admin/reports/tabs/class-affiliates-reports-tab.php:23
 msgid "Affiliates"
 msgstr "Партнеры"
@@ -943,8 +955,7 @@ msgstr ""
 "Имя и фамилия Партнера. Будет пусто если Имя не указано. Можно изменить на "
 "странице <a href=\"%1$s\" alt=\"%2$s\">редактирования</a>."
 
-#: includes/admin/affiliates/edit.php:42
-#: includes/admin/affiliates/edit.php:147
+#: includes/admin/affiliates/edit.php:42 includes/admin/affiliates/edit.php:147
 msgid "A link to the user edit screen for this user."
 msgstr "Ссылка редактирования данных для этого пользователя."
 
@@ -958,7 +969,9 @@ msgstr "Ссылки"
 
 #: includes/admin/affiliates/edit.php:70
 msgid "The affiliate&#8217;s referral URL. This is based on global settings."
-msgstr "Реферальная ссылка Партнера"
+msgstr ""
+"Партнерская&#8217;s реферальная ссылка. Основано на данных из глобальных "
+"настроек."
 
 #: includes/admin/affiliates/edit.php:78
 msgid "User ID"
@@ -991,6 +1004,9 @@ msgid ""
 "The status assigned to the affiliate&#8217;s account. Updating the status "
 "could trigger account related events, such as email notifications."
 msgstr ""
+"Статус, присвоенный партнерской &#8217; s счета. Обновление статуса может "
+"спровоцировать счета связанные события, например, уведомления по электронной "
+"почте."
 
 #: includes/admin/affiliates/edit.php:139 includes/misc-functions.php:1103
 #: tests/misc/test-misc-functions.php:372
@@ -1017,7 +1033,7 @@ msgstr "Сайт по-умолчанию"
 
 #: includes/admin/affiliates/edit.php:166 includes/admin/affiliates/new.php:67
 msgid "The affiliate&#8217;s referral rate type."
-msgstr "Вид партнерской ставки"
+msgstr "Тип партнерской&#8217;s ставки."
 
 #: includes/admin/affiliates/edit.php:174 includes/admin/affiliates/new.php:75
 #: includes/admin/settings/class-settings.php:523
@@ -1077,18 +1093,18 @@ msgstr "Метод продвижения"
 
 #: includes/admin/affiliates/edit.php:218
 msgid "Promotion methods entered by the affiliate during registration."
-msgstr "Метод продвижения, выбранный Партнером"
+msgstr "Метод продвижения, выбранный Партнером."
 
-#: includes/admin/affiliates/edit.php:226
-#: includes/admin/affiliates/new.php:101
+#: includes/admin/affiliates/edit.php:226 includes/admin/affiliates/new.php:101
 msgid "Affiliate Notes"
-msgstr "Ставки Партнеров:"
+msgstr "Заметки партнеров"
 
-#: includes/admin/affiliates/edit.php:231
-#: includes/admin/affiliates/new.php:106
+#: includes/admin/affiliates/edit.php:231 includes/admin/affiliates/new.php:106
 msgid ""
 "Enter any notes for this affiliate. Notes are only visible to the admin."
 msgstr ""
+"Введите любые заметки для этого филиала. Примечания отображаются только для "
+"администратора."
 
 #: includes/admin/affiliates/edit.php:240
 #: includes/admin/affiliates/review.php:93
@@ -1171,7 +1187,7 @@ msgstr "Метод продвижения"
 
 #: includes/admin/affiliates/review.php:98
 msgid "Leave blank if approving this affiliate."
-msgstr "Оставьте пустым для активации Партнера"
+msgstr "Оставьте пустым для активации Партнера."
 
 #: includes/admin/affiliates/screen-options.php:24
 msgid "Number of affiliates per page:"
@@ -1187,43 +1203,50 @@ msgstr "Недавние рефералы"
 
 #: includes/admin/ajax-actions.php:93 includes/admin/ajax-actions.php:262
 msgid "A batch process ID must be present to continue."
-msgstr ""
+msgstr "Идентификатор пакетного процесса необходимо продолжать."
 
 #: includes/admin/ajax-actions.php:104
 msgid ""
 "You do not have permission to initiate this request. Contact an "
 "administrator for more information."
 msgstr ""
+"Не иметь разрешение начать этот запрос. Обратитесь к администратору для "
+"получения дополнительной информации."
 
 #: includes/admin/ajax-actions.php:111 includes/admin/ajax-actions.php:271
 msgid "%s is an invalid batch process ID."
-msgstr ""
+msgstr "%s является недопустимый пакетный процесс идентификатор."
 
 #: includes/admin/ajax-actions.php:120 includes/admin/ajax-actions.php:280
 msgid "An invalid file path is registered for the %1$s batch process handler."
 msgstr ""
+"Недопустимый путь к файлу регистрируется для %1$s пакетного процесса "
+"обработчика."
 
 #: includes/admin/ajax-actions.php:128 includes/admin/ajax-actions.php:288
 msgid ""
 "%1$s is an invalid handler for the %2$s batch process. Please try again."
 msgstr ""
+"%1$s имеет недопустимый обработчик для %2$s пакетного процесса. Пожалуйста, "
+"попробуйте еще раз."
 
 #: includes/admin/ajax-actions.php:228
 msgid "Missing import file. Please provide an import file."
-msgstr ""
+msgstr "Отсутствует файл импорта. Просьба предоставьте файл импорта."
 
 #: includes/admin/ajax-actions.php:247
 msgid "The file you uploaded does not appear to be a CSV file."
-msgstr ""
+msgstr "Файл, который вы загрузили, как представляется, не быть в CSV-файл."
 
 #: includes/admin/ajax-actions.php:251
 msgid "Something went wrong during the upload process, please try again."
 msgstr ""
+"Что-то пошло не так во время процесса загрузки, пожалуйста, попробуйте еще "
+"раз."
 
 #: includes/admin/ajax-actions.php:300
-#, fuzzy
 msgid "You do not have permission to import data"
-msgstr "У Вас нет разрешения экспортировать данные."
+msgstr "У Вас нет разрешения на импорт данных"
 
 #: includes/admin/class-addon-updater.php:189
 msgid ""
@@ -1265,7 +1288,7 @@ msgstr "Рефералы"
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:45
 #: templates/dashboard.php:80
 msgid "Payouts"
-msgstr ""
+msgstr "Выплаты"
 
 #: includes/admin/class-menu.php:18 includes/admin/creatives/creatives.php:43
 #: templates/dashboard-tab-creatives.php:3 templates/dashboard.php:92
@@ -1296,9 +1319,9 @@ msgstr "Настройки обновлены."
 #: includes/admin/class-notices.php:103
 msgid "%d affiliate was added successfully."
 msgid_plural "%d affiliates were added successfully"
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "%d партнер успешно добавлен."
+msgstr[1] "%d партнеры успешно добавлены"
+msgstr[2] "%d партнеров успешно добавлено"
 
 #: includes/admin/class-notices.php:116
 msgid "Affiliate wasn&#8217;t added, please try again."
@@ -1343,16 +1366,16 @@ msgstr "Запрос Партнера был отклонен"
 #: includes/admin/class-notices.php:183
 msgid "%d affiliate from WP Affiliate was added successfully."
 msgid_plural "%d affiliates from WP Affiliate were added successfully"
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "%d партнер из WP Affiliate успешно добавлен."
+msgstr[1] "%d партнера из WP Affiliate успешно добавлено"
+msgstr[2] "%d партнеров из WP Affiliate успешно добавлено"
 
 #: includes/admin/class-notices.php:204
 msgid "%d affiliate from Affiliates Pro was added successfully."
 msgid_plural "%d affiliates from Affiliates Pro were added successfully"
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "%d партнер из Affiliates Pro успешно добавлен."
+msgstr[1] "%d партнера из Affiliates Pro успешно добавлено"
+msgstr[2] "%d партнеров из Affiliates Pro успешно добавлено"
 
 #: includes/admin/class-notices.php:217
 msgid "Affiliate stats have been recounted!"
@@ -1380,7 +1403,7 @@ msgstr "Не удалось удалить реферала, пожалуйст�
 
 #: includes/admin/class-notices.php:255
 msgid "A payout has been created."
-msgstr "Новый реферал"
+msgstr "Выплата создана."
 
 #: includes/admin/class-notices.php:262
 msgid "Creative updated successfully"
@@ -1415,62 +1438,74 @@ msgid ""
 "Your license key expired on %s. Please <a href=\"%s\" target=\"_blank"
 "\">renew your license key</a>."
 msgstr ""
-"Согласны с нашими <a href=\"%s\" target=\"_blank\">Правилами Пользования</a>"
+"Ваш лицензионный ключ истек %s. Пожалуйста <a href=\"%s\" target=\"_blank"
+"\">обновите Ваш ключ лицензии</a>."
 
 #: includes/admin/class-notices.php:315
 msgid ""
 "Your license key has been disabled. Please <a href=\"%s\" target=\"_blank"
 "\">contact support</a> for more information."
 msgstr ""
+"Ваш лицензионный ключ был отключен. Пожалуйста, <a href=\"%s\" target="
+"\"_blank\">обратитесь в службу поддержки</a> для получения дополнительной "
+"информации."
 
 #: includes/admin/class-notices.php:326
 msgid ""
 "Invalid license. Please <a href=\"%s\" target=\"_blank\">visit your account "
 "page</a> and verify it."
 msgstr ""
+"Неверная лицензия. Пожалуйста, <a href=\"%s\" target=\"_blank\" title="
+"\"Посетите страницу аккаунта\">перейдите на страницу аккаунта</a> и "
+"проверьте ее."
 
 #: includes/admin/class-notices.php:338
-#, fuzzy
 msgid ""
 "Your license key is not active for this URL. Please <a href=\"%s\" target="
 "\"_blank\">visit your account page</a> to manage your license key URLs."
 msgstr ""
-"Согласны с нашими <a href=\"%s\" target=\"_blank\">Правилами Пользования</a>"
+"Ваш лицензионный ключ не активирован для данного URL. Пожалуйста <a href=\"%s"
+"\" target=\"_blank\">перейдите в свой аккаунт</a> для управления своими "
+"лицензиями."
 
 #: includes/admin/class-notices.php:348
 msgid "This appears to be an invalid license key."
-msgstr ""
+msgstr "Похоже, что у вас есть недействующий лицензионный ключ для %s."
 
 #: includes/admin/class-notices.php:357
 msgid ""
 "Your license key has reached its activation limit. <a href=\"%s\">View "
 "possible upgrades</a> now."
 msgstr ""
+"Ваш лицензионный ключ достиг своего предела активации. <a href=\"%s"
+"\">Посмотреть возможные обновления</a> сейчас."
 
 #: includes/admin/class-notices.php:366
 msgid "The API keys were successfully generated."
-msgstr ""
+msgstr "Ключи API были успешно созданы."
 
 #: includes/admin/class-notices.php:372
 msgid "The API keys could not be generated."
-msgstr ""
+msgstr "Не удается создать ключи API."
 
 #: includes/admin/class-notices.php:379
 msgid "The API keys were successfully regenerated."
-msgstr ""
+msgstr "Ключи API были успешно восстановлены."
 
 #: includes/admin/class-notices.php:385
 msgid "The API keys were successfully revoked."
-msgstr ""
+msgstr "Ключи API были успешно отозваны."
 
 #: includes/admin/class-notices.php:427
 msgid ""
 "Your database needs to be upgraded following the latest AffiliateWP update."
 msgstr ""
+"Ваша БД нуждается в обновлении для совместимости с последней версией "
+"AffiliateWP."
 
 #: includes/admin/class-notices.php:430
 msgid "Upgrade Database"
-msgstr ""
+msgstr "Обновление базы данных"
 
 #: includes/admin/class-notices.php:453 tests/admin/test-notices.php:579
 msgid ""
@@ -1508,11 +1543,11 @@ msgstr "Ваше имя"
 #: includes/admin/creatives/actions.php:16
 #: includes/admin/creatives/actions.php:80
 msgid "You do not have permission to manage creatives"
-msgstr "У Вас нет разрешения управлять баннерами."
+msgstr "У Вас нет разрешения управлять баннерами"
 
 #: includes/admin/creatives/actions.php:44
 msgid "You do not have permission to delete a creative"
-msgstr "У Вас нет разрешения удалять баннера."
+msgstr "У Вас нет разрешения удалять баннера"
 
 #: includes/admin/creatives/actions.php:52
 msgid "No creative IDs specified for deletion"
@@ -1531,7 +1566,7 @@ msgstr "Шорткод"
 
 #: includes/admin/creatives/class-list-table.php:119
 msgid "Image Preview"
-msgstr ""
+msgstr "Предварительный Просмотр изображения"
 
 #: includes/admin/creatives/class-list-table.php:120
 #: includes/admin/payouts/class-list-table.php:156
@@ -1611,7 +1646,7 @@ msgstr "Выберите свою картинку. Вы также можете
 
 #: includes/admin/creatives/edit.php:108 includes/admin/creatives/new.php:97
 msgid "Select the status of the creative."
-msgstr "Выберите статус баннера"
+msgstr "Выберите статус баннера."
 
 #: includes/admin/creatives/edit.php:126
 msgid "Update Creative"
@@ -1633,16 +1668,17 @@ msgid ""
 "Text for this creative. To make this a text-only creative, do not add an "
 "image below."
 msgstr ""
+"Текст для этого баннера. Чтобы это был просто текст, не добавляйте картинку."
 
 #: includes/admin/creatives/new.php:79
-#, fuzzy
 msgid ""
 "Select an image if you would like an image banner. You can also enter an "
 "image URL if your image is hosted elsewhere. Leave blank if you wish to "
 "create a text-only creative."
 msgstr ""
 "Выберите картинку, которую вы хотите видеть в роли баннера. Вы можете "
-"указать ссылку на картинку. "
+"указать ссылку на картинку. оставьте пустым если хотите создать просто "
+"рекламный текст."
 
 #: includes/admin/creatives/new.php:114
 msgid "Add Creative"
@@ -1708,12 +1744,12 @@ msgstr "Выплачено"
 #: includes/admin/payouts/class-list-table.php:131
 #: includes/admin/tools/tools.php:341 includes/payout-functions.php:134
 msgid "Failed"
-msgstr ""
+msgstr "Неудачно"
 
 #: includes/admin/payouts/class-list-table.php:148
 #: includes/admin/tools/export/class-batch-export-payouts.php:144
 msgid "Payout ID"
-msgstr ""
+msgstr "ID выплаты"
 
 #: includes/admin/payouts/class-list-table.php:150
 #: includes/admin/payouts/view.php:34
@@ -1732,45 +1768,45 @@ msgstr "Партнер"
 #: includes/admin/payouts/view.php:72
 #: includes/admin/tools/export/class-batch-export-payouts.php:148
 msgid "Generated By"
-msgstr "Сгенерировать URL"
+msgstr "Создано"
 
 #: includes/admin/payouts/class-list-table.php:153
 #: includes/admin/payouts/view.php:103
 #: includes/admin/tools/export/class-batch-export-payouts.php:149
 #: templates/dashboard-tab-payouts.php:36
 msgid "Payout Method"
-msgstr "Метод продвижения"
+msgstr "Метод выплаты"
 
 #: includes/admin/payouts/class-list-table.php:366
 #: includes/admin/payouts/view.php:107
 msgid "(none)"
-msgstr ""
+msgstr "(none)"
 
 #: includes/admin/payouts/class-list-table.php:422
 msgid "View"
-msgstr "Смотреть %s"
+msgstr "Смотреть"
 
 #: includes/admin/payouts/class-list-table.php:432
 #: includes/admin/payouts/class-list-table.php:526
 msgid "Retry Payment"
-msgstr ""
+msgstr "Повторить попытку оплаты"
 
 #: includes/admin/payouts/class-list-table.php:513
 msgid "No payouts found."
-msgstr "Посешения не найдены."
+msgstr "Выплаты не найдены."
 
 #: includes/admin/payouts/payouts.php:40
 #: includes/admin/reports/class-reports-admin.php:61
 msgid "Manage Referrals"
-msgstr "Невыплаченные рефералы"
+msgstr "Управление рефералами"
 
 #: includes/admin/payouts/screen-options.php:32
 msgid "Number of payouts per page:"
-msgstr "Количество визитов на страницу:"
+msgstr "Количество выплат на страницу:"
 
 #: includes/admin/payouts/view.php:16
 msgid "Payout: #%d"
-msgstr ""
+msgstr "Выплата: #%d"
 
 #: includes/admin/payouts/view.php:60
 #: includes/admin/referrals/class-list-table.php:168
@@ -1788,11 +1824,11 @@ msgstr "Сумма"
 
 #: includes/admin/payouts/view.php:132
 msgid "Payout Date"
-msgstr ""
+msgstr "Дата выплаты"
 
 #: includes/admin/payouts/view.php:167
 msgid "Referrals Paid"
-msgstr "Рефералы"
+msgstr "Покупки рефералов"
 
 #: includes/admin/plugins.php:27
 msgid "General Settings"
@@ -1800,7 +1836,7 @@ msgstr "Общие настройки"
 
 #: includes/admin/plugins.php:53
 msgid "Changelog"
-msgstr ""
+msgstr "Журнал изменений"
 
 #: includes/admin/referrals/actions.php:16
 #: includes/admin/referrals/actions.php:47
@@ -1832,8 +1868,7 @@ msgstr "Отсылка"
 #: includes/admin/visits/class-list-table.php:110
 #: includes/misc-functions.php:1145 templates/dashboard-tab-payouts.php:34
 #: templates/dashboard-tab-referrals.php:38
-#: templates/dashboard-tab-visits.php:30
-#: tests/misc/test-misc-functions.php:408
+#: templates/dashboard-tab-visits.php:30 tests/misc/test-misc-functions.php:408
 msgid "Date"
 msgstr "Дата"
 
@@ -1860,18 +1895,16 @@ msgid "Apply"
 msgstr "Применить"
 
 #: includes/admin/referrals/class-list-table.php:574
-#: includes/admin/referrals/referrals.php:67
-#: includes/admin/tools/tools.php:310 includes/admin/tools/tools.php:337
-#: includes/admin/tools/tools.php:361 includes/admin/visits/visits.php:58
-#: includes/class-graph.php:419
+#: includes/admin/referrals/referrals.php:67 includes/admin/tools/tools.php:310
+#: includes/admin/tools/tools.php:337 includes/admin/tools/tools.php:361
+#: includes/admin/visits/visits.php:58 includes/class-graph.php:419
 msgid "From - mm/dd/yyyy"
 msgstr "С - мм/дд/гггг"
 
 #: includes/admin/referrals/class-list-table.php:575
-#: includes/admin/referrals/referrals.php:68
-#: includes/admin/tools/tools.php:311 includes/admin/tools/tools.php:338
-#: includes/admin/tools/tools.php:362 includes/admin/visits/visits.php:59
-#: includes/class-graph.php:421
+#: includes/admin/referrals/referrals.php:68 includes/admin/tools/tools.php:311
+#: includes/admin/tools/tools.php:338 includes/admin/tools/tools.php:362
+#: includes/admin/visits/visits.php:59 includes/class-graph.php:421
 msgid "To - mm/dd/yyyy"
 msgstr "По - мм/дд/гггг"
 
@@ -1949,30 +1982,32 @@ msgstr "Вы можете ввести ID-номер реферала"
 
 #: includes/admin/referrals/contextual-help.php:57
 msgid "You can enter the referral reference prefixed by &#8220;ref:&#8221;"
-msgstr "Вы можете ввести отсылку к рефералу, поставив префикс 'ref:'"
+msgstr ""
+"Вы можете ввести отсылку к рефералу, поставив префикс &#8220;ref:&#8221;"
 
 #: includes/admin/referrals/contextual-help.php:58
 msgid "You can enter the referral context prefixed by &#8220;context:&#8221;"
-msgstr "Вы можете ввести контекст к рефералу, поставив префикс 'context:'"
+msgstr "Вы можете ввести контекст к рефералу, поставив префикс 'context:';"
 
 #: includes/admin/referrals/contextual-help.php:59
 #: includes/admin/visits/contextual-help.php:60
 msgid ""
 "You can enter the affiliate&#8217;s ID number prefixed by &#8220;affiliate:"
 "&#8221;"
-msgstr "Вы можете ввести ID-номер Партнера, поставив префикс 'affiliate:'"
+msgstr "Вы можете ввести ID-номер Партнера, поставив префикс 'affiliate:';"
 
 #: includes/admin/referrals/contextual-help.php:60
 #: includes/admin/visits/contextual-help.php:61
 msgid "You can enter a URL campaign prefixed by &#8220;campaign:&#8221;"
-msgstr "Вы можете ввести URL кампании начиная с 'campaign:'"
+msgstr "Вы можете ввести URL кампании начиная с 'campaign:';"
 
 #: includes/admin/referrals/contextual-help.php:61
-#, fuzzy
 msgid ""
 "You can enter a word or phrase in the referral&#8217;s description prefixed "
 "by &#8220;desc:&#8221;"
-msgstr "Вы можете ввести отсылку к рефералу, поставив префикс 'ref:'"
+msgstr ""
+"Вы можете ввести отсылку к рефералу&#8217;s описание должно начинаться с "
+"&#8220;desc:&#8221;"
 
 #: includes/admin/referrals/contextual-help.php:67
 msgid "Exporting Referrals"
@@ -2014,32 +2049,33 @@ msgstr "Идентификационный номер (ID) Партнера. Е�
 #. translators: 1: Payout link with total, 2: Payout ID
 #: includes/admin/referrals/edit.php:54 includes/admin/referrals/edit.php:92
 msgid "%1$s (ID: #%2$s)"
-msgstr ""
+msgstr "%1$s (ID: #%2$s)"
 
 #: includes/admin/referrals/edit.php:67
 msgid ""
 "The name and ID of the affiliate who generated this referral. This "
 "association cannot be changed."
 msgstr ""
-"Пользовательский идентификационный номер (ID) Партнера. Его нельзя изменить."
+"Имя и ID партнера, который создал этого реферала. Эта связь не может быть "
+"изменена."
 
 #: includes/admin/referrals/edit.php:75
 msgid "Payout"
-msgstr "Недавние рефералы"
+msgstr "Выплата"
 
 #. translators: 1: Payout total amount with view link
 #: includes/admin/referrals/edit.php:84
 msgid "Total: %1$s"
-msgstr "Всего"
+msgstr "Всего: %1$s"
 
 #. translators: 1: Pay Out action link
 #: includes/admin/referrals/edit.php:106
 msgid "None | %1$s"
-msgstr "Не установлено"
+msgstr "Нет | %1$s"
 
 #: includes/admin/referrals/edit.php:107
 msgid "Pay Out"
-msgstr ""
+msgstr "Выплатить"
 
 #: includes/admin/referrals/edit.php:116 includes/admin/referrals/edit.php:168
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:71
@@ -2051,6 +2087,7 @@ msgstr "Не установлено"
 msgid ""
 "The referral amount cannot be changed once it has been included in a payout."
 msgstr ""
+"Сумма вознаграждения не может быть изменена, т.к. она включена в выплату."
 
 #: includes/admin/referrals/edit.php:138 includes/admin/referrals/new.php:41
 msgid "The amount of the referral, such as 15."
@@ -2063,7 +2100,7 @@ msgstr "Переходы"
 #. translators: 1: Visit link, 2: Visit ID
 #: includes/admin/referrals/edit.php:174
 msgid "URL: %1$s (ID: #%2$s)"
-msgstr ""
+msgstr "URL: %1$s (ID: #%2$s)"
 
 #: includes/admin/referrals/edit.php:208 includes/admin/referrals/new.php:66
 msgid "Enter a description for this referral."
@@ -2102,17 +2139,17 @@ msgstr ""
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:272
 #: includes/class-graph.php:371
 msgid "Custom"
-msgstr "Пошлина"
+msgstr "Пользовательский"
 
 #: includes/admin/referrals/edit.php:247
-#, fuzzy
 msgid "Custom data stored for this referral (optional)."
-msgstr "Введите описание для этого реферала."
+msgstr "Пользовательские данные, хранящиеся для этого реферала (опционально)."
 
 #: includes/admin/referrals/edit.php:266
 msgid ""
 "The referral status cannot be changed once it has been included in a payout."
 msgstr ""
+"Статус вознаграждения не может быть изменено, т.к. оно включено в выплату."
 
 #: includes/admin/referrals/edit.php:268 includes/admin/referrals/new.php:123
 msgid "Select the status of the referral."
@@ -2120,7 +2157,7 @@ msgstr "Выберите статус реферала."
 
 #: includes/admin/referrals/edit.php:289
 msgid "Update Referral"
-msgstr "Обновить рефералы"
+msgstr "Обновить реферала"
 
 #: includes/admin/referrals/new.php:3
 msgid "New Referral"
@@ -2151,7 +2188,7 @@ msgstr ""
 
 #: includes/admin/referrals/new.php:105
 msgid "Any custom data that should be stored with the referral (optional)."
-msgstr ""
+msgstr "Введите описание для этого реферала."
 
 #: includes/admin/referrals/new.php:140
 #: includes/integrations/extras/class-ninja-forms-action-add-referral.php:43
@@ -2207,14 +2244,12 @@ msgid "Number of referrals per page:"
 msgstr "Количество рефералов на страницу:"
 
 #: includes/admin/reports/class-payouts-graph.php:179
-#, fuzzy
 msgid "Earnings Generated"
-msgstr "Доход"
+msgstr "Заработок"
 
 #: includes/admin/reports/class-payouts-graph.php:180
-#, fuzzy
 msgid "Earnings Paid"
-msgstr "Доход"
+msgstr "Выплачено"
 
 #: includes/admin/reports/class-registrations-graph.php:83
 msgid "Affiliate Registrations"
@@ -2244,7 +2279,7 @@ msgstr "Редактировать Партнера"
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:156
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:142
 msgid "All Time"
-msgstr ""
+msgstr "За все время"
 
 #: includes/admin/reports/tabs/class-affiliates-reports-tab.php:73
 #: includes/admin/reports/tabs/class-affiliates-reports-tab.php:137
@@ -2269,7 +2304,7 @@ msgstr[2] "Добавить реферала"
 
 #: includes/admin/reports/tabs/class-affiliates-reports-tab.php:155
 msgid "Highest Converting Affiliate"
-msgstr ""
+msgstr "Лучшие партнеры по конверсии"
 
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:23
 msgid "Campaigns"
@@ -2278,19 +2313,19 @@ msgstr "Кампания"
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:64
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:101
 msgid "Best Converting Campaign (All Time)"
-msgstr ""
+msgstr "Лучшие кампании по конверсии (за все время)"
 
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:65
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:150
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:235
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:66
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:151
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:236
 msgid "Affiliate: <a href=\"%1$s\">%2$s</a> | Visits: %3$d"
-msgstr ""
+msgstr "Партнер: <a href=\"%1$s\">%2$s</a> | Визитов: %3$d"
 
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:88
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:173
@@ -2304,28 +2339,27 @@ msgstr ""
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:56
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:116
 msgid "Affiliate: <a href=\"%1$s\">%2$s</a>"
-msgstr ""
+msgstr "Дата: %1$s (%2$s)"
 
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:146
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:185
 msgid "Best Converting Campaign (%s)"
-msgstr ""
+msgstr "Лучшие кампании по конверсии (%s)"
 
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:231
 #: includes/admin/reports/tabs/class-campaigns-reports-tab.php:271
 msgid "Most Active Campaign (%s)"
-msgstr ""
+msgstr "Самые активные кампании (%s)"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:75
 msgid "Total Earnings Paid (All Time)"
-msgstr ""
+msgstr "Совокупный доход"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:88
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:119
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:133
-#, fuzzy
 msgid "Total Earnings Paid"
-msgstr "Всего заработано"
+msgstr "Всего выплачено"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:123
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:169
@@ -2338,22 +2372,20 @@ msgstr "Всего заработано"
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:232
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:256
 msgid "Affiliate: <a href=\"%1$s\">%2$s</a> | %3$s"
-msgstr ""
+msgstr "Партнер: <a href=\"%1$s\">%2$s</a> | %3$s"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:165
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:179
-#, fuzzy
 msgid "Total Earnings Generated"
 msgstr "Всего заработано"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:200
 msgid "Total Payouts Count (All Time)"
-msgstr ""
+msgstr "Совокупный доход"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:213
-#, fuzzy
 msgid "Total Payouts Count"
-msgstr "Всего посещений"
+msgstr "Всего выплат"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:249
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:264
@@ -2361,57 +2393,48 @@ msgid "Average Payout"
 msgstr "Реферальная ставка"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:301
-#, fuzzy
 msgid "Average Referrals Per Payout (All Time)"
-msgstr "Реферальная ставка"
+msgstr "Средняя выплата по рефералам (за все время)"
 
 #: includes/admin/reports/tabs/class-payouts-reports-tab.php:314
-#, fuzzy
 msgid "Average Referrals Per Payout"
-msgstr "Реферальная ставка"
+msgstr "Средняя выплата по рефералам"
 
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:55
-#, fuzzy
 msgid "Total Earnings (All Time)"
-msgstr "Всего заработано"
+msgstr "Совокупный доход"
 
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:68
-#, fuzzy
 msgid "Total Unpaid Earnings"
 msgstr "Весь невыплаченный заработок"
 
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:79
 msgid "Payouts (All Time)"
-msgstr ""
+msgstr "Выплата (за все время)"
 
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:85
-#, fuzzy
 msgid "Affiliate: <a href=\"%1$s\">%2$s</a> | <a href=\"%3$s\">%4$s</a>"
-msgstr "<a href=\"%s\">Опубликуйте вопрос</a> на <a href=\"%s\">Github</a>."
+msgstr "Партнер: <a href=\"%1$s\">%2$s</a> | <a href=\"%3$s\">%4$s</a>"
 
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:104
-#, fuzzy
 msgid "Average Referral Amount (All Time)"
-msgstr "Реферальная ставка"
+msgstr "Средняя сумма по рефералам (за все время)"
 
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:116
-#, fuzzy
 msgid "Paid / Unpaid Referrals"
-msgstr "Невыплаченные рефералы"
+msgstr "Выплачено / Невыплачено"
 
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:131
-#, fuzzy
 msgid "Pending / Rejected Referrals"
-msgstr "Отклоненный реферальный заработок"
+msgstr "Ожидающий / Отклоненные рефералы"
 
 #: includes/admin/reports/tabs/class-referrals-reports-tab.php:192
 msgid "Average Referral Amount"
 msgstr "Реферальная ставка"
 
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:53
-#, fuzzy
 msgid "Total Visits (All Time)"
-msgstr "Всего посещений"
+msgstr "Визиты (за все время)"
 
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:63
 msgid "Total visits"
@@ -2423,9 +2446,8 @@ msgid "Successful Conversions"
 msgstr "Успешные конверсии"
 
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:112
-#, fuzzy
 msgid "Conversion Rate (All Time)"
-msgstr "Конверсия"
+msgstr "Конверсия (за все время)"
 
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:123
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:174
@@ -2443,7 +2465,7 @@ msgstr "Всего посещений"
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:245
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:269
 msgid "Top Referrer"
-msgstr ""
+msgstr "Кто привел"
 
 #: includes/admin/reports/tabs/class-visits-reports-tab.php:248
 msgid "Direct Traffic"
@@ -2454,14 +2476,16 @@ msgid ""
 "Show pretty affiliate referral URLs to affiliates. For example: <strong>%s "
 "or %s</strong>"
 msgstr ""
-"Показать переменную URL для реферальной ссылки аффилитам. Например: <strong>"
-"%s или %s </strong>."
+"Показать переменную URL для реферальной ссылки партнерам. Например: <strong>"
+"%s или %s </strong>"
 
 #: includes/admin/settings/class-settings.php:437
 msgid ""
 "Note: Pretty affiliate URLs may not always work as expected when using "
 "AffiliateWP in combination with WooCommerce and Polylang."
 msgstr ""
+"Заметка: Красивые партнерские ссылки не всегда работают в связке AffiliateWP "
+"и Woocommerce или Polylang."
 
 #: includes/admin/settings/class-settings.php:449
 msgid "License Settings"
@@ -2533,7 +2557,7 @@ msgstr "ID"
 
 #: includes/admin/settings/class-settings.php:507
 msgid "Pretty Affiliate URLs"
-msgstr "Короткая ссылка Партнера."
+msgstr "Красивая ссылка Партнера"
 
 #: includes/admin/settings/class-settings.php:512
 msgid "Credit Last Referrer"
@@ -2548,7 +2572,7 @@ msgid ""
 "Choose a referral rate type. Referrals can be based on either a percentage "
 "or a flat rate amount."
 msgstr ""
-"Рефералы будут выплачиваться, исходя из процентной ставки или чистой суммы?"
+"Рефералы будут выплачиваться, исходя из процентной ставки или чистой суммы."
 
 #: includes/admin/settings/class-settings.php:524
 msgid ""
@@ -2566,7 +2590,7 @@ msgstr "Исключить доставку"
 
 #: includes/admin/settings/class-settings.php:532
 msgid "Exclude shipping costs from referral calculations."
-msgstr "Должна ли стоимость доставки быть вычтена из расчётов реферала?"
+msgstr "Вычесть стоимость доставки из расчётов рефералов."
 
 #: includes/admin/settings/class-settings.php:536
 msgid "Exclude Tax"
@@ -2574,7 +2598,7 @@ msgstr "Исключить налоги"
 
 #: includes/admin/settings/class-settings.php:537
 msgid "Exclude taxes from referral calculations."
-msgstr "Должны ли налоги быть исключены из реферальных расчетов?"
+msgstr "Исключить налоги из реферальных расчетов."
 
 #: includes/admin/settings/class-settings.php:541
 msgid "Cookie Expiration"
@@ -2582,7 +2606,7 @@ msgstr "Истечение файлов-cookie"
 
 #: includes/admin/settings/class-settings.php:542
 msgid "Enter how many days the referral tracking cookie should be valid for."
-msgstr "Сколько дней cookie для отслеживания рефералов могут работать?"
+msgstr "Сколько дней cookie для отслеживания рефералов могут работать."
 
 #: includes/admin/settings/class-settings.php:548
 msgid "Currency Settings"
@@ -2643,11 +2667,11 @@ msgstr "Символ (обычно , или .) для разделения де�
 
 #: includes/admin/settings/class-settings.php:582
 msgid "Affiliate Form Settings"
-msgstr "Настройки Партнера"
+msgstr "Настройки формы партнеров"
 
 #: includes/admin/settings/class-settings.php:586
 msgid "Affiliate Area Forms"
-msgstr "Кабинет Партнера"
+msgstr "Формы кабинета партнеров"
 
 #: includes/admin/settings/class-settings.php:587
 msgid ""
@@ -2655,18 +2679,21 @@ msgid ""
 "registration form will only show if <a href=\"%s\">Allow Affiliate "
 "Registration</a> is enabled."
 msgstr ""
+"Выберите какую форму(ы) показывать на странице партнерского "
+"раздела(страницы). Форма для регистрации партнеров будет показываться только "
+"если включена<a href=\"%s\">возможность регистрации</a> на сайте."
 
 #: includes/admin/settings/class-settings.php:590
 msgid "Affiliate Registration Form and Affiliate Login Form"
-msgstr "График регистрации аффилиатов"
+msgstr "Форма регистрации партнеров и форма входа"
 
 #: includes/admin/settings/class-settings.php:591
 msgid "Affiliate Registration Form Only"
-msgstr "Регистрация Партнера"
+msgstr "Только форма регистрации партнеров"
 
 #: includes/admin/settings/class-settings.php:592
 msgid "Affiliate Login Form Only"
-msgstr "Скидка Партнера?"
+msgstr "Только форма для входа партнера"
 
 #: includes/admin/settings/class-settings.php:609
 #: includes/admin/settings/display-settings.php:61
@@ -2692,7 +2719,7 @@ msgstr "Отключить все письма"
 
 #: includes/admin/settings/class-settings.php:627
 msgid "Disable all email notifications."
-msgstr "Активировать оповещения о новых рефералах"
+msgstr "Отключить все email уведомления."
 
 #: includes/admin/settings/class-settings.php:631
 msgid "Logo"
@@ -2700,7 +2727,7 @@ msgstr "Лого"
 
 #: includes/admin/settings/class-settings.php:632
 msgid "Upload or choose a logo to be displayed at the top of emails."
-msgstr "Загрузите или выбирите лого для показа над емелами. "
+msgstr "Загрузите или выберите логотип для показа в шапке писем."
 
 #: includes/admin/settings/class-settings.php:636
 msgid "Email Template"
@@ -2716,7 +2743,7 @@ msgstr "Имя отправителя"
 
 #: includes/admin/settings/class-settings.php:643
 msgid "The name that emails come from. This is usually your site name."
-msgstr "Именем должно быть название вашего сайта. "
+msgstr "Имя от кого пришло письмо. Обычно название вашего сайта."
 
 #: includes/admin/settings/class-settings.php:648
 msgid "From Email"
@@ -2728,7 +2755,7 @@ msgid ""
 "\"reply-to\" address."
 msgstr ""
 "Емейл от которого отсылаются сообщения. Он будет выступать в роли адресов "
-"\"от\" или \"ответить\". "
+"\"от\" или \"ответить\"."
 
 #: includes/admin/settings/class-settings.php:654
 msgid "Notify Admin"
@@ -2737,7 +2764,7 @@ msgstr "Оповещать администраторов"
 #: includes/admin/settings/class-settings.php:655
 msgid "Notify site admin of new affiliate registrations."
 msgstr ""
-"Оповещать администраторов сайта о новых зарегистрировавшихся Партнерах?"
+"Оповещать администраторов сайта о новых зарегистрировавшихся Партнерах."
 
 #: includes/admin/settings/class-settings.php:659
 msgid "Registration Email Subject"
@@ -2774,7 +2801,7 @@ msgstr "Новый Партнер зарегистрирован на вашем
 
 #: includes/admin/settings/class-settings.php:668
 msgid "Name: "
-msgstr "Имя:"
+msgstr "Имя: "
 
 #: includes/admin/settings/class-settings.php:671
 msgid "Application Accepted Email Subject"
@@ -2786,7 +2813,7 @@ msgid ""
 "when their account is approved."
 msgstr ""
 "Введите тему сообщения для принятых заявок. Сообщение отсылается Партнерам, "
-"после проверки их аккаунта. "
+"после проверки их аккаунта."
 
 #: includes/admin/settings/class-settings.php:674
 #: includes/emails/actions.php:114
@@ -2821,7 +2848,7 @@ msgstr "Войдите в свой кабинет Партнера %s"
 
 #: includes/admin/settings/class-settings.php:683
 msgid "New Referral Email Subject"
-msgstr "Новый реферал"
+msgstr "Тема email письма о новом реферале"
 
 #: includes/admin/settings/class-settings.php:684
 msgid ""
@@ -2854,7 +2881,7 @@ msgstr "Вы получили нового реферала"
 
 #: includes/admin/settings/class-settings.php:692
 msgid "on %s!"
-msgstr "Версия %s"
+msgstr "в %s!"
 
 #: includes/admin/settings/class-settings.php:692
 msgid ""
@@ -2862,7 +2889,7 @@ msgid ""
 "notifications:"
 msgstr ""
 "Войдите в свой кабинет Партнера, чтобы посмотреть свой доход или отключить "
-"эти оповещения: %s"
+"эти оповещения:"
 
 #: includes/admin/settings/class-settings.php:706
 msgid "Allow Affiliate Registration"
@@ -2870,7 +2897,7 @@ msgstr "Разрешить регистрацию Партнеров"
 
 #: includes/admin/settings/class-settings.php:707
 msgid "Allow users to register affiliate accounts for themselves."
-msgstr "Могут ли Партнеры регистрироваться в системе самостоятельно?"
+msgstr "Разрешить пользователям регистрироваться в системе самостоятельно."
 
 #: includes/admin/settings/class-settings.php:711
 msgid "Require Approval"
@@ -2882,7 +2909,7 @@ msgid ""
 "begin earning referrals."
 msgstr ""
 "Требовать, чтобы администраторы подтверждали Партнеров, прежде чем они "
-"смогут привлекать рефералов?"
+"смогут привлекать рефералов."
 
 #: includes/admin/settings/class-settings.php:716
 msgid "Auto Register New Users"
@@ -2890,15 +2917,15 @@ msgstr "Авторегистрация новых пользователей"
 
 #: includes/admin/settings/class-settings.php:717
 msgid "Automatically register new users as affiliates."
-msgstr "Автоматически регистрировать новых пользователей как Партнеров?"
+msgstr "Автоматически регистрировать новых пользователей как Партнеров."
 
 #: includes/admin/settings/class-settings.php:721
 msgid "Logout Link"
-msgstr ""
+msgstr "Ссылка выхода"
 
 #: includes/admin/settings/class-settings.php:722
 msgid "Add a logout link to the Affiliate Area."
-msgstr ""
+msgstr "Добавить ссылку выхода в Партнерской зоне."
 
 #: includes/admin/settings/class-settings.php:726
 msgid "Default Referral URL"
@@ -2920,12 +2947,12 @@ msgstr "Включить reCAPTCHA"
 msgid ""
 "Prevent bots from registering affiliate accounts using Google reCAPTCHA."
 msgstr ""
-"Хотите предотвратить регистрации ботов в качестве Партнеров с помощью Google "
-"reCAPTCHA?"
+"Предотвратить регистрации ботов в качестве Партнеров с помощью Google "
+"reCAPTCHA."
 
 #: includes/admin/settings/class-settings.php:736
 msgid "reCAPTCHA Site Key"
-msgstr "Ключ reCAPTCHA для сайта"
+msgstr "reCAPTCHA ключ для сайта"
 
 #: includes/admin/settings/class-settings.php:737
 msgid "This is used to identify your site to Google reCAPTCHA."
@@ -2933,7 +2960,7 @@ msgstr "Это используется для идентификации ваш
 
 #: includes/admin/settings/class-settings.php:741
 msgid "reCAPTCHA Secret Key"
-msgstr "Секретный ключ reCAPTCHA"
+msgstr "секретный ключ reCAPTCHA"
 
 #: includes/admin/settings/class-settings.php:742
 msgid ""
@@ -2945,7 +2972,7 @@ msgstr ""
 
 #: includes/admin/settings/class-settings.php:746
 msgid "Reject Unpaid Referrals on Refund"
-msgstr "Отклонить невыплаченных рефералов при возмещении?"
+msgstr "Отклонить невыплаченных рефералов при возмещении"
 
 #: includes/admin/settings/class-settings.php:747
 msgid ""
@@ -2953,11 +2980,11 @@ msgid ""
 "refunded or revoked."
 msgstr ""
 "Могут ли невыплаченные рефералы автоматически быть отклонены, если произошел "
-"возврат денег или отказ по покупке?"
+"возврат денег или отказ по покупке."
 
 #: includes/admin/settings/class-settings.php:751
 msgid "Use Fallback Referral Tracking Method"
-msgstr "Использовать резервный метод отслеживания рефералов?"
+msgstr "Использовать резервный метод отслеживания рефералов"
 
 #: includes/admin/settings/class-settings.php:752
 msgid ""
@@ -2988,7 +3015,7 @@ msgstr ""
 
 #: includes/admin/settings/class-settings.php:761
 msgid "Enable Debug Mode"
-msgstr "Включить режим отладки?"
+msgstr "Включить режим отладки"
 
 #: includes/admin/settings/class-settings.php:762
 msgid ""
@@ -3009,24 +3036,30 @@ msgid ""
 "per line. NOTE: This will only apply to new visits after the URL has been "
 "saved."
 msgstr ""
+"URL-адреса, размещенные здесь, будут заблокированы от генерации рефералов. "
+"Введите одному URL каждой строке. Примечание: это будет применяться только к "
+"новым визитам после URL-адрес был сохранен."
 
 #: includes/admin/settings/class-settings.php:771
 msgid "Opt into Beta Versions"
-msgstr ""
+msgstr "Опт в бета-версии"
 
 #: includes/admin/settings/class-settings.php:772
 msgid ""
 "Receive update notifications for beta releases. When beta versions are "
 "available, an update notification will be shown on your Plugins page.\n"
 msgstr ""
+"Получать уведомления об обновлениях для бета-релизов. Когда бета-версии "
+"доступны, уведомление об обновлении будут указаны на странице плагинов.\n"
 
 #: includes/admin/settings/class-settings.php:777
 msgid "Remove Data on Uninstall"
-msgstr "Удалить данные при деинсталляции?"
+msgstr "Удалить данные при деинсталляции"
 
 #: includes/admin/settings/class-settings.php:778
 msgid "Remove all saved data for AffiliateWP when the plugin is deleted."
 msgstr ""
+"Удалить все сохраненные данные для AffiliateWP, когда плагин удаляется."
 
 #: includes/admin/settings/class-settings.php:808
 msgid "Required Registration Fields"
@@ -3038,6 +3071,9 @@ msgid ""
 "<strong>Username</strong>, <strong>Account Email</strong> and "
 "<strong>Password</strong> form fields are always required."
 msgstr ""
+"Выберите поля, которые должны быть необходимые для регистрации партнерства. "
+"В <сильный>Имя пользователя в для учетной записи электронной почты или "
+"пароль в поля формы являются обязательными."
 
 #: includes/admin/settings/class-settings.php:815 templates/register.php:89
 msgid "How will you promote us?"
@@ -3134,6 +3170,8 @@ msgstr ""
 #: includes/admin/settings/class-settings.php:1036
 msgid "Deactivate your license key to make changes to this setting."
 msgstr ""
+"Деактивировать свой лицензионный ключ, чтобы внести изменения в этот "
+"параметр."
 
 #: includes/admin/settings/class-settings.php:1047
 msgid "Deactivate License"
@@ -3185,6 +3223,8 @@ msgid ""
 "Debug mode is globally enabled via <code>AFFILIATE_WP_DEBUG</code> set in "
 "<code>wp-config.php</code>. This setting cannot be modified from this screen."
 msgstr ""
+"Режим отладки глобально включения через <код>AFFILIATE_WP_DEBUG установить в "
+"<код>wp-config.php. Этот параметр не может быть изменен с этого экрана."
 
 #: includes/admin/settings/display-settings.php:60
 msgid "General"
@@ -3200,73 +3240,72 @@ msgstr "Разное"
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:285
 msgid "No affiliates were found to be recounted for the current filters."
-msgstr ""
+msgstr "Партнеры не были найдены, чтобы быть пересчитана на текущий фильтров."
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:295
-#, fuzzy
 msgid "Earnings have been successfully recounted for %s."
-msgstr "Реферал успешно добавлен"
+msgstr "Выплата успешно пересчитана для %s."
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:297
 msgid "Earnings have been successfully recounted for all matching affiliates."
-msgstr ""
+msgstr "Заработок успешно пересказала для всех соответствующих филиалов."
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:303
-#, fuzzy
 msgid "Unpaid earnings have been successfully recounted for %s."
-msgstr "Реферал успешно добавлен"
+msgstr "Невыплаченные начисления пересчитаны для %s."
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:305
 msgid ""
 "Unpaid earnings have been successfully recounted for all matching affiliates."
 msgstr ""
+"Невыплаченные доходы были успешно пересказала для всех соответствующих "
+"филиалов."
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:311
-#, fuzzy
 msgid "Referrals have been successfully recounted for %s."
-msgstr "Реферал успешно добавлен"
+msgstr "Реферал успешно пересчитаны для %s."
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:313
 msgid "Referrals have been successfully recounted for all matching affiliates."
 msgstr ""
+"Направления были успешно пересказала для всех соответствующих филиалов."
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:319
-#, fuzzy
 msgid "Visits have been successfully recounted for %s."
-msgstr "Настройки успешно импортированы"
+msgstr "Визиты успешно пересчитаны для %s."
 
 #: includes/admin/tools/class-batch-recount-affiliate-stats.php:321
 msgid "Visits have been successfully recounted for all matching affiliates."
-msgstr ""
+msgstr "Визиты были успешно пересказала для всех соответствующих филиалов."
 
 #: includes/admin/tools/class-rest-consumers-table.php:42
 msgid "API Key"
-msgstr ""
+msgstr "API Ключ"
 
 #: includes/admin/tools/class-rest-consumers-table.php:43
 #: includes/admin/tools/tools.php:87
 msgid "API Keys"
-msgstr ""
+msgstr "Ключи API"
 
 #: includes/admin/tools/class-rest-consumers-table.php:61
 msgid "No API consumers found."
-msgstr "Пользователи не найдены"
+msgstr "Пользователи API не найдены."
 
 #: includes/admin/tools/class-rest-consumers-table.php:151
 msgid "Reissue"
-msgstr ""
+msgstr "Переиздать"
 
 #: includes/admin/tools/class-rest-consumers-table.php:162
 msgid "Revoke"
-msgstr ""
+msgstr "Отозвать"
 
 #: includes/admin/tools/class-rest-consumers-table.php:201
 msgid "Public Key"
-msgstr ""
+msgstr "Публичный ключ"
 
 #: includes/admin/tools/class-rest-consumers-table.php:202
 msgid "Token"
-msgstr ""
+msgstr "Токен"
 
 #: includes/admin/tools/class-rest-consumers-table.php:203
 msgid "Secret Key"
@@ -3278,7 +3317,7 @@ msgstr "Неверное имя пользователя"
 
 #: includes/admin/tools/class-rest-consumers-table.php:230
 msgid "Generate New API Keys"
-msgstr ""
+msgstr "Генерировать новые ключи API"
 
 #: includes/admin/tools/export/class-batch-export-affiliates.php:93
 #: includes/admin/tools/export/class-batch-export-referrals.php:144
@@ -3308,25 +3347,25 @@ msgstr "Регистрация"
 
 #: includes/admin/tools/export/class-batch-export-affiliates.php:117
 msgid "No valid affiliate status was selected for export."
-msgstr "Отсутствуют ID партнеров, указанных для удаления"
+msgstr "Выбранных партнерских статусов для экспорта нет."
 
 #: includes/admin/tools/export/class-batch-export-affiliates.php:187
 msgid "%s affiliate was successfully exported."
 msgid_plural "%s affiliates were successfully exported."
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "%s партнер успешно экспортирован."
+msgstr[1] "%s партнера успешно экспортировано."
+msgstr[2] "%s партнеров успешно экспортировано."
 
 #: includes/admin/tools/export/class-batch-export-payouts.php:163
 msgid "No valid payout status was selected for export."
-msgstr ""
+msgstr "Не действительный статус выплат был выбран для экспорта."
 
 #: includes/admin/tools/export/class-batch-export-payouts.php:274
 msgid "%s payout log was successfully exported."
 msgid_plural "%s payout logs were successfully exported."
-msgstr[0] "Рекламный материал успешно добавлен"
-msgstr[1] "Рекламный материал успешно добавлен"
-msgstr[2] "Рекламный материал успешно добавлен"
+msgstr[0] "%s журнал выплат был успешно экспортирован."
+msgstr[1] "%s журнала выплат было успешно экспортировано."
+msgstr[2] "%s журналов выплат было успешно экспортировано."
 
 #: includes/admin/tools/export/class-batch-export-referrals.php:151
 #: includes/admin/tools/export/class-batch-export-visits.php:148
@@ -3338,19 +3377,18 @@ msgstr "Кампания"
 
 #: includes/admin/tools/export/class-batch-export-referrals.php:167
 msgid "No valid referral status was selected for export."
-msgstr ""
+msgstr "Не действует статус реферала был выбран для экспорта."
 
 #: includes/admin/tools/export/class-batch-export-referrals.php:247
 msgid "%s referral was successfully exported."
 msgid_plural "%s referrals were successfully exported."
-msgstr[0] "Реферал успешно добавлен"
-msgstr[1] "Реферал успешно добавлен"
-msgstr[2] "Реферал успешно добавлен"
+msgstr[0] "%s реферал успешно экспортирован."
+msgstr[1] "%s реферала успешно экспортировано."
+msgstr[2] "%s рефералов успешно экспортировано."
 
 #: includes/admin/tools/export/class-batch-export-visits.php:145
-#, fuzzy
 msgid "Visit ID"
-msgstr "Переходы"
+msgstr "ID визита"
 
 #: includes/admin/tools/export/class-batch-export-visits.php:147
 #: includes/admin/tools/tools.php:365
@@ -3361,21 +3399,19 @@ msgid "Converted"
 msgstr "Конвертирован"
 
 #: includes/admin/tools/export/class-batch-export-visits.php:150
-#, fuzzy
 msgid "Referrer"
-msgstr "Рефералы"
+msgstr "Кто привел"
 
 #: includes/admin/tools/export/class-batch-export-visits.php:190
 msgid "Yes (Ref: #%s)"
-msgstr ""
+msgstr "Да (Ref: #%s)"
 
 #: includes/admin/tools/export/class-batch-export-visits.php:256
-#, fuzzy
 msgid "%s visit was successfully exported."
 msgid_plural "%s visits were successfully exported."
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "%s визитов экспортировано."
+msgstr[1] "%s визитов экспортировано."
+msgstr[2] "%s визитов экспортировано."
 
 #: includes/admin/tools/export/class-batch-export.php:198
 #: includes/admin/tools/export/class-export-settings.php:91
@@ -3386,69 +3422,71 @@ msgstr "У Вас нет разрешения экспортировать да�
 #: includes/admin/tools/export/class-batch-generate-payouts.php:296
 msgid "No unpaid referrals were found matching your criteria."
 msgstr ""
+"Нет неоплаченных переходы были найдены, соответствующих Вашим критериям."
 
 #: includes/admin/tools/export/class-batch-generate-payouts.php:299
 msgid "A payout log for %s affiliate was successfully generated."
 msgid_plural "A payout log for %s affiliates was successfully generated."
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "Журнал выплат по %s партнеру был успешно создан."
+msgstr[1] "Журнал выплат по %s партнерам был успешно создан."
+msgstr[2] "Журнал выплат по %s партнерам был успешно создан."
 
 #: includes/admin/tools/import/class-batch-import-affiliates.php:102
 #: includes/admin/tools/import/class-batch-import-referrals.php:94
-#, fuzzy
 msgid "You do not have permission to import data."
 msgstr "У Вас нет разрешения экспортировать данные."
 
 #: includes/admin/tools/import/class-batch-import-affiliates.php:196
-#, fuzzy
 msgid "No new affiliates were imported."
-msgstr "Партнеры не найдены."
+msgstr "Новые партнеры не импортированы."
 
 #: includes/admin/tools/import/class-batch-import-affiliates.php:201
-#, fuzzy
 msgid "%s affiliate was successfully imported."
 msgid_plural "%s affiliates were successfully imported."
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "%s партнеров импортировано."
+msgstr[1] "%s партнеров импортировано."
+msgstr[2] "%s партнеров импортировано."
 
 #: includes/admin/tools/import/class-batch-import-affiliates.php:214
 msgid "%s other existing affiliate or invalid row was skipped."
 msgid_plural "%s other existing affiliates or invalid rows were skipped."
 msgstr[0] ""
+"%с другими существующими партнерами или недействительным подряд был пропущен."
 msgstr[1] ""
+"%с других существующих филиалов или недействительные строки были пропущены."
 msgstr[2] ""
+"%с других существующих филиалов или недействительные строки были пропущены."
 
 #: includes/admin/tools/import/class-batch-import-affiliates.php:224
-#, fuzzy
 msgid "Manage your affiliates."
-msgstr "Добавление Партнеров"
+msgstr "Управление партнерами."
 
 #: includes/admin/tools/import/class-batch-import-referrals.php:222
-#, fuzzy
 msgid "No new referrals were imported."
-msgstr "Рефералы еще не записаны"
+msgstr "Новых рефералов нет, импортировать нечего."
 
 #: includes/admin/tools/import/class-batch-import-referrals.php:227
-#, fuzzy
 msgid "%s referral was successfully imported."
 msgid_plural "%s referrals were successfully imported."
-msgstr[0] "Реферал успешно добавлен"
-msgstr[1] "Реферал успешно добавлен"
-msgstr[2] "Реферал успешно добавлен"
+msgstr[0] "%s рефералов импортировано."
+msgstr[1] "%s рефералов импортировано."
+msgstr[2] "%s рефералов импортировано."
 
 #: includes/admin/tools/import/class-batch-import-referrals.php:240
 msgid "%s other existing referral or invalid row was skipped."
 msgid_plural "%s other existing referrals or invalid rows were skipped."
 msgstr[0] ""
+"%с другими существующими обращения или неверный подряд был пропущен."
 msgstr[1] ""
+"%с другими существующими рефералами или недействительные строки были "
+"пропущены."
 msgstr[2] ""
+"%с другими существующими рефералами или недействительные строки были "
+"пропущены."
 
 #: includes/admin/tools/import/class-batch-import-referrals.php:250
-#, fuzzy
 msgid "Manage your referrals."
-msgstr "Невыплаченные рефералы"
+msgstr "Управление рефералами."
 
 #: includes/admin/tools/import/import.php:24
 msgid "Please upload a valid .json file"
@@ -3484,7 +3522,7 @@ msgstr "Ассистент по Мигрированию"
 
 #: includes/admin/tools/tools.php:94
 msgid "System Info"
-msgstr ""
+msgstr "Информация О Системе"
 
 #: includes/admin/tools/tools.php:98
 msgid "Debug Assistant"
@@ -3545,24 +3583,22 @@ msgid "Create Affiliate Accounts for Users"
 msgstr "Зарегистрировать новый Аккаунт Партнера для пользователя"
 
 #: includes/admin/tools/tools.php:228
-#, fuzzy
 msgid ""
 "<strong>NOTE:</strong> WordPress 4.5 or newer is required to use the User "
 "Accounts migration tool. <a href=\"%s\" aria-label=\"Update WordPress now"
 "\">Update WordPress now</a>."
 msgstr ""
-"<strong>ВНИМАНИЕ:</strong>В версии WordPress 4.4 или выше обязательно "
+"<strong>ВНИМАНИЕ:</strong>В версии WordPress 4.5 или выше обязательно "
 "использование инструмента переноса пользователей. <a href=\"%s\" aria-label="
 "\"Update WordPress now\">Обновить WordPress сейчас</a>."
 
 #: includes/admin/tools/tools.php:230
-#, fuzzy
 msgid ""
 "<strong>NOTE:</strong> WordPress 4.5 or newer is required to use the User "
 "Accounts migration tool."
 msgstr ""
-"<strong>ВНИМАНИЕ:</strong>В версии WordPress 4.4 или выше обязательно "
-"использование инструмента переноса пользователей. "
+"<strong>ВНИМАНИЕ:</strong>В версии WordPress 4.5 или выше обязательно "
+"использование инструмента переноса пользователей."
 
 #: includes/admin/tools/tools.php:239
 msgid ""
@@ -3600,7 +3636,7 @@ msgstr "Перенести данные из Affiliate Pro"
 
 #: includes/admin/tools/tools.php:282
 msgid "Export Affiliates"
-msgstr "Редактировать Партнера"
+msgstr "Экспорт партнеров"
 
 #: includes/admin/tools/tools.php:284
 msgid "Export affiliates to a CSV file."
@@ -3635,21 +3671,19 @@ msgstr ""
 
 #: includes/admin/tools/tools.php:329
 msgid "Export Payouts"
-msgstr "Всего посещений"
+msgstr "Экспорт выплат"
 
 #: includes/admin/tools/tools.php:331
 msgid "Export payouts to a CSV file."
-msgstr "Экспортировать рефералов в CSV-файл."
+msgstr "Экспорт выплат в CSV-файл."
 
 #: includes/admin/tools/tools.php:353
-#, fuzzy
 msgid "Export Visits"
-msgstr "Редактировать Партнера"
+msgstr "Экспорт визитов"
 
 #: includes/admin/tools/tools.php:355
-#, fuzzy
 msgid "Export visits to a CSV file."
-msgstr "Экспортировать рефералов в CSV-файл."
+msgstr "Экспортировать статистику визитов в CSV-файл."
 
 #: includes/admin/tools/tools.php:366 includes/admin/visits/visits.php:65
 msgid "Unconverted"
@@ -3669,7 +3703,7 @@ msgstr ""
 
 #: includes/admin/tools/tools.php:392
 msgid "Import Settings"
-msgstr "Импортировать настройки"
+msgstr "Настройки импорта"
 
 #: includes/admin/tools/tools.php:394
 msgid ""
@@ -3684,18 +3718,16 @@ msgid "Import"
 msgstr "Импорт"
 
 #: includes/admin/tools/tools.php:409
-#, fuzzy
 msgid "Import Affiliates"
-msgstr "Редактировать Партнера"
+msgstr "Импорт партнеров"
 
 #: includes/admin/tools/tools.php:411
 msgid "Import a CSV of affiliate records."
-msgstr ""
+msgstr "Импорт CSV партнерских записей."
 
 #: includes/admin/tools/tools.php:419 includes/admin/tools/tools.php:466
-#, fuzzy
 msgid "Import CSV"
-msgstr "Импорт"
+msgstr "Импорт CSV"
 
 #: includes/admin/tools/tools.php:428
 msgid ""
@@ -3704,33 +3736,34 @@ msgid ""
 "can be ignored. See <a href=\"%s\" target=\"_blank\">this guide</a> for "
 "assistance with importing affiliate records."
 msgstr ""
+"Каждый столбец загружается из CSV может быть сопоставлен с партнерской "
+"области. Выберите столбец, который должен быть сопоставлен с каждого поля "
+"ниже. Любые столбцы не нужны, можно игнорировать. Посмотреть <а href=\"%ы\" "
+"цель=\"_blank\">данное руководство для помощи с импортом партнерские записи."
 
 #: includes/admin/tools/tools.php:437
-#, fuzzy
 msgid "Affiliate Field"
-msgstr "Партнер: #%d %s"
+msgstr "Поле партнера"
 
 #: includes/admin/tools/tools.php:438 includes/admin/tools/tools.php:485
 msgid "CSV Column"
-msgstr ""
+msgstr "Столбца CSV"
 
 #: includes/admin/tools/tools.php:439 includes/admin/tools/tools.php:486
 msgid "Data Preview"
-msgstr ""
+msgstr "Предварительный Просмотр Данных"
 
 #: includes/admin/tools/tools.php:447 includes/admin/tools/tools.php:494
-#, fuzzy
 msgid "Process Import"
-msgstr "Импорт"
+msgstr "Процесс импорта"
 
 #: includes/admin/tools/tools.php:456
-#, fuzzy
 msgid "Import Referrals"
-msgstr "Экспортировать рефералов"
+msgstr "Импортировать рефералов"
 
 #: includes/admin/tools/tools.php:458
 msgid "Import a CSV of referral records."
-msgstr ""
+msgstr "Импорт в CSV данных по рефералам."
 
 #: includes/admin/tools/tools.php:475
 msgid ""
@@ -3740,44 +3773,47 @@ msgid ""
 "<a href=\"%s\" target=\"_blank\">this guide</a> for assistance with "
 "importing referral records."
 msgstr ""
+"Каждый столбец загружается из CSV могут быть сопоставлены с полем ссылки. "
+"Выберите столбец, который должен быть сопоставлен с каждого поля ниже. Любые "
+"столбцы не нужны, можно игнорировать. Любые партнеры, которые Дон’т "
+"существовать будет создана. Посмотреть <а href=\"%ы\" цель=\"_blank\">данное "
+"руководство для помощи с импортом передачи записей."
 
 #: includes/admin/tools/tools.php:484
-#, fuzzy
 msgid "Referral Field"
-msgstr "Рефералы"
+msgstr "Поле реферала"
 
 #: includes/admin/tools/tools.php:520
 msgid ""
 "To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
 msgstr ""
+"Чтобы скопировать информацию о системе, нажмите ниже, затем нажмите Ctrl + C "
+"(в Windows) или cmd + c (на Мак)."
 
 #: includes/admin/tools/tools.php:573
 msgid "Debug Log"
 msgstr "Журнал ошибок"
 
 #: includes/admin/tools/tools.php:576
-#, fuzzy
 msgid "Use this tool to help debug referral tracking."
 msgstr "Используйте этот инструмент для отладки ошибок в учете рефералов."
 
 #: includes/admin/tools/tools.php:581
-#, fuzzy
 msgid "Download Debug Log File"
-msgstr "Очистить журнал ошибок"
+msgstr "Скачать журнал ошибок"
 
 #: includes/admin/tools/tools.php:582
-#, fuzzy
 msgid "Clear Log"
 msgstr "Очистить журнал ошибок"
 
 #: includes/admin/tools/tools.php:675
 msgid "Invalid batch ID."
-msgstr "Неверный email"
+msgstr "Недопустимый идентификатор пакета."
 
 #: includes/admin/tools/tools.php:685
 msgid "Invalid batch export class."
-msgstr ""
+msgstr "Неверный пакетный экспорт класса."
 
 #: includes/admin/tools/upgrades/class-batch-upgrade-recount-affiliate-stats.php:50
 msgid "Your database has been successfully upgraded. %s"
@@ -3813,40 +3849,40 @@ msgstr "Отключить согласие получения писем Пар
 
 #: includes/admin/utilities/class-batch-migrate-users.php:109
 msgid "No user roles were selected for migration."
-msgstr ""
+msgstr "Нет ролей пользователей были выбраны для переноса."
 
 #: includes/admin/utilities/class-batch-migrate-users.php:167
 msgid "%s affiliate was added successfully."
 msgid_plural "%s affiliates were added successfully."
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "%s партнер успешно добавлен."
+msgstr[1] "%s партнера успешно добавлено."
+msgstr[2] "%s партнеров успешно добавлено."
 
 #: includes/admin/utilities/class-batch-migrate-wp-affiliate.php:209
 msgid "%s affiliate was successfully converted."
 msgid_plural "%s affiliates were successfully converted."
-msgstr[0] "Партнер успешно обновлен"
-msgstr[1] "Партнер успешно обновлен"
-msgstr[2] "Партнер успешно обновлен"
+msgstr[0] "%s партнер успешно конвертирован."
+msgstr[1] "%s партнера успешно конвертировано."
+msgstr[2] "%s партнеров успешно конвертировано."
 
 #: includes/admin/utilities/class-batch-process-registry.php:171
 msgid "A batch process class must be specified."
-msgstr ""
+msgstr "Пакетное класс процесс должен быть указан."
 
 #: includes/admin/utilities/class-batch-process-registry.php:175
 msgid "No batch class handler file has been supplied."
-msgstr ""
+msgstr "Нет пакетный файл, обработчик класса была поставлена."
 
 #: includes/admin/utilities/class-batch-process-registry.php:180
 msgid "An invalid batch class handler file has been supplied."
-msgstr ""
+msgstr "Неверный пакетный файл обработчик класса была поставлена."
 
 #: includes/admin/utilities/class-batch-process.php:143
 msgid "%s item was successfully processed."
 msgid_plural "%s items were successfully processed."
-msgstr[0] "Настройки успешно импортированы"
-msgstr[1] "Настройки успешно импортированы"
-msgstr[2] "Настройки успешно импортированы"
+msgstr[0] "%s элемент был успешно обработан."
+msgstr[1] "%s элемента было успешно обработано."
+msgstr[2] "%s элементов было успешно обработано."
 
 #: includes/admin/visits/class-list-table.php:103
 msgid "Landing Page"
@@ -3880,15 +3916,15 @@ msgid ""
 "visitor first landed on. It is the URL that the affiliate link pointed to."
 msgstr ""
 "<strong>Лендинг</strong>: это первая страница вашего сайта на которую "
-"попадает посетитель. Это URL на который ведет ссылка Партнера. "
+"попадает посетитель. Это URL на который ведет ссылка Партнера."
 
 #: includes/admin/visits/contextual-help.php:41
 msgid ""
 "<strong>Referring URL</strong>: this is the source URL of the affiliate "
 "link. It is the web page that the visitor found a link to your site on."
 msgstr ""
-"<strong>Реферальная ссылка</strong>: это ссылка на которой посетитель нашел "
-"ссылку на ваш сайт. "
+"<strong>Реферальная ссылка</strong>: это ссылка по которой посетитель нашел "
+"ссылку на ваш сайт."
 
 #: includes/admin/visits/contextual-help.php:42
 msgid ""
@@ -3914,8 +3950,7 @@ msgstr ""
 
 #: includes/admin/visits/contextual-help.php:45
 msgid "<strong>IP</strong>: this is the IP address of the visitor."
-msgstr ""
-"<strong>Выплачено</strong> - это реферал, за которого Партнеру заплатили"
+msgstr "<strong>IP</strong>: это IP адресс посетителя."
 
 #: includes/admin/visits/contextual-help.php:46
 msgid ""
@@ -3927,11 +3962,11 @@ msgstr ""
 
 #: includes/admin/visits/contextual-help.php:51
 msgid "Searching Visits"
-msgstr "Поиск рефералов"
+msgstr "Поиск визитов"
 
 #: includes/admin/visits/contextual-help.php:53
 msgid "Visit records can be searched in several different ways:"
-msgstr "Рефералов можно найти несколькими разными способами:"
+msgstr "Записи о визитах можно найти несколькими разными способами:"
 
 #: includes/admin/visits/contextual-help.php:55
 msgid "You can enter an IP address to find all visits from a specific IP"
@@ -3959,11 +3994,11 @@ msgstr ""
 msgid ""
 "You can enter the referral&#8217;s ID number prefixed by &#8220;referral:"
 "&#8221;"
-msgstr "Вы можете ввести отсылку к рефералу, поставив префикс 'ref:'"
+msgstr "Вы можете ввести отсылку к рефералу, поставив префикс 'ref:';"
 
 #: includes/admin/visits/contextual-help.php:59
 msgid "You can enter a visit context prefixed by &#8220;context:&#8221;"
-msgstr "Вы можете ввести контекст к рефералу, поставив префикс 'context:'"
+msgstr "Вы можете ввести контекст к рефералу, поставив префикс 'context:';"
 
 #: includes/admin/visits/screen-options.php:24
 msgid "Number of visits per page:"
@@ -3995,7 +4030,7 @@ msgstr "Пожалуйста, введите пароль"
 
 #: includes/class-login.php:90
 msgid "Incorrect username or password"
-msgstr "Неправильный пароль"
+msgstr "Неверное имя или пароль"
 
 #: includes/class-referrals-graph.php:142
 msgid "Unpaid Referral Earnings"
@@ -4015,7 +4050,7 @@ msgstr "Оплаченный реферальный заработок"
 
 #: includes/class-register.php:77
 msgid "Please enter a valid website URL"
-msgstr "Пожалуйста, введите пароль"
+msgstr "Пожалуйста, введите корректный URL вашего сайта"
 
 #: includes/class-register.php:83
 msgid "Username already taken"
@@ -4024,12 +4059,11 @@ msgstr "Имя пользователя уже занято"
 #: includes/class-register.php:88
 msgid "Invalid username. Only lowercase letters (a-z) and numbers are allowed"
 msgstr ""
-"Не правильное имя пользователя. Разрешен только нижний реестр (a-z) и "
-"номера. "
+"Не правильное имя пользователя. Разрешен только нижний реестр (a-z) и номера"
 
 #: includes/class-register.php:95 includes/class-register.php:217
 msgid "Invalid username. Must be between 1 and 60 characters."
-msgstr ""
+msgstr "Неверное имя пользователя. Должно быть от 1 до 60 символов."
 
 #: includes/class-register.php:99
 msgid "Invalid username. Usernames must include at least one letter"
@@ -4083,7 +4117,7 @@ msgstr "Пожалуйста, введите свое имя"
 
 #: includes/class-register.php:279
 msgid "Please tell us how you will promote us"
-msgstr ""
+msgstr "Расскажите, пожалуйста, как вы будете продвигать нас"
 
 #: includes/class-register.php:495
 msgid "Add as Affiliate"
@@ -4104,24 +4138,28 @@ msgstr "Не конвертированные посещения"
 #: includes/cli/class-affiliate-sub-commands.php:139
 msgid "A valid username must be specified as the first argument."
 msgstr ""
+"Действительное имя пользователя должно быть указано в качестве первого "
+"аргумента."
 
 #: includes/cli/class-affiliate-sub-commands.php:144
 msgid ""
 "A user with the ID or username \"%s\" does not exist. See wp help user "
 "create for registering new users."
 msgstr ""
+"Пользователь с идентификатором или именем пользователя \"%s\" не существует. "
+"См. wp help user create for registering new users."
 
 #: includes/cli/class-affiliate-sub-commands.php:150
 msgid "An affiliate already exists for this user account."
-msgstr ""
+msgstr "Филиал уже существует для этой учетной записи пользователя."
 
 #: includes/cli/class-affiliate-sub-commands.php:167
 msgid "An affiliate with the username \"%s\" has been created."
-msgstr "Ваша партнерская заявка на %s была принята!"
+msgstr "Партнер с именем \"%s\" создан."
 
 #: includes/cli/class-affiliate-sub-commands.php:169
 msgid "The affiliate account could not be added."
-msgstr "Ваш аккаунт Партнера не активен"
+msgstr "Учетная запись партнера не может быть добавлена(создана)."
 
 #: includes/cli/class-affiliate-sub-commands.php:215
 #: includes/cli/class-affiliate-sub-commands.php:219
@@ -4130,15 +4168,15 @@ msgstr "Ваш аккаунт Партнера не активен"
 #: includes/cli/class-referral-sub-commands.php:205
 #: includes/cli/class-visit-sub-commands.php:248
 msgid "A valid affiliate username or ID is required to proceed."
-msgstr ""
+msgstr "Действующий партнерский логин или ID обязаны продолжить."
 
 #: includes/cli/class-affiliate-sub-commands.php:231
 msgid "The affiliate was updated successfully."
-msgstr "Партнер успешно обновлен"
+msgstr "Партнер успешно обновлен."
 
 #: includes/cli/class-affiliate-sub-commands.php:233
 msgid "The affiliate account could not be updated."
-msgstr "Ваш аккаунт Партнера не активен"
+msgstr "Учетная запись партнера не может быть обновлена."
 
 #: includes/cli/class-affiliate-sub-commands.php:288
 msgid ""
@@ -4158,193 +4196,203 @@ msgstr "Вы уверены, что хотите удалить этот бан�
 msgid ""
 "The affiliate and its associated user account have been successfully deleted."
 msgstr ""
+"Партнер и его соответствующая учетная запись Пользователя успешно удалены."
 
 #: includes/cli/class-affiliate-sub-commands.php:313
 msgid "The affiliate account has been successfully deleted."
-msgstr "Партнер успешно удален"
+msgstr "Партнер успешно удален."
 
 #: includes/cli/class-affiliate-sub-commands.php:316
 msgid "The affiliate account could not be deleted."
-msgstr "Ваш запрос на аккаунт Партнера был отклонен"
+msgstr "Учетная запись партнера не может быть удалена."
 
 #: includes/cli/class-affiliate-sub-commands.php:393
 msgid "Number of affiliates: %d"
-msgstr "Количество партнеров на страницу:"
+msgstr "Количество партнеров: %d"
 
 #: includes/cli/class-command.php:24
 msgid "AffiliateWP is not installed"
-msgstr "AffiliateWP Миграция"
+msgstr "AffiliateWP не установлен"
 
 #: includes/cli/class-command.php:29
 msgid "You are running AffiliateWP version: %s"
-msgstr ""
+msgstr "Вы работаете AffiliateWP версия: %s"
 
 #: includes/cli/class-command.php:41
 msgid "License status is: %s"
-msgstr "Настройки лицензии"
+msgstr "Статус лицензии: %s"
 
 #: includes/cli/class-command.php:50
 msgid "Debug mode is: %s"
-msgstr ""
+msgstr "Режим отладки: %s"
 
 #: includes/cli/class-command.php:59
 msgid "Affiliates require approval: %s"
-msgstr "Требовать подтверждение"
+msgstr "Требовать подтверждение: %s"
 
 #: includes/cli/class-command.php:72
 msgid "Email notifications are: %s"
-msgstr "Отключить все уведомления по электронной почте?"
+msgstr "Email уведомления: %s"
 
 #: includes/cli/class-command.php:85
 msgid "Integrations: %s"
-msgstr "Интеграции"
+msgstr "Интеграции: %s"
 
 #: includes/cli/class-command.php:92
 msgid "Global referral rate: %s"
-msgstr "Разрешить создание рефералов для этой формы"
+msgstr "Глобальная реферальная ставка: %s"
 
 #: includes/cli/class-command.php:95
 msgid "Global referral rate type: %s"
-msgstr "Вид партнерской ставки"
+msgstr "Глобальный вид реферальной ставки: %s"
 
 #: includes/cli/class-command.php:98
 msgid "Currency: %s"
-msgstr "Валюта"
+msgstr "Валюта: %s"
 
 #: includes/cli/class-command.php:105
 msgid "Referral variable: %s"
-msgstr "Реферальная переменная"
+msgstr "Реферальная переменная: %s"
 
 #: includes/cli/class-command.php:114
 msgid "Show pretty referral URLs: %s"
-msgstr ""
+msgstr "Показывают довольно реферальный URL-адреса: %s"
 
 #: includes/cli/class-command.php:126
 msgid "Referral URL (ID): %s"
-msgstr "Реферальная ссылка"
+msgstr "Реферальная ссылка (ID): %s"
 
 #: includes/cli/class-command.php:129
 msgid "Referral URL (Username): %s"
-msgstr "Генератор реферальной ссылки"
+msgstr "Реферальная ссылка (Имя пользователя): %s"
 
 #: includes/cli/class-command.php:134
 msgid "Affiliate Area URL: %s"
-msgstr "Кабинет Партнера"
+msgstr "Ссылка партнерского раздела: %s"
 
 #: includes/cli/class-command.php:139
 msgid "Terms of Use URL: %s"
-msgstr "Правила пользования"
+msgstr "URL на Правила пользования: %s"
 
 #: includes/cli/class-command.php:171
 msgid "Found %s sites. Retrieving stats ..."
-msgstr ""
+msgstr "Найдено %s сайтов. Получение статистики ..."
 
 #: includes/cli/class-command.php:190
 msgid "Total Affiliates: %s"
-msgstr "Редактировать Партнера"
+msgstr "Всего партнеров: %s"
 
 #: includes/cli/class-command.php:193
 msgid "Total Creatives: %s"
-msgstr "Редактировать Партнера"
+msgstr "Всего баннеров: %s"
 
 #: includes/cli/class-command.php:196
 msgid "Total Payouts: %s"
-msgstr "Всего посещений"
+msgstr "Всего выплат: %s"
 
 #: includes/cli/class-command.php:199
 msgid "Total Referrals: %s"
-msgstr "Всего выплаченных рефералов"
+msgstr "Всего рефералов: %s"
 
 #: includes/cli/class-command.php:202
 msgid "Total Visits: %s"
-msgstr "Всего посещений"
+msgstr "Всего посещений: %s"
 
 #: includes/cli/class-command.php:222
 msgid "Are you sure you want to clear the debug log?"
-msgstr "Вы уверены, что хотите удалить этого реферала?"
+msgstr "Вы уверены, что хотите очистить журнал ошибок?"
 
 #: includes/cli/class-command.php:227
 msgid "The debug log has been cleared."
-msgstr ""
+msgstr "Журнал отладки был очищен."
 
 #: includes/cli/class-creative-sub-commands.php:119
 msgid "A --name value must be specified to add a new creative."
 msgstr ""
+"В --значение имени должно быть указано, чтобы добавить новое объявление."
 
 #: includes/cli/class-creative-sub-commands.php:133
 msgid "A creative with the ID %d has been successfully created."
-msgstr ""
+msgstr "Баннер с идентификатором %D был успешно создан."
 
 #: includes/cli/class-creative-sub-commands.php:135
 msgid "The creative could not be created."
-msgstr "(Текущий пользователь не будет удален)"
+msgstr "Баннер не может быть создан."
 
 #: includes/cli/class-creative-sub-commands.php:181
 #: includes/cli/class-creative-sub-commands.php:185
 #: includes/cli/class-creative-sub-commands.php:226
 #: includes/cli/class-creative-sub-commands.php:230
 msgid "A valid creative ID is required to proceed."
-msgstr ""
+msgstr "Для продолжения требуется верный ID баннера."
 
 #: includes/cli/class-creative-sub-commands.php:199
 msgid "The creative was successfully updated."
-msgstr "Рекламный материал успешно добавлен"
+msgstr "Рекламный материал успешно обновлен."
 
 #: includes/cli/class-creative-sub-commands.php:201
 msgid "The creative could not be updated."
-msgstr "(Текущий пользователь не будет удален)"
+msgstr "Рекламный материал не может быть обновлен."
 
 #: includes/cli/class-creative-sub-commands.php:236
 msgid "The creative was successfully deleted."
-msgstr "Рекламный материал успешно добавлен"
+msgstr "Рекламный материал успешно удален."
 
 #: includes/cli/class-creative-sub-commands.php:238
 msgid "The creative could not be deleted."
-msgstr "(Текущий пользователь не будет удален)"
+msgstr "Рекламный материал не может быть удален."
 
 #: includes/cli/class-creative-sub-commands.php:314
 msgid "Number of creatives: %d"
-msgstr "Количество баннеров на странице:"
+msgstr "Количество баннеров: %d"
 
 #: includes/cli/class-payout-sub-commands.php:152
 msgid "No referrals were found matching your criteria. Please try again."
 msgstr ""
+"Не найдены рефералы соответствующие Вашим критериям. Пожалуйста, попробуйте "
+"снова."
 
 #: includes/cli/class-payout-sub-commands.php:181
 msgid ""
 "No affiliates matched the minimum earnings amount in order to generate a "
 "payout."
 msgstr ""
+"Партнеры не соответствуют минимальная сумма заработка, чтобы произвести "
+"выплату."
 
 #: includes/cli/class-payout-sub-commands.php:189
 msgid "A payout has been created for Affiliate #%1$d for %2$s."
-msgstr ""
+msgstr "Выплата была создана для филиала #%1$d на %2$ов."
 
 #: includes/cli/class-payout-sub-commands.php:194
 msgid "There was a problem generating a payout for Affiliate #%1$d for %2$s."
-msgstr ""
+msgstr "Была проблема генерации выплата за партнерскую #%1$d на %2$ов."
 
 #: includes/cli/class-payout-sub-commands.php:241
 #: includes/cli/class-payout-sub-commands.php:245
 msgid "A valid payout ID must be supplied to update a payout"
 msgstr ""
+"Действительное удостоверение личности с выплаты должны быть поставлены до "
+"обновления выплату"
 
 #: includes/cli/class-payout-sub-commands.php:287
 msgid ""
 "Referral #%d is already associated with payout #%d and has been skipped."
-msgstr ""
+msgstr "Реферал #%d - это уже связано с выплатой #%d и был пропущен."
 
 #: includes/cli/class-payout-sub-commands.php:293
 msgid "Referral #%d is not valid and has been skipped."
-msgstr ""
+msgstr "Реферал #%d не действителен и был пропущен."
 
 #: includes/cli/class-payout-sub-commands.php:298
 msgid "Are you sure you want to overwrite this payout's referrals?"
-msgstr "Вы уверены, что хотите удалить этого реферала?"
+msgstr "Вы уверены, что хотите перезаписать выплаты по этому рефералу?"
 
 #: includes/cli/class-payout-sub-commands.php:306
 msgid "All values passed via the --referrals argument are invalid."
 msgstr ""
+"Все значения передаются через аргумент --рефералов, являются "
+"недействительными."
 
 #: includes/cli/class-payout-sub-commands.php:312
 msgid ""
@@ -4360,19 +4408,21 @@ msgid ""
 "No fields were specified for updating. For more information, see wp help "
 "affwp payout update."
 msgstr ""
+"Нет поля для обновления указаны. Для получения дополнительной информации, "
+"см. WP помочь affwp обновить выплат."
 
 #: includes/cli/class-payout-sub-commands.php:327
 msgid "Payout #%d has been updated successfully."
-msgstr "Баннер успешно обновлен"
+msgstr "Выплата #%d успешно обновлена."
 
 #: includes/cli/class-payout-sub-commands.php:329
 msgid "Payout #%d could not be updated due to an error."
-msgstr ""
+msgstr "Выплата #%d не может быть обновлен из-за ошибки."
 
 #: includes/cli/class-payout-sub-commands.php:354
 #: includes/cli/class-payout-sub-commands.php:358
 msgid "A valid payout ID is required to proceed."
-msgstr ""
+msgstr "Действительное удостоверение личности с выплаты должны пройти."
 
 #: includes/cli/class-payout-sub-commands.php:361
 msgid "Are you sure you want to delete this payout?"
@@ -4380,7 +4430,7 @@ msgstr "Вы уверены, что хотите удалить этот бан�
 
 #: includes/cli/class-payout-sub-commands.php:366
 msgid "The payout has been successfully deleted."
-msgstr ""
+msgstr "Выплата была успешно удалена."
 
 #: includes/cli/class-payout-sub-commands.php:368
 msgid "The payout could not be deleted."
@@ -4388,13 +4438,15 @@ msgstr "(Текущий пользователь не будет удален)"
 
 #: includes/cli/class-payout-sub-commands.php:435
 msgid "Number of payouts: %d"
-msgstr ""
+msgstr "Количество выплат: %d"
 
 #: includes/cli/class-referral-sub-commands.php:120
 #: includes/cli/class-visit-sub-commands.php:124
 msgid ""
 "A valid affiliate username or ID must be specified as the first argument."
 msgstr ""
+"Действующий партнерский логин или ID должен быть указан в качестве первого "
+"аргумента."
 
 #: includes/cli/class-referral-sub-commands.php:124
 #: includes/cli/class-visit-sub-commands.php:128
@@ -4402,29 +4454,31 @@ msgid ""
 "An affiliate with the ID or username \"%s\" does not exist. See wp affwp "
 "affiliate create for adding affiliates."
 msgstr ""
+"Партнер с ID или имя пользователя \"%S\" не существует. Ознакомиться с "
+"партнерской документе WP affwp создать для добавления филиалов."
 
 #: includes/cli/class-referral-sub-commands.php:144
 msgid "A referral with the ID \"%d\" has been created."
-msgstr "Новый реферал"
+msgstr "Реферал с ID \"%d\" создан."
 
 #: includes/cli/class-referral-sub-commands.php:146
 msgid "The referral could not be added."
-msgstr "Новый реферал"
+msgstr "Реферал не может быть добавлен."
 
 #: includes/cli/class-referral-sub-commands.php:195
 #: includes/cli/class-referral-sub-commands.php:199
 #: includes/cli/class-referral-sub-commands.php:247
 #: includes/cli/class-referral-sub-commands.php:251
 msgid "A valid referral ID is required to proceed."
-msgstr ""
+msgstr "Действительный реферальный ID обязаны продолжить."
 
 #: includes/cli/class-referral-sub-commands.php:219
 msgid "The referral was updated successfully."
-msgstr "Реферал успешно обновлен"
+msgstr "Реферал успешно обновлен."
 
 #: includes/cli/class-referral-sub-commands.php:221
 msgid "The referral could not be updated"
-msgstr "Новый реферал"
+msgstr "Реферал не может быть обновлен"
 
 #: includes/cli/class-referral-sub-commands.php:254 includes/scripts.php:134
 msgid "Are you sure you want to delete this referral?"
@@ -4432,35 +4486,37 @@ msgstr "Вы уверены, что хотите удалить этого ре�
 
 #: includes/cli/class-referral-sub-commands.php:259
 msgid "The referral has been successfully deleted."
-msgstr "Реферал успешно добавлен"
+msgstr "Реферал успешно удален."
 
 #: includes/cli/class-referral-sub-commands.php:261
 msgid "The referral could not be deleted."
-msgstr "(Текущий пользователь не будет удален)"
+msgstr "Реферал не может быть удален."
 
 #: includes/cli/class-referral-sub-commands.php:338
 msgid "Number of referrals: %d"
-msgstr "Количество рефералов на страницу:"
+msgstr "Количество рефералов: %d"
 
 #: includes/cli/class-visit-sub-commands.php:135
 msgid "A URL must be specified as the second argument to proceed."
-msgstr ""
+msgstr "URL должен быть указан в качестве второго аргумента, чтобы продолжить."
 
 #: includes/cli/class-visit-sub-commands.php:145
 msgid "An invalid referral ID was specified. Using 0 (none) instead."
 msgstr ""
+"Указан недопустимый идентификатор реферала. Через 0 (Нет) вместо этого."
 
 #: includes/cli/class-visit-sub-commands.php:165
 msgid "A valid date string must be supplied. Using the current time."
 msgstr ""
+"Действительную дату строки должны быть поставлены. Используя Текущее время."
 
 #: includes/cli/class-visit-sub-commands.php:179
 msgid "The visit was successfully created."
-msgstr "Настройки успешно импортированы"
+msgstr "Визит успешно создан."
 
 #: includes/cli/class-visit-sub-commands.php:181
 msgid "The visit could not be created."
-msgstr "Новый реферал"
+msgstr "Визит не может быть создан."
 
 #: includes/cli/class-visit-sub-commands.php:236
 #: includes/cli/class-visit-sub-commands.php:239
@@ -4468,18 +4524,22 @@ msgstr "Новый реферал"
 #: includes/cli/class-visit-sub-commands.php:307
 msgid "A valid visit ID is required to proceed."
 msgstr ""
+"Действительный посещении необходимо предъявить удостоверение личности, чтобы "
+"продолжить."
 
 #: includes/cli/class-visit-sub-commands.php:259
 msgid "A valid new date string must be supplied. Using the original date."
 msgstr ""
+"Действительный новой строки даты должны быть поставлены. Используя "
+"первоначальной даты."
 
 #: includes/cli/class-visit-sub-commands.php:277
 msgid "The visit was updated successfully."
-msgstr "Партнер успешно обновлен"
+msgstr "Визит успешно обновлен."
 
 #: includes/cli/class-visit-sub-commands.php:279
 msgid "The visit could not be updated."
-msgstr ""
+msgstr "Визит был успешно удален."
 
 #: includes/cli/class-visit-sub-commands.php:311
 msgid "Are you sure you want to delete this visit?"
@@ -4487,23 +4547,23 @@ msgstr "Вы уверены, что хотите удалить этот бан�
 
 #: includes/cli/class-visit-sub-commands.php:316
 msgid "The visit has been successfully deleted."
-msgstr ""
+msgstr "Визит был успешно удален."
 
 #: includes/cli/class-visit-sub-commands.php:318
 msgid "The visit could not be deleted."
-msgstr "(Текущий пользователь не будет удален)"
+msgstr "Визит не может быть удален."
 
 #: includes/cli/class-visit-sub-commands.php:396
 msgid "Number of visits: %d"
-msgstr "Количество визитов на страницу:"
+msgstr "Количество визитов: %d"
 
 #: includes/creative-functions.php:34 includes/creative-functions.php:65
 msgid "Creative"
-msgstr "Неактивные"
+msgstr "Рекламный материал"
 
 #: includes/emails/actions.php:46
 msgid "A new affiliate has registered on your site, "
-msgstr "Регистраций Партнеров еще нет"
+msgstr "Новый партнер зарегистрировался на сайте, "
 
 #: includes/emails/actions.php:47
 msgid "Name: %s"
@@ -4546,7 +4606,7 @@ msgid ""
 "log into your affiliate area to view your earnings or disable these "
 "notifications: %s"
 msgstr ""
-"Войдите в свой кабинет Партнера, чтобы посмотреть свой доход или отключить "
+"войдите в свой кабинет Партнера, чтобы посмотреть свой доход или отключить "
 "эти оповещения: %s"
 
 #: includes/emails/class-affwp-emails.php:198
@@ -4594,7 +4654,7 @@ msgstr "Ссылка Партнера на ваш сайт"
 
 #: includes/emails/class-affwp-emails.php:457
 msgid "The amount of a given referral"
-msgstr "Количество рефералов, такое как 15."
+msgstr "Сумма по данному рефералу"
 
 #: includes/emails/class-affwp-emails.php:462
 msgid "Your site name"
@@ -4614,19 +4674,19 @@ msgstr "Вид партнерской ставки"
 
 #: includes/emails/class-affwp-emails.php:482
 msgid "The URL to the review page for a pending affiliate"
-msgstr ""
+msgstr "URL-Адрес страницы обзора для ожидающих филиала"
 
 #: includes/emails/class-affwp-emails.php:487
 msgid "The URL the customer landed on that led to a referral being created"
-msgstr ""
+msgstr "URL-адрес заказчика приземлился на что привело к создается направление"
 
 #: includes/emails/class-affwp-emails.php:492
 msgid "The name of the campaign associated with the referral (if any)."
-msgstr ""
+msgstr "Название кампании, связанные с передачей (если таковые имеются)."
 
 #: includes/emails/functions.php:221
 msgid "(no campaign)"
-msgstr "Кампания"
+msgstr "(нет кампаний)"
 
 #: includes/integrations/class-caldera-forms.php:74
 msgid "Total"
@@ -4638,6 +4698,8 @@ msgid ""
 "the referral rate is 10% and the total here is $100, the referral will be "
 "created at $10."
 msgstr ""
+"Эта сумма будет использована для расчета суммы реферала. Например, если "
+"ставка составляет 10%, а сумма $100, реферал будет создан в $10."
 
 #: includes/integrations/class-caldera-forms.php:245
 #: includes/integrations/class-give.php:243
@@ -4652,7 +4714,7 @@ msgstr "Разрешить создание рефералов для этой �
 
 #: includes/integrations/class-contactform7.php:110
 msgid "Contact Form 7"
-msgstr ""
+msgstr "Contact Form 7"
 
 #: includes/integrations/class-contactform7.php:129
 msgid "Enable referrals on all Contact Form 7 forms"
@@ -4665,6 +4727,10 @@ msgid ""
 "</li><li>%2$s <a href=\"%1$s\" target=\"_blank\">Documentation for this "
 "integration</a></li></ul>"
 msgstr ""
+"Установите этот флажок, чтобы включить рефералов на всех формах плагина "
+"Contact Form 7.<ul><li>%3$s Активировав, рефералы будут создаваться для всех "
+"форм созданных с помощью Contact Form 7.</li><li>%2$s <a href=\"%1$s\" "
+"target=\"_blank\">Документация по интеграции</a></li></ul>"
 
 #: includes/integrations/class-contactform7.php:145
 msgid "Enable referrals for specific Contact Form 7 forms"
@@ -4672,7 +4738,7 @@ msgstr "Разрешить создание рефералов для этой �
 
 #: includes/integrations/class-contactform7.php:198
 msgid "Form ID: "
-msgstr ""
+msgstr "Form ID: "
 
 #: includes/integrations/class-edd.php:358
 #: includes/integrations/class-give.php:165
@@ -4718,7 +4784,7 @@ msgid ""
 msgstr ""
 "Должен ли AffiliateWP корректировать размер комиссии для покупок, который "
 "включают рефералы Партнеров? Комиссия отнимает реферальную сумму от базовой "
-"сумы, которая использовалась для расчета комиссии. "
+"сумы, которая использовалась для расчета комиссии."
 
 #: includes/integrations/class-edd.php:590
 msgid "Disable Renewal Referrals"
@@ -4813,7 +4879,7 @@ msgstr "Разрешить создание рефералов для этой �
 #: includes/integrations/class-rcp.php:374
 #: includes/integrations/class-woocommerce.php:524
 msgid "Affiliate Rate"
-msgstr "Ставка Партнера "
+msgstr "Ставка Партнера"
 
 #: includes/integrations/class-give.php:250
 msgid ""
@@ -4835,7 +4901,7 @@ msgstr "Разрешить рефералы"
 
 #: includes/integrations/class-gravityforms.php:316
 msgid "Affiliate Coupon"
-msgstr "Скидка Партнера?"
+msgstr "Купон Партнера"
 
 #: includes/integrations/class-gravityforms.php:319
 msgid ""
@@ -4843,6 +4909,9 @@ msgid ""
 "Anytime this coupon is redeemed, the connected affiliate will receive a "
 "referral commission."
 msgstr ""
+"Для подключения данного купона партнеру, введите имя пользователя партнера. "
+"В любое время этот купон погашается, подключенный партнер будет получать "
+"комиссионные."
 
 #: includes/integrations/class-jigoshop.php:153
 msgid "Affiliate Data"
@@ -4850,57 +4919,57 @@ msgstr "Сведения о Партнере"
 
 #: includes/integrations/class-lifterlms.php:115
 msgid "Referral #%d completed"
-msgstr "Реферал успешно обновлен"
+msgstr "Реферал #%d завершен"
 
 #: includes/integrations/class-lifterlms.php:150
 msgid "Referral not created because WooCommerce was used for payment."
-msgstr ""
+msgstr "Реферал не создан, т.к. используется Woocommerce для оплаты."
 
 #: includes/integrations/class-lifterlms.php:179
 #: includes/integrations/class-lifterlms.php:305
 msgid "Referral not created because affiliate's own account was used."
-msgstr "Удалить аккаунт аффилиата?"
+msgstr "Реферал не создан, т.к использовался аккаунт партнера."
 
 #: includes/integrations/class-lifterlms.php:189
 #: includes/integrations/class-lifterlms.php:315
 msgid "Referral not created due to 0.00 amount."
-msgstr ""
+msgstr "Реферал не создан, сумма 0."
 
 #: includes/integrations/class-lifterlms.php:223
 msgid "LifterLMS Referral #%d updated successfully."
-msgstr "Реферал успешно обновлен"
+msgstr "Реферал из LifterLMS #%d обновлен успешно."
 
 #: includes/integrations/class-lifterlms.php:247
 msgid "Referral #%d created successfully."
-msgstr "Реферал успешно обновлен"
+msgstr "Реферал #%d создан успешно."
 
 #: includes/integrations/class-lifterlms.php:251
 msgid "Referral failed to be created."
-msgstr "Новый реферал"
+msgstr "Реферал не может быть создан."
 
 #: includes/integrations/class-lifterlms.php:338
 msgid "Referral #%d updated successfully."
-msgstr "Реферал успешно обновлен"
+msgstr "Реферал #%d успешно создан."
 
 #: includes/integrations/class-lifterlms.php:360
 msgid "Pending referral #%d created successfully."
-msgstr "Реферал успешно обновлен"
+msgstr "Реферал на ожидании #%d успешно создан."
 
 #: includes/integrations/class-lifterlms.php:368
 msgid "LifterLMS Referral failed to be created."
-msgstr "Новый реферал"
+msgstr "Реферал из LifterLMS не может быть создан."
 
 #: includes/integrations/class-lifterlms.php:413
 msgid "Search for an affiliate by username or email."
-msgstr ""
+msgstr "Поиск партнера по имени или email."
 
 #: includes/integrations/class-lifterlms.php:421
 msgid "Affiliate Discount"
-msgstr "Скидка Партнера?"
+msgstr "Скидка Партнера"
 
 #: includes/integrations/class-lifterlms.php:422
 msgid "Connect this coupon with an affiliate."
-msgstr ""
+msgstr "Закрепить купон за партнером."
 
 #: includes/integrations/class-lifterlms.php:641
 #: includes/integrations/class-lifterlms.php:667
@@ -4918,7 +4987,7 @@ msgid ""
 "Check this box to prevent orders for this %s from generating referral "
 "commissions for affiliates."
 msgstr ""
-"Эта настройка отменит реферальные комиссии Партнерам при покупке продукта"
+"Эта настройка отменит реферальные комиссии Партнерам при покупке продукта."
 
 #: includes/integrations/class-lifterlms.php:730
 msgid "Enable %s Referral Rate"
@@ -4926,7 +4995,7 @@ msgstr "Реферальная ставка"
 
 #: includes/integrations/class-lifterlms.php:731
 msgid "Check this box to enable %s referral rate overrides"
-msgstr ""
+msgstr "Отметьте это поле, чтобы позволить %s перезаписать ставки"
 
 #: includes/integrations/class-lifterlms.php:739
 msgid "%s Referral Rate"
@@ -4946,7 +5015,7 @@ msgstr "Отключить закрепление рефералов для эт
 
 #: includes/integrations/class-ninja-forms.php:195
 msgid "Enable affiliate referral creation for this form?"
-msgstr "Разрешить создание рефералов для этой формы"
+msgstr "Разрешить создание рефералов для этой формы?"
 
 #: includes/integrations/class-paypal.php:96
 msgid "Pending PayPal referral"
@@ -4969,7 +5038,7 @@ msgstr ""
 
 #: includes/integrations/class-pmp.php:362
 msgid "Check to disable per-membership referrals."
-msgstr "Отключить закрепление рефералов для каждой подписки"
+msgstr "Отключить закрепление рефералов для каждой подписки."
 
 #: includes/integrations/class-pms.php:51
 msgid ""
@@ -4993,12 +5062,12 @@ msgstr ""
 
 #: includes/integrations/class-rcp.php:389
 msgid "Disable referrals on this subscription level."
-msgstr "Отменить рефералы на этот продукт"
+msgstr "Отменить рефералы на этот продукт."
 
 #: includes/integrations/class-woocommerce.php:241
 #: includes/integrations/class-woocommerce.php:475
 msgid "(Variation ID %d)"
-msgstr ""
+msgstr "(Variation ID %d)"
 
 #: includes/integrations/class-woocommerce.php:520
 msgid "Configure affiliate rates for this product"
@@ -5022,33 +5091,31 @@ msgid ""
 "This will prevent orders of this product from generating referral "
 "commissions for affiliates."
 msgstr ""
-"Эта настройка отменит реферальные комиссии Партнерам при покупке продукта"
+"Эта настройка отменит реферальные комиссии Партнерам при покупке продукта."
 
 #: includes/integrations/class-woocommerce.php:557
 msgid "Configure affiliate rates for this product variation"
-msgstr ""
+msgstr "Установить ставку вознаграждения для этого вариативного товара"
 
 #: includes/integrations/class-woocommerce.php:560
 msgid "Referral rate (optional)"
-msgstr "Описание реферала"
+msgstr "Реферальная ставка (опционально)"
 
 #: includes/integrations/class-woocommerce.php:562
 msgid "Disable referrals for this product variation"
 msgstr "Отменить рефералы на этот продукт"
 
 #: includes/integrations/class-woocommerce.php:831
-#, fuzzy
 msgid "AffiliateWP settings for the My Account page."
-msgstr "Статистика Партнера была пересчитана!"
+msgstr "Настройки AffiliateWP для страницы Мой аккаунт."
 
 #: includes/integrations/class-woocommerce.php:837
-#, fuzzy
 msgid "Affiliate Area Link"
-msgstr "Кабинет Партнера"
+msgstr "Ссылка на Кабинет Партнера"
 
 #: includes/integrations/class-woocommerce.php:838
 msgid "Display a link to the Affiliate Area in the My Account navigation."
-msgstr ""
+msgstr "Показывать ссылку на Кабинет партнера в меню личного кабинета."
 
 #: includes/integrations/extras/class-exchange-feature.php:39
 msgid "Disable referrals on this product"
@@ -5060,15 +5127,15 @@ msgstr "Управлять ставками Партнеров для отдел
 
 #: includes/integrations/extras/class-ninja-forms-action-add-referral.php:47
 msgid "Total Field"
-msgstr "Всего посещений"
+msgstr "Поле Итого"
 
 #: includes/integrations/extras/class-ninja-forms-action-add-referral.php:63
 msgid "Customer Email"
-msgstr "Приветственное письмо"
+msgstr "Email покупателю"
 
 #: includes/integrations/extras/contactform7-functions.php:234
 msgid "Redirecting to Paypal..."
-msgstr ""
+msgstr "Перенаправление на Paypal..."
 
 #: includes/misc-functions.php:26
 msgid "US Dollars"
@@ -5092,7 +5159,7 @@ msgstr "Бангладешские Таки"
 
 #: includes/misc-functions.php:31
 msgid "Brazilian Real"
-msgstr "Бразильский реал "
+msgstr "Бразильский реал"
 
 #: includes/misc-functions.php:32
 msgid "Bulgarian Lev"
@@ -5160,7 +5227,7 @@ msgstr "Израильский шекель"
 
 #: includes/misc-functions.php:48
 msgid "Iranian Rial"
-msgstr "Бразильский реал "
+msgstr "Бразильский реал"
 
 #: includes/misc-functions.php:49
 msgid "Japanese Yen"
@@ -5168,7 +5235,7 @@ msgstr "Японская йена"
 
 #: includes/misc-functions.php:50
 msgid "Kazakhstani Tenge"
-msgstr ""
+msgstr "Казахстанский тенге"
 
 #: includes/misc-functions.php:51
 msgid "Lao Kip"
@@ -5228,7 +5295,7 @@ msgstr "Российский рубль"
 
 #: includes/misc-functions.php:65
 msgid "Saudi Arabian Riyal"
-msgstr ""
+msgstr "Саудовский риал"
 
 #: includes/misc-functions.php:66
 msgid "Singapore Dollar"
@@ -5260,7 +5327,7 @@ msgstr "Тайский бат"
 
 #: includes/misc-functions.php:73
 msgid "Tunisian Dinar"
-msgstr ""
+msgstr "Туниский динар"
 
 #: includes/misc-functions.php:74
 msgid "Turkish Lira"
@@ -5272,7 +5339,7 @@ msgstr "ОАЭ Дирхамы"
 
 #: includes/misc-functions.php:76
 msgid "Ukrainian Hryvnia"
-msgstr ""
+msgstr "Украинская гривна"
 
 #: includes/misc-functions.php:77
 msgid "Vietnamese Dong"
@@ -5281,74 +5348,69 @@ msgstr "Вьетнамский донг"
 #: includes/misc-functions.php:1091 includes/misc-functions.php:1109
 #: tests/misc/test-misc-functions.php:360
 msgid "Email (required)"
-msgstr ""
+msgstr "Email (обязательно)"
 
 #: includes/misc-functions.php:1093 tests/misc/test-misc-functions.php:362
 msgid "First/Full Name"
-msgstr ""
+msgstr "Имя/ФИО"
 
 #: includes/misc-functions.php:1094 tests/misc/test-misc-functions.php:363
-#, fuzzy
 msgid "Last Name"
-msgstr "На прошлой неделе"
+msgstr "Фамилия"
 
 #: includes/misc-functions.php:1100 tests/misc/test-misc-functions.php:369
-#, fuzzy
 msgid "Referral Count"
-msgstr "Реферальная ставка"
+msgstr "Учет рефералов"
 
 #: includes/misc-functions.php:1101 tests/misc/test-misc-functions.php:370
-#, fuzzy
 msgid "Visit Count"
-msgstr "Переходы"
+msgstr "Кол-во посещений"
 
 #: includes/misc-functions.php:1132 includes/misc-functions.php:1150
 #: tests/misc/test-misc-functions.php:395
 msgid "Affiliate ID or Username (required)"
-msgstr ""
+msgstr "ID партнера или имя пользователя (требуются)"
 
 #: includes/misc-functions.php:1133 includes/misc-functions.php:1154
 #: tests/misc/test-misc-functions.php:396
 msgid "Amount (required)"
-msgstr ""
+msgstr "Сумма (требуется)"
 
 #: includes/misc-functions.php:1134 tests/misc/test-misc-functions.php:397
-#, fuzzy
 msgid "Affiliate Email"
-msgstr "Отключить письма Партнера"
+msgstr "Email партнера"
 
 #: includes/misc-functions.php:1135 tests/misc/test-misc-functions.php:398
-#, fuzzy
 msgid "Affiliate Username"
 msgstr "Имя Партнера"
 
 #: includes/misc-functions.php:1136 tests/misc/test-misc-functions.php:399
-#, fuzzy
 msgid "Affiliate First/Full Name"
-msgstr "Имя Партнера"
+msgstr "Имя/Полное имя Партнера"
 
 #: includes/misc-functions.php:1137 tests/misc/test-misc-functions.php:400
-#, fuzzy
 msgid "Affiliate Last Name"
-msgstr "Имя Партнера"
+msgstr "Фамилия Партнера"
 
 #: includes/misc-functions.php:1190
 msgid "- Ignore this field -"
-msgstr ""
+msgstr "- Проигнорируйте эту область -"
 
 #: includes/misc-functions.php:1193
 msgid "- Select field to preview data -"
-msgstr ""
+msgstr "- Выберите область, чтобы предварительно просмотреть данные -"
 
 #: includes/scripts.php:122
 msgid ""
 "We are sorry but your browser is not compatible with this kind of file "
 "upload. Please upgrade your browser."
 msgstr ""
+"Мы сожалеем, но Ваш браузер не совместим с этим способом загрузки файла. "
+"Пожалуйста, обновите браузер или используйте другой."
 
 #: includes/scripts.php:123
 msgid "This field must be mapped for the import to proceed."
-msgstr ""
+msgstr "Поле должно быть отмечено для запуска процесса импорта."
 
 #: includes/scripts.php:175
 msgid "Please enter a valid URL for this site"
@@ -5372,7 +5434,7 @@ msgstr "Реферальная ставка"
 
 #: templates/dashboard-tab-payouts.php:82
 msgid "None of your referrals have been paid out yet."
-msgstr ""
+msgstr "Ни один из ваших рефералов еще не выплачен."
 
 #: templates/dashboard-tab-referrals.php:70
 msgid "You have not made any referrals yet."
@@ -5426,7 +5488,7 @@ msgstr "Ваш ID номер Партнера: <strong>%s</strong>"
 
 #: templates/dashboard-tab-urls.php:21
 msgid "Your affiliate username is: <strong>%s</strong>"
-msgstr "Ваш ID номер Партнера: <strong>%s</strong>"
+msgstr "Ваше имя пользователя Партнера: <strong>%s</strong>"
 
 #: templates/dashboard-tab-urls.php:24
 msgid "Your referral URL is: <strong>%s</strong>"
@@ -5441,7 +5503,8 @@ msgid ""
 "Enter any URL from this website in the form below to generate a referral "
 "link!"
 msgstr ""
-"Введите любой URL для сайта внизу, чтобы сгенерировать реферальную ссылку!"
+"Вставьте в поле любую ссылку с этого сайта, чтобы сгенерировать Вашу "
+"персональную партнерскую ссылку!"
 
 #: templates/dashboard-tab-urls.php:43
 msgid "Page URL"
@@ -5449,7 +5512,7 @@ msgstr "URL страницы"
 
 #: templates/dashboard-tab-urls.php:48
 msgid "Campaign Name (optional)"
-msgstr "имя Кампании (Опционально)"
+msgstr "Имя Кампании (Опционально)"
 
 #: templates/dashboard-tab-urls.php:53
 msgid "Referral URL"
@@ -5457,12 +5520,11 @@ msgstr "Реферальная ссылка"
 
 #: templates/dashboard-tab-urls.php:55
 msgid "(now copy this referral link and share it anywhere)"
-msgstr ""
-"(теперь скопируйте эту реферальную ссылку и поделитесь с ней где хотите)"
+msgstr "(теперь скопируйте эту реферальную ссылку и поделитесь ей где хотите)"
 
 #: templates/dashboard-tab-urls.php:61
 msgid "Generate URL"
-msgstr "Сгенерировать URL"
+msgstr "Создать ссылку"
 
 #: templates/dashboard-tab-visits.php:3
 msgid "Referral URL Visits"
@@ -5480,7 +5542,7 @@ msgstr ""
 
 #: templates/dashboard-tab-visits.php:60
 msgid "You have not received any visits yet."
-msgstr "У Вас еще не было посещений"
+msgstr "У Вас еще не было посещений."
 
 #: templates/dashboard.php:7
 msgid "Your affiliate account is pending approval"
@@ -5504,7 +5566,7 @@ msgstr "Графики"
 
 #: templates/dashboard.php:117
 msgid "Log out"
-msgstr ""
+msgstr "Выйти"
 
 #: templates/login.php:15
 msgid "Log into your account"
@@ -5520,7 +5582,7 @@ msgstr "Запомнить меня"
 
 #: templates/login.php:44
 msgid "Log In"
-msgstr ""
+msgstr "Войти"
 
 #: templates/login.php:48
 msgid "Lost your password?"
@@ -5531,6 +5593,8 @@ msgid ""
 "To see the Affiliate Area, log in as an existing affiliate, or add your "
 "account as an affiliate."
 msgstr ""
+"Для входа в Кабинет Партнера, используйте логин и пароль или "
+"зарегистрируйтесь как партнер."
 
 #: templates/no-access.php:4
 msgid "The affiliate area is available only for registered affiliates."
@@ -5686,7 +5750,6 @@ msgid "All"
 msgstr "Все"
 
 #: includes/admin/payouts/payouts.php:39
-#, fuzzy
 msgctxt "payouts"
 msgid "Reports"
 msgstr "Отчеты"
@@ -5718,19 +5781,19 @@ msgstr "Выплачено"
 #: includes/admin/payouts/view.php:78
 msgctxt "payout owner"
 msgid "(none)"
-msgstr ""
+msgstr "(нет)"
 
 #: includes/admin/payouts/class-list-table.php:335
 #: includes/admin/payouts/view.php:86
 msgctxt "payout owner ID"
 msgid "(User ID: %d)"
-msgstr "ID пользователя"
+msgstr "(User ID: %d)"
 
 #. translators: 1: Visit date
 #: includes/admin/referrals/edit.php:184
 msgctxt "visit"
 msgid "Date: %1$s (%2$s)"
-msgstr ""
+msgstr "Дата: %1$s (%2$s)"
 
 #: includes/admin/referrals/edit.php:193
 msgctxt "visit"
@@ -5738,7 +5801,6 @@ msgid "None"
 msgstr "Не установлено"
 
 #: includes/admin/tools/export/class-batch-export-visits.php:152
-#, fuzzy
 msgctxt "visit"
 msgid "Date"
 msgstr "Дата"
@@ -5749,10 +5811,9 @@ msgid "Reports"
 msgstr "Отчеты"
 
 #: includes/admin/tools/export/class-batch-export-visits.php:192
-#, fuzzy
 msgctxt "visit not converted"
 msgid "No"
-msgstr "Не установлено"
+msgstr "Нет"
 
 #: includes/admin/visits/class-list-table.php:234
 msgctxt "visit context"
@@ -5777,42 +5838,42 @@ msgstr "По"
 #: includes/cli/class-command.php:36
 msgctxt "license status"
 msgid "Valid"
-msgstr ""
+msgstr "Верно"
 
 #: includes/cli/class-command.php:38
 msgctxt "license status"
 msgid "Invalid"
-msgstr "Неверный email"
+msgstr "Неверный"
 
 #: includes/cli/class-command.php:45
 msgctxt "debug_mode"
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 #: includes/cli/class-command.php:47
 msgctxt "debug mode"
 msgid "Disabled"
-msgstr ""
+msgstr "Отключено"
 
 #: includes/cli/class-command.php:54
 msgctxt "affiliates require approval"
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 #: includes/cli/class-command.php:56
 msgctxt "affiliates require approval"
 msgid "Disabled"
-msgstr ""
+msgstr "Отключено"
 
 #: includes/cli/class-command.php:67
 msgctxt "emails disabled"
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 #: includes/cli/class-command.php:69
 msgctxt "emails disabled"
 msgid "Disabled"
-msgstr ""
+msgstr "Отключено"
 
 #: includes/cli/class-command.php:80
 msgctxt "integrations"
@@ -5822,12 +5883,12 @@ msgstr "Не установлено"
 #: includes/cli/class-command.php:109
 msgctxt "show pretty referral URLs"
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 #: includes/cli/class-command.php:111
 msgctxt "show pretty referral URLs"
 msgid "Disabled"
-msgstr ""
+msgstr "Отключено"
 
 #: includes/cli/class-visit-sub-commands.php:437
 msgctxt "direct traffic"
