@@ -64,7 +64,7 @@ function affwp_search_users() {
 
 	$user_list = array();
 
-	if ( ! empty( $affiliate_users ) ) {
+	if ( 'none' === $status || ! empty( $affiliate_users ) ) {
 
 		// Get users matching search.
 		$found_users = get_users( $args );
