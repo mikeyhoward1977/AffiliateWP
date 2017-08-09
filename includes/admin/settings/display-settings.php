@@ -24,6 +24,10 @@ function affwp_settings_admin() {
 
 	$active_tab = isset( $_GET[ 'tab' ] ) && array_key_exists( $_GET['tab'], affwp_get_settings_tabs() ) ? $_GET[ 'tab' ] : 'general';
 
+	if( 'general' === $active_tab && affiliate_wp()->settings->get_license_key() ) {
+		affiliate_wp()->settings->check_license( true );
+	}
+
 	ob_start();
 	?>
 	<div class="wrap">
