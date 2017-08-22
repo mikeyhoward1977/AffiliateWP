@@ -15,7 +15,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 		do_action( 'affwp_new_affiliate_top' );
 		?>
 
-		<p><?php printf( __( 'Use this form to register a new affiliate. Each affiliate is tied directly to a user account, so if the user account for the affiliate does not yet exist, <a href="%s" target="_blank">create one</a>.', 'affiliate-wp' ), admin_url( 'user-new.php' ) ); ?></p>
+		<p><?php printf( __( 'Use this form to create a new affiliate account. Each affiliate is tied directly to a user account, so if the user account for the affiliate does not yet exist, <a href="%s" target="_blank">create one</a>.', 'affiliate-wp' ), admin_url( 'user-new.php' ) ); ?></p>
 
 		<table class="form-table">
 
@@ -27,7 +27,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 
 				<td>
 					<span class="affwp-ajax-search-wrap">
-						<input type="text" name="user_name" id="user_name" class="affwp-user-search" data-affwp-status="none" autocomplete="off" />
+						<input type="text" name="user_name" id="user_name" class="affwp-user-search affwp-enable-on-complete" data-affwp-status="none" autocomplete="off" />
 					</span>
 					<p class="description"><?php _e( 'Begin typing the name of the affiliate to perform a search for their associated user account.', 'affiliate-wp' ); ?></p>
 				</td>
@@ -41,7 +41,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 				</th>
 
 				<td>
-					<select name="status" id="status">
+					<select name="status" id="status" disabled="disabled">
 						<option value="active"><?php _e( 'Active', 'affiliate-wp' ); ?></option>
 						<option value="inactive"><?php _e( 'Inactive', 'affiliate-wp' ); ?></option>
 						<option value="pending"><?php _e( 'Pending', 'affiliate-wp' ); ?></option>
@@ -58,7 +58,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 				</th>
 
 				<td>
-					<select name="rate_type" id="rate_type">
+					<select name="rate_type" id="rate_type" disabled="disabled">
 						<option value=""><?php _e( 'Site Default', 'affiliate-wp' ); ?></option>
 						<?php foreach( affwp_get_affiliate_rate_types() as $key => $type ) : ?>
 							<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $type ); ?></option>
@@ -76,7 +76,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 				</th>
 
 				<td>
-					<input class="small-text" type="number" name="rate" id="rate" step="0.01" min="0" max="999999" placeholder="<?php echo esc_attr( $default_rate ); ?>" />
+					<input class="small-text" type="number" name="rate" id="rate" step="0.01" min="0" max="999999" placeholder="<?php echo esc_attr( $default_rate ); ?>" disabled="disabled" />
 					<p class="description"><?php _e( 'The affiliate&#8217;s referral rate, such as 20 for 20%. If left blank, the site default will be used.', 'affiliate-wp' ); ?></p>
 				</td>
 
@@ -89,7 +89,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 				</th>
 
 				<td>
-					<input class="regular-text" type="text" name="payment_email" id="payment_email" />
+					<input class="regular-text" type="text" name="payment_email" id="payment_email" disabled="disabled" />
 					<p class="description"><?php _e( 'Affiliate&#8217;s payment email for systems such as PayPal, Moneybookers, or others. Leave blank to use the affiliate&#8217;s user email.', 'affiliate-wp' ); ?></p>
 				</td>
 
@@ -102,7 +102,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 				</th>
 
 				<td>
-					<textarea name="notes" rows="5" cols="50" id="notes" class="large-text"></textarea>
+					<textarea name="notes" rows="5" cols="50" id="notes" class="large-text" disabled="disabled"></textarea>
 					<p class="description"><?php _e( 'Enter any notes for this affiliate. Notes are only visible to the admin.', 'affiliate-wp' ); ?></p>
 				</td>
 
@@ -116,7 +116,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 
 				<td>
 					<label class="description">
-						<input type="checkbox" name="welcome_email" id="welcome_email" value="1"/>
+						<input type="checkbox" name="welcome_email" id="welcome_email" value="1" disabled="disabled"/>
 						<?php _e( 'Send welcome email after registering affiliate?', 'affiliate-wp' ); ?>
 					</label>
 				</td>

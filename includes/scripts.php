@@ -132,6 +132,7 @@ function affwp_enqueue_admin_js() {
 		'currency_sign'           => affwp_currency_filter(''),
 		'currency_pos'            => affiliate_wp()->settings->get( 'currency_position', 'before' ),
 		'confirm_delete_referral' => __( 'Are you sure you want to delete this referral?', 'affiliate-wp' ),
+		'no_user_found'           => __( 'The username entered does not exist, please try again.', 'affiliate-wp' ),
 	) );
 }
 

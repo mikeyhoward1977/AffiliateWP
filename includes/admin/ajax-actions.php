@@ -327,3 +327,43 @@ function affwp_process_batch_import() {
 	exit;
 }
 add_action( 'wp_ajax_process_batch_import', 'affwp_process_batch_import' );
+
+
+/**
+ * Handles Ajax for determining if a user log in name is valid
+ *
+ * @since 2.1.4
+ */
+function affwp_check_user_login() {
+
+	if ( empty( $_REQUEST['user'] ) ) {
+		wp_die( -1 );
+	}
+
+	if ( ! current_user_can( 'manage_affiliates' ) ) {
+		wp_die( -1 );
+	}
+
+	$search = sanitize_text_field( $_REQUEST['user'] );
+
+	/**
+	 * Fires immediately prior to an AffiliateWP user check.
+	 *
+	 * @param string $user The user login.
+	 */
+	do_action( 'affwp_pre_check_user', $search );
+
+	$user = get_user_by( 'login', $search );
+
+	if( $user && ! is_wp_error( $user ) ) {
+		wp_send_json_success( array( 'valid' => true ) );
+	}
+
+	wp_send_json_error( array(
+		'valid'  => false,
+		'user'   => $user,
+		'search' => $search
+	) );
+
+}
+add_action( 'wp_ajax_affwp_check_user_login', 'affwp_check_user_login' );

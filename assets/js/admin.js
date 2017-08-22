@@ -83,11 +83,57 @@ jQuery(document).ready(function($) {
 			delay: 500,
 			minLength: 2,
 			position: { offset: '0, -1' },
+			search: function() {
+				$( 'div.error' ).remove();
+			},
 			open: function() {
 				$this.addClass( 'open' );
 			},
 			close: function() {
 				$this.removeClass( 'open' );
+			},
+			response: function( event, ui ) {
+				if( ui.content.length === 0 ) {
+					// This triggers when no results are found
+					$( '<div class="error"><p>' + affwp_vars.no_user_found + '</p></div>' ).insertAfter( $this );
+				}
+			},
+			select: function() {
+
+				if( $this.hasClass( 'affwp-enable-on-complete' ) ) {
+
+					$.ajax({
+						type: 'POST',
+						url: ajaxurl,
+						data: {
+							action: 'affwp_check_user_login',
+							user: $this.val()
+						},
+						dataType: "json",
+						success: function( response ) {
+
+							console.log( response );
+
+							if( response.success ) {
+
+								$this.closest( 'form' ).find( 'input, select' ).prop( 'disabled', false );
+
+							} else {
+
+								$this.closest( 'form' ).find( 'input, select' ).prop( 'disabled', true );
+								$this.prop( 'disabled', false );
+								$( '<div class="error"><p>' + affwp_vars.no_user_found + '</p></div>' ).insertAfter( $this );
+
+							}
+
+						}
+
+					}).fail( function( response ) {
+						if ( window.console && window.console.log ) {
+							console.log( response );
+						}
+					});
+				}
 			}
 		} );
 	} );
