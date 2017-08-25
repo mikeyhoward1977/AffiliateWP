@@ -1103,10 +1103,30 @@ function affwp_add_affiliate( $data = array() ) {
 	$data = affiliate_wp()->utils->process_request_data( $data, 'user_name' );
 
 	if ( empty( $data['user_id'] ) ) {
-		return false;
-	}
 
-	$user_id = absint( $data['user_id'] );
+		if( ! empty( $data['user_email'] ) ) {
+
+			// An email and login was supplied, let's create a new user account
+
+			$username = ! empty( $data['user_name'] ) ? sanitize_text_field( $data['user_name'] ) : sanitize_text_field( $data['user_email'] );
+
+			$user_id = wp_insert_user( array(
+				'user_email' => sanitize_text_field( $data['user_email'] ),
+				'user_login' => $username,
+				'user_pass'  => wp_generate_password( 20 ),
+			) );
+
+			if( ! $user_id || is_wp_error( $user_id ) ) {
+				return $user_id;
+			}
+
+		}
+
+	} else {
+
+		$user_id = absint( $data['user_id'] );
+
+	}
 
 	$args = array(
 		'user_id'         => $user_id,

@@ -22,7 +22,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 			<tr class="form-row form-required">
 
 				<th scope="row">
-					<label for="user_name"><?php _e( 'User', 'affiliate-wp' ); ?></label>
+					<label for="user_name"><?php _e( 'User login name', 'affiliate-wp' ); ?></label>
 				</th>
 
 				<td>
@@ -30,6 +30,32 @@ $default_rate = affwp_abs_number_round( $default_rate );
 						<input type="text" name="user_name" id="user_name" class="affwp-user-search affwp-enable-on-complete" data-affwp-status="none" autocomplete="off" />
 					</span>
 					<p class="description"><?php _e( 'Begin typing the name of the affiliate to perform a search for their associated user account.', 'affiliate-wp' ); ?></p>
+					<p class="description-alt hidden"><?php _e( 'Enter the login name for the affiliate.', 'affiliate-wp' ); ?></p>
+				</td>
+
+			</tr>
+
+			<tr class="form-row hidden affwp-user-email-wrap">
+
+				<th scope="row">
+					<label for="user_email"><?php _e( 'User email', 'affiliate-wp' ); ?></label>
+				</th>
+
+				<td>
+					<input type="text" name="user_email" id="user_email" class="affwp-user-email" />
+					<p class="description"><?php _e( 'Enter an email address for the affilate.', 'affiliate-wp' ); ?></p>
+				</td>
+
+			</tr>
+
+			<tr class="form-row hidden affwp-user-pass-wrap">
+
+				<th scope="row">
+					<label for="user_email"><?php _e( 'User Password', 'affiliate-wp' ); ?></label>
+				</th>
+
+				<td>
+					<p class="description"><?php _e( 'The password will be auto-generated and can be reset by the user or an administrator after the account is created.', 'affiliate-wp' ); ?></p>
 				</td>
 
 			</tr>
