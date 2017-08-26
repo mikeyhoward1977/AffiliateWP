@@ -84,7 +84,7 @@ msgstr "Si se incluirá un objeto de usuario modificado en la respuesta."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:67
 msgid "Whether to include the affiliate meta in the response."
-msgstr "Si se debe incluir el meta de afiliado en la respuesta."
+msgstr "Si se debe incluir la meta de afiliado en la respuesta."
 
 #: includes/REST/v1/class-affiliates-endpoints.php:219
 #: includes/REST/v1/class-referrals-endpoints.php:181
@@ -5975,17 +5975,14 @@ msgstr "Directo"
 #~ msgid "Login"
 #~ msgstr "Acceder"
 
-#, fuzzy
 #~ msgctxt "Paid Earnings column table header"
 #~ msgid "Paid Earnings"
 #~ msgstr "Ingresos pagados"
 
-#, fuzzy
 #~ msgctxt "Unpaid Referrals column table header"
 #~ msgid "Unpaid Referrals"
 #~ msgstr "Referidos sin pagar"
 
-#, fuzzy
 #~ msgctxt "Unpaid Earnings column table header"
 #~ msgid "Unpaid Earnings"
 #~ msgstr "Ingresos sin pagar"
@@ -5993,7 +5990,6 @@ msgstr "Directo"
 #~ msgid "Affiliate added successfully"
 #~ msgstr "Afiliado añadido correctamente"
 
-#, fuzzy
 #~ msgid "What&#8217;s new in AffiliateWP"
 #~ msgstr "Que hay de nuevo en AffiliateWP"
 
@@ -6003,7 +5999,6 @@ msgstr "Directo"
 #~ msgid "The people that build AffiliateWP"
 #~ msgstr "La gente que creó AffiliateWP"
 
-#, fuzzy
 #~ msgid "What&#8217;s New"
 #~ msgstr "Que hay de nuevo"
 
@@ -6029,7 +6024,6 @@ msgstr "Directo"
 #~ msgid "New Integrations"
 #~ msgstr "Nuevas integraciones"
 
-#, fuzzy
 #~ msgid ""
 #~ "We’ve made AffiliateWP more accessible and more valuable to more users "
 #~ "with three new integrations:"
@@ -6038,9 +6032,8 @@ msgstr "Directo"
 #~ "Hemos hecho que AffiliateWP sea mas accesible y valioso para mas "
 #~ "usuarios, con estas tres nuevas integraciones:"
 
-#, fuzzy
 #~ msgid "Improved Integrations"
-#~ msgstr "Integraciones"
+#~ msgstr "Integraciones mejoradas"
 
 #~ msgid ""
 #~ "Per-membership commission rates are now supported in Restrict Content Pro"
@@ -6083,10 +6076,10 @@ msgstr "Directo"
 #~ "sistema en funcionamiento en muy poco tiempo!"
 
 #~ msgid "Overview of Affiliates and Referrals"
-#~ msgstr "Resumen de Afiliados y Referidos"
+#~ msgstr "Resumen de afiliados y referidos"
 
 #~ msgid "The Overview Page"
-#~ msgstr "La página de Resumen"
+#~ msgstr "La página de resumen"
 
 #~ msgid ""
 #~ "The overview page gives you a quick summary of your recent affiliate "
@@ -6095,13 +6088,11 @@ msgstr "Directo"
 #~ "La página de resumen te da un breve resumen de la actividad reciente de "
 #~ "afiliados, incluyendo registros recientes, referidos y visitas "
 
-#, fuzzy
 #~ msgid ""
 #~ "It also provides a quick summary of your affiliates&#8217; referral "
 #~ "earnings."
 #~ msgstr "Ademas ofrece un resumen rápido de los referidos de tus afiliados."
 
-#, fuzzy
 #~ msgid ""
 #~ "If you allow affiliate registrations, you can also easily accept or "
 #~ "reject affiliate&#8217;s applications directly from the Overview page"
@@ -6174,9 +6165,9 @@ msgstr "Directo"
 #~ "clicked on from, and whether the link converted into a successful "
 #~ "referral, is also available to affiliates."
 #~ msgstr ""
-#~ "Un registro de enlaces de referidos que han hecho clic, desde donde esos "
-#~ "clics fueron hechos y si dicho enlace se convirtió en un referido "
-#~ "exitoso, también esta disponible para afiliados."
+#~ "Un registro de enlaces de referidos que han hecho clic, desde donde se hicieron "
+#~ "esos clics y si dicho enlace se convirtió en un referido "
+#~ "completado, también esta disponible para afiliados."
 
 #~ msgid "Quick Terminology"
 #~ msgstr "Terminología rapida"
@@ -6186,7 +6177,7 @@ msgstr "Directo"
 #~ "promoting your products and services through referral URLs. When they "
 #~ "create a customer for you, they get paid back in the form of a commission."
 #~ msgstr ""
-#~ "Estos son tus mejores amigos. Son los usuarios que mas activamente "
+#~ "Estos son tus mejores amigos. Son los usuarios que más activamente "
 #~ "promocionan tus productos y servicios a través de URLs de referidos. "
 #~ "Cuando crean un cliente para ti reciben su pago en forma de comisión."
 
@@ -6213,7 +6204,6 @@ msgstr "Directo"
 #~ msgid "Phenomenal Support"
 #~ msgstr "Soporte fenomenal"
 
-#, fuzzy
 #~ msgid ""
 #~ "We do our best to provide the best support we can. If you encounter a "
 #~ "problem or have a question, visit our <a href=\"https://affiliatewp.com/"
@@ -6224,7 +6214,7 @@ msgstr "Directo"
 #~ "\"http://affiliatewp.com/support\">soporte</a> para abrir un ticket."
 
 #~ msgid "Thank you for updating to the latest version!"
-#~ msgstr "Gracias por actualizar a la ultima versión!"
+#~ msgstr "¡Gracias por actualizar a la ultima versión!"
 
 #~ msgid ""
 #~ "AffiliateWP is created by developers from around the world that aim to "
@@ -6236,32 +6226,27 @@ msgstr "Directo"
 #~ "son algunas de las caras que han ayudado a construir AffiliateWP."
 
 #~ msgid "View %s"
-#~ msgstr "Vista %s"
+#~ msgstr "Ver %s"
 
 #~ msgid "Add New Referral"
 #~ msgstr "Añadir nuevo referido"
 
-#, fuzzy
 #~ msgid "Application Rejected Email Subject"
 #~ msgstr "Asunto del mensaje para solicitud rechazada"
 
-#, fuzzy
 #~ msgid ""
 #~ "Enter the subject line for rejected application emails sent to affiliates "
 #~ "when their account is rejected."
 #~ msgstr ""
 #~ "Introduce el asunto para los correos electrónicos enviados a los "
-#~ "afiliados cuando su cuenta es aprobada."
+#~ "afiliados cuando su cuenta es rechazada."
 
-#, fuzzy
 #~ msgid "Affiliate Application Rejected"
-#~ msgstr "Solicitud de afiliación aceptada"
+#~ msgstr "Solicitud de afiliación rechazada"
 
-#, fuzzy
 #~ msgid "Application Rejected Email Content"
 #~ msgstr "Contenido del mensaje para solicitudes rechazadas"
 
-#, fuzzy
 #~ msgid ""
 #~ "Enter the email to send when an application is rejected. HTML is "
 #~ "rejected. Available template tags:"
@@ -6269,16 +6254,14 @@ msgstr "Directo"
 #~ "Introduce el mensaje a enviar cuando una solicitud es rechazada. Puedes "
 #~ "usar HTML. Etiquetas para plantillas disponibles:"
 
-#, fuzzy
 #~ msgid "Hello {name}!"
-#~ msgstr "¡Hola {nombre}!"
+#~ msgstr "¡Hola {name}!"
 
-#, fuzzy
 #~ msgid ""
 #~ "We regret to inform you that your affiliate application on %s has been "
 #~ "rejected."
 #~ msgstr ""
-#~ "Lamentamos informarte que tu registro como afiliado en {nombre_sitio_web} "
+#~ "Lamentamos informarte que tu registro como afiliado en %s "
 #~ "fue rechazada."
 
 #~ msgid "Configurable emails"
@@ -6319,37 +6302,35 @@ msgstr "Directo"
 #~ "username) and choose whether or not to show <strong>Pretty Affiliate "
 #~ "URLs</strong> to your affiliates."
 #~ msgstr ""
-#~ "Sus afiliados ya pueden promover una gran variedad de \n"
+#~ "Tuss afiliados ya pueden promover tu web usando una gran variedad de \n"
 #~ "<a href=\"http://docs.affiliatewp.com/article/50-affiliate-urls\" target="
-#~ "\"_blank\"> Enlaces de afiliados \n"
+#~ "\"_blank\">URLs de afiliación \n"
 #~ "</a>. Los administradores tienen mucho más control sobre la apariencia "
 #~ "que tendrán estos enlaces para los afiliados en la portada de tu sitio "
 #~ "web. Puedes configurar un \n"
 #~ "<strong>un formato por defecto para los referidos</strong> \n"
 #~ " (ID or nombre de usuario) o elegir si se mostrarán o no \n"
-#~ "<strong>las URLs bonitas de afiliados</strong> a sus afiliados."
+#~ "<strong>las URLs bonitas de afiliados</strong> a tus afiliados."
 
 #~ msgid "Affiliate Export Improvements"
 #~ msgstr "Mejoras en la exportación de afiliados"
 
-#, fuzzy
 #~ msgid ""
 #~ "The affiliate's username is now included in the exported affiliate .csv "
 #~ "file."
 #~ msgstr ""
-#~ "El área de afiliados esta disponible para afiliados registrados "
-#~ "unicamente."
+#~ "El nombre de usuario del afiliado esta ahora incluido en el archivo .csv "
+#~ "de afiliados."
 
-#, fuzzy
 #~ msgid "New Affiliate Meta Class"
-#~ msgstr "Nuevo afiliado"
+#~ msgstr "Nueva clase meta de afiliado"
 
 #~ msgid ""
 #~ "We've introduced a new metadata API for afiliate accounts that provides "
 #~ "developers with a powerful tool for tracking affiliate-specific data."
 #~ msgstr ""
-#~ "Hemos incluido un nuevo metadato API para las cuentas de afiliados la "
-#~ "cual le brinda a los desarrolladores una herramienta poderosa para "
+#~ "Hemos incluido una nueva API de metadatos para las cuentas de afiliados la "
+#~ "cual brinda a los desarrolladores una potente herramienta para "
 #~ "rastrear datos específicos de los afiliados."
 
 #~ msgid "Creative Improvements"
@@ -6374,14 +6355,11 @@ msgstr "Directo"
 #~ "Los afiliados pendientes ya no podrán acceder al panel de afiliados hasta "
 #~ "que hayan sido aprobados. "
 
-#, fuzzy
 #~ msgid "Accept Affiliate"
-#~ msgstr "Nuevo afiliado"
+#~ msgstr "Aceptar afiliado"
 
-#, fuzzy
 #~ msgid "Reject Affiliate"
-#~ msgstr "Nuevo afiliado"
+#~ msgstr "Rechazar afiliado"
 
-#, fuzzy
 #~ msgid "AffiliateWP"
-#~ msgstr "Afiliado"
+#~ msgstr "AffiliateWP"
