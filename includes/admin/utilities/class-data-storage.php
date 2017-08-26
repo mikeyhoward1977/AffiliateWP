@@ -113,7 +113,11 @@ class Data_Storage {
 	public function delete_by_match( $pattern ) {
 		global $wpdb;
 
-		return $wpdb->query( "DELETE FROM $wpdb->options WHERE option_name REGEXP '{$pattern}'" );
+		return $wpdb->query(
+			$wpdb->prepare(
+				"DELETE FROM $wpdb->options WHERE option_name REGEXP %s", $pattern
+			)
+		);
 	}
 
 }
