@@ -165,7 +165,7 @@ abstract class Batch_Process implements Batch\Base {
 	 * @abstract
 	 */
 	public function finish() {
-		affiliate_wp()->utils->data->delete_by_match( "^{$this->batch_id}\w+" );
+		affiliate_wp()->utils->data->delete_by_match( "^{$this->batch_id}[0-9a-z\_]+" );
 	}
 
 	/**

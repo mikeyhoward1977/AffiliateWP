@@ -147,7 +147,7 @@ class Import extends \Affiliate_WP_Import {
 	 * @since  2.0
 	 */
 	public function finish() {
-		affiliate_wp()->utils->data->delete_by_match( "^{$this->batch_id}\w+" );
+		affiliate_wp()->utils->data->delete_by_match( "^{$this->batch_id}[0-9a-z\_]+" );
 	}
 
 	/**
