@@ -99,7 +99,7 @@ class Data_Storage {
 	public function delete( $key ) {
 		global $wpdb;
 
-		$wpdb->delete( $wpdb->options, array( 'option_name' => $key ) );
+		return $wpdb->delete( $wpdb->options, array( 'option_name' => $key ) );
 	}
 
 	/**
@@ -113,7 +113,7 @@ class Data_Storage {
 	public function delete_by_match( $pattern ) {
 		global $wpdb;
 
-		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name REGEXP $pattern" );
+		return $wpdb->query( "DELETE FROM $wpdb->options WHERE option_name REGEXP $pattern" );
 	}
 
 }
