@@ -29,8 +29,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 					<span class="affwp-ajax-search-wrap">
 						<input type="text" name="user_name" id="user_name" class="affwp-user-search affwp-enable-on-complete" data-affwp-status="none" autocomplete="off" />
 					</span>
-					<p class="description"><?php _e( 'Begin typing the name of the affiliate to perform a search for their associated user account.', 'affiliate-wp' ); ?></p>
-					<p class="description-alt hidden"><?php _e( 'Enter the login name for the affiliate.', 'affiliate-wp' ); ?></p>
+					<p class="search-description description"><?php _e( 'Begin typing the name of the affiliate to perform a search for their associated user account.', 'affiliate-wp' ); ?></p>
 				</td>
 
 			</tr>
@@ -43,7 +42,7 @@ $default_rate = affwp_abs_number_round( $default_rate );
 
 				<td>
 					<input type="text" name="user_email" id="user_email" class="affwp-user-email" />
-					<p class="description"><?php _e( 'Enter an email address for the affilate.', 'affiliate-wp' ); ?></p>
+					<p class="description"><?php _e( 'Enter an email address for the new user.', 'affiliate-wp' ); ?></p>
 				</td>
 
 			</tr>
