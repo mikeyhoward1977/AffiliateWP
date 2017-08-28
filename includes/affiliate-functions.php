@@ -1102,6 +1102,8 @@ function affwp_add_affiliate( $data = array() ) {
 
 	$data = affiliate_wp()->utils->process_request_data( $data, 'user_name' );
 
+	$user_id = 0;
+
 	if ( empty( $data['user_id'] ) ) {
 
 		if( ! empty( $data['user_email'] ) ) {
