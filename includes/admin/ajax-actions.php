@@ -25,8 +25,9 @@ function affwp_search_users() {
 
 	$affiliate_users = array();
 
-	if ( isset( $_REQUEST['status'] ) ) {
-		$status = mb_strtolower( htmlentities2( trim( $_REQUEST['status'] ) ) );
+	$status = isset( $_REQUEST['status'] ) ? mb_strtolower( htmlentities2( trim( $_REQUEST['status'] ) ) ) : 'bypass';
+
+	if ( 'bypass' !== $status ) {
 
 		switch ( $status ) {
 			case 'none':
@@ -64,7 +65,7 @@ function affwp_search_users() {
 
 	$user_list = array();
 
-	if ( 'none' === $status || ! empty( $affiliate_users ) ) {
+	if ( 'bypass' === $status || ! empty( $affiliate_users ) ) {
 
 		// Get users matching search.
 		$found_users = get_users( $args );
@@ -344,26 +345,23 @@ function affwp_check_user_login() {
 		wp_die( -1 );
 	}
 
-	$search = sanitize_text_field( $_REQUEST['user'] );
+	$user = sanitize_text_field( $_REQUEST['user'] );
 
 	/**
 	 * Fires immediately prior to an AffiliateWP user check.
 	 *
 	 * @param string $user The user login.
 	 */
-	do_action( 'affwp_pre_check_user', $search );
+	do_action( 'affwp_pre_check_user', $user );
 
-	$user = get_user_by( 'login', $search );
+	if ( affwp_get_affiliate( $user ) ) {
+		$response = array( 'affiliate' => true );
+	} else {
+		$response = array( 'affiliate' => false );
 
-	if( $user && ! is_wp_error( $user ) ) {
-		wp_send_json_success( array( 'valid' => true ) );
 	}
 
-	wp_send_json_error( array(
-		'valid'  => false,
-		'user'   => $user,
-		'search' => $search
-	) );
+	wp_send_json_success( $response );
 
 }
 add_action( 'wp_ajax_affwp_check_user_login', 'affwp_check_user_login' );
