@@ -76,7 +76,8 @@ jQuery(document).ready(function($) {
 		var	$this    = $( this ),
 			$action  = 'affwp_search_users',
 			$search  = $this.val(),
-			$status  = $this.data( 'affwp-status');
+			$status  = $this.data( 'affwp-status'),
+			$form    = $this.closest( 'form' );
 
 		$this.autocomplete( {
 			source: ajaxurl + '?action=' + $action + '&term=' + $search + '&status=' + $status,
@@ -85,6 +86,8 @@ jQuery(document).ready(function($) {
 			position: { offset: '0, -1' },
 			search: function() {
 				$( 'div.error' ).remove();
+				$( '.affwp-user-email-wrap, .affwp-user-pass-wrap' ).hide();
+				$form.find( 'input, select' ).prop( 'disabled', true );
 			},
 			open: function() {
 				$this.addClass( 'open' );
@@ -96,6 +99,12 @@ jQuery(document).ready(function($) {
 				if( ui.content.length === 0 ) {
 					// This triggers when no results are found
 					$( '<div class="error affwp-new-affiliate-error"><p>' + affwp_vars.no_user_found + '</p></div>' ).insertAfter( $this );
+
+					$form.find( 'input, select' ).prop( 'disabled', false );
+
+					$( '.affwp-user-email-wrap, .affwp-user-pass-wrap' ).show();
+					$( '.affwp-user-email' ).prop( 'required' );
+					$( '.search-description' ).hide();
 				}
 			},
 			select: function() {
@@ -116,14 +125,17 @@ jQuery(document).ready(function($) {
 
 							if( response.success ) {
 
-								$this.closest( 'form' ).find( 'input, select' ).prop( 'disabled', false );
+								if ( false === response.data.affiliate ) {
 
-							} else {
+									$form.find( 'input, select' ).prop( 'disabled', false );
 
-								$this.closest( 'form' ).find( 'input, select' ).prop( 'disabled', true );
-								$this.prop( 'disabled', false );
-								$( '<div class="error affwp-new-affiliate-error"><p>' + affwp_vars.no_user_found + '</p></div>' ).insertAfter( $this );
+								} else {
 
+									$( '<div class="error affwp-new-affiliate-error"><p>' + affwp_vars.existing_affiliate + '</p></div>' ).insertAfter( $this );
+
+									$this.prop( 'disabled', false );
+
+								}
 							}
 
 						}
@@ -137,18 +149,6 @@ jQuery(document).ready(function($) {
 			}
 		} );
 	} );
-
-	// Replace user search field with a username and user email field on the New Affiliate screen
-	$('body').on('click', '.affwp-no-user-create-new', function(e) {
-
-		e.preventDefault();
-		$(this).closest( 'form' ).find( 'input, select' ).prop( 'disabled', false );
-		$('#user_name').replaceWith( $('#user_name' ).clone().removeClass( 'affwp-user-search' ) );
-		$('.affwp-new-affiliate-error').remove();
-		$('.affwp-user-email-wrap,.affwp-user-pass-wrap').show();
-		$('.description-alt').show().prev().hide();
-
-	});
 
 	// select image for creative
 	var file_frame;
