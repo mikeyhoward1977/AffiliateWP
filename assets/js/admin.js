@@ -85,9 +85,11 @@ jQuery(document).ready(function($) {
 			minLength: 2,
 			position: { offset: '0, -1' },
 			search: function() {
-				$( 'div.error' ).remove();
-				$( '.affwp-user-email-wrap, .affwp-user-pass-wrap' ).hide();
-				$form.find( 'input, select' ).prop( 'disabled', true );
+				if ( $this.hasClass( 'affwp-enable-on-complete' ) ) {
+					$('div.notice').remove();
+					$('.affwp-user-email-wrap, .affwp-user-pass-wrap').hide();
+					$form.find('input, select').prop('disabled', true);
+				}
 			},
 			open: function() {
 				$this.addClass( 'open' );
@@ -96,9 +98,9 @@ jQuery(document).ready(function($) {
 				$this.removeClass( 'open' );
 			},
 			response: function( event, ui ) {
-				if( ui.content.length === 0 ) {
+				if( ui.content.length === 0 && $this.hasClass( 'affwp-enable-on-complete' ) ) {
 					// This triggers when no results are found
-					$( '<div class="error affwp-new-affiliate-error"><p>' + affwp_vars.no_user_found + '</p></div>' ).insertAfter( $this );
+					$( '<div class="notice notice-error affwp-new-affiliate-error"><p>' + affwp_vars.no_user_found + '</p></div>' ).insertAfter( $this );
 
 					$form.find( 'input, select' ).prop( 'disabled', false );
 
