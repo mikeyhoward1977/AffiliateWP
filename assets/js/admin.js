@@ -131,7 +131,7 @@ jQuery(document).ready(function($) {
 
 								} else {
 
-									$( '<div class="error affwp-new-affiliate-error"><p>' + affwp_vars.existing_affiliate + '</p></div>' ).insertAfter( $this );
+									$( '<div class="notice notice-info affwp-new-affiliate-error"><p>' + affwp_vars.existing_affiliate + '</p></div>' ).insertAfter( $this );
 
 									$this.prop( 'disabled', false );
 
