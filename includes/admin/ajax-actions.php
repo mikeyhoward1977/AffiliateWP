@@ -360,7 +360,7 @@ function affwp_check_user_login() {
 		$response = array(
 			'affiliate' => true,
 			'url'       => esc_url( affwp_admin_url( 'affiliates', array(
-				'affiliate_id' => $affiliate->affiliate_id,
+				'affiliate_id' => $affiliate->ID,
 				'action'       => 'edit_affiliate',
 			) ) ),
 		);
