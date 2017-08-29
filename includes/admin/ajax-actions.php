@@ -354,8 +354,16 @@ function affwp_check_user_login() {
 	 */
 	do_action( 'affwp_pre_check_user', $user );
 
-	if ( affwp_get_affiliate( $user ) ) {
-		$response = array( 'affiliate' => true );
+	$affiliate = affwp_get_affiliate( $user );
+
+	if ( $affiliate ) {
+		$response = array(
+			'affiliate' => true,
+			'url'       => esc_url( affwp_admin_url( 'affiliates', array(
+				'affiliate_id' => $affiliate->affiliate_id,
+				'action'       => 'edit_affiliate',
+			) ) ),
+		);
 	} else {
 		$response = array( 'affiliate' => false );
 
