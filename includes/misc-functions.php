@@ -1224,7 +1224,7 @@ function affwp_required_field_attr( $field ) {
  * @param string $original  Maybe unserialized original, if is needed.
  * @return mixed Unserialized data can be any type.
  */
-function affwp_maybe_unserialize( $original, $recursive = false ) {
+function affwp_maybe_unserialize( $original ) {
 	$value = $original;
 
 	if ( is_serialized( $original ) ) {
