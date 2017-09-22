@@ -45,7 +45,7 @@ class Affiliate_WP_RCP extends Affiliate_WP_Base {
 		$subscription_key = rcp_get_subscription_key( $user_id );
 		$subscription     = rcp_get_subscription( $user_id );
 
-		$key = get_user_meta( $user_id, 'rcp_pending_subscription_key', true );
+		$key = $member->get_pending_subscription_key();
 		if( empty( $key ) ) {
 			$key = $subscription_key;
 		}
