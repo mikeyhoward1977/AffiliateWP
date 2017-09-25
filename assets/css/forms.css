@@ -227,7 +227,7 @@ p.affwp-error {
 
 /* Responsive table styling for mobile resolutions */
 .affwp-table-responsive td:before {
-	content: attr(data-th) ": ";
+	content: attr(data-th) ":\00a0";
 	font-weight: bold;
 }
 
@@ -237,6 +237,16 @@ p.affwp-error {
 
 @media (max-width: 767px) {
 	
+	#affwp-affiliate-dashboard-campaign-stats .affwp-table-responsive td.affwp-table-no-data {
+		display: block;
+	}
+
+	#affwp-affiliate-dashboard-visits .affwp-table-responsive td.affwp-table-no-data:before,
+	#affwp-affiliate-dashboard-payouts .affwp-table-responsive td.affwp-table-no-data:before,
+	#affwp-affiliate-dashboard-referrals .affwp-table-responsive td.affwp-table-no-data:before {
+		display: none;
+	}
+
 	.affwp-table-responsive td:before {
 		display: inline-block;
 	}
