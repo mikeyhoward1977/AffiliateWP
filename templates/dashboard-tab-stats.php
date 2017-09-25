@@ -91,7 +91,7 @@ $affiliate_id = affwp_get_affiliate_id();
 				<?php endforeach; ?>
 			<?php else : ?>
 				<tr>
-					<td colspan="5"><?php _e( 'You have no referrals or visits that included a campaign name.', 'affiliate-wp' ); ?></td>
+					<td class="affwp-table-no-data" data-th="<?php _e( 'Campaigns', 'affiliate-wp' ); ?>" colspan="5"><?php _e( 'You have no referrals or visits that included a campaign name.', 'affiliate-wp' ); ?></td>
 				</tr>
 			<?php endif; ?>
 		</tbody>
