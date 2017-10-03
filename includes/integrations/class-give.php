@@ -47,8 +47,8 @@ class Affiliate_WP_Give extends Affiliate_WP_Base {
 		$affiliate_id = $this->get_affiliate_id( $payment_id );
 
 		// Referral rate
-		$give_rate = get_post_meta( $payment_data['give_form_id'], '_affwp_give_product_rate', true );
-		$rate      = ! empty( $give_rate ) ? affwp_abs_number_round( $give_rate ) : affwp_get_affiliate_rate( $affiliate_id );
+		$give_rate  = get_post_meta( $payment_data['give_form_id'], '_affwp_give_product_rate', true );
+		$rate       = ! empty( $give_rate ) ? affwp_abs_number_round( $give_rate ) : $this->get_referral_total( $payment_id, $affiliate_id );
 
 		// get customer email
 		$customer_email = give_get_payment_user_email( $payment_id );
@@ -62,7 +62,7 @@ class Affiliate_WP_Give extends Affiliate_WP_Base {
 		}
 
 		// Get referral total
-		$referral_total = $this->get_referral_total( $payment_id, $affiliate_id );
+		$referral_total = affwp_calc_referral_amount( $referral_total, $affiliate_id, $payment_id, $rate, 0 );
 
 		// Get referral description
 		$desc = $this->get_referral_description( $payment_id );
