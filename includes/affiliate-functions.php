@@ -1447,7 +1447,7 @@ function affwp_get_affiliate_area_page_url( $tab = '' ) {
 
 	$affiliate_area_page_url = get_permalink( $affiliate_area_page_id );
 
-	if ( ! empty( $tab ) && in_array( $tab, affwp_get_affiliate_area_tabs() ) ) {
+	if ( ! empty( $tab ) && array_key_exists( $tab, affwp_get_affiliate_area_tabs() ) ) {
 		$affiliate_area_page_url = add_query_arg( array( 'tab' => $tab ), $affiliate_area_page_url );
 	}
 
