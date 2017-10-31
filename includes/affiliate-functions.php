@@ -1447,9 +1447,7 @@ function affwp_get_affiliate_area_page_url( $tab = '' ) {
 
 	$affiliate_area_page_url = get_permalink( $affiliate_area_page_id );
 
-	if ( ! empty( $tab )
-		&& in_array( $tab, array( 'urls', 'stats', 'graphs', 'referrals', 'payouts', 'visits', 'creatives', 'settings' ) )
-	) {
+	if ( ! empty( $tab ) && in_array( $tab, affwp_get_affiliate_area_tabs() ) ) {
 		$affiliate_area_page_url = add_query_arg( array( 'tab' => $tab ), $affiliate_area_page_url );
 	}
 
@@ -1526,10 +1524,6 @@ function affwp_get_active_affiliate_area_tab() {
  * @return boolean
  */
 function affwp_affiliate_area_show_tab( $tab = '' ) {
-
-	$tabs = affwp_get_affiliate_area_tabs();
-	$show = array_key_exists( $tab, $tabs );
-
 	return apply_filters( 'affwp_affiliate_area_show_tab', true, $tab );
 }
 
@@ -1545,6 +1539,7 @@ function affwp_render_affiliate_dashboard_tab( $tab = '' ) {
 	affiliate_wp()->templates->get_template_part( 'dashboard-tab', $tab );
 	$content = ob_get_clean();
 
+	$content = apply_filters( 'affwp_render_affiliate_dashboard_tab_' . $tab, $content, $tab );
 	echo apply_filters( 'affwp_render_affiliate_dashboard_tab', $content, $tab );
 
 }
