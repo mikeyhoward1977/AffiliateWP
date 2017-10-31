@@ -1466,15 +1466,14 @@ function affwp_get_affiliate_area_page_url( $tab = '' ) {
 }
 
 /**
- * Retrieves the active Affiliate Area tab slug.
+ * Retrieves an array of tabs for the affiliate area
  *
- * @since 1.8.1
+ * @since 2.1.7
  *
- * @return string Active tab if valid, empty string otherwise.
+ * @return array $tabs Array of tabs.
  */
-function affwp_get_active_affiliate_area_tab() {
-	$active_tab = ! empty( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : '';
-
+function affwp_get_affiliate_area_tabs() {
+	
 	/**
 	 * Filters the Affiliate Area tabs list.
 	 *
@@ -1486,6 +1485,21 @@ function affwp_get_active_affiliate_area_tab() {
 		'urls', 'stats', 'graphs', 'referrals',
 		'payouts', 'visits', 'creatives', 'settings'
 	) );
+
+	return $tabs;
+}
+	
+/**
+ * Retrieves the active Affiliate Area tab slug.
+ *
+ * @since 1.8.1
+ *
+ * @return string Active tab if valid, empty string otherwise.
+ */
+function affwp_get_active_affiliate_area_tab() {
+	$active_tab = ! empty( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : '';
+
+	$tabs = affwp_get_affiliate_area_tabs();
 
 	// If the tab can't be shown, remove it from play.
 	foreach ( $tabs as $index => $tab ) {

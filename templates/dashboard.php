@@ -122,7 +122,7 @@
 
 		<?php
 		if ( ! empty( $active_tab ) && affwp_affiliate_area_show_tab( $active_tab ) ) :
-			affiliate_wp()->templates->get_template_part( 'dashboard-tab', $active_tab );
+			echo affwp_render_affiliate_dashboard_tab( $active_tab );
 		endif;
 		?>
 
