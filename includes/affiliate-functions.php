@@ -1507,17 +1507,17 @@ function affwp_get_active_affiliate_area_tab() {
 
 	$tabs = affwp_get_affiliate_area_tabs();
 
-	// If the tab can't be shown, remove it from play.
-	foreach ( $tabs as $index => $tab ) {
-		if ( false === affwp_affiliate_area_show_tab( $tab ) ) {
-			unset( $tabs[ $index ] );
+	foreach ( $tabs as $tab_slug => $tab_title ) {
+		if ( false === affwp_affiliate_area_show_tab( $tab_slug ) ) {
+			unset( $tabs[ $tab_slug ] );
 		}
 	}
 
-	if ( $active_tab && in_array( $active_tab, $tabs ) ) {
+	if ( $active_tab && array_key_exists( $active_tab, $tabs ) ) {
 		$active_tab = $active_tab;
 	} elseif ( ! empty( $tabs ) ) {
 		$active_tab = reset( $tabs );
+		$active_tab = key( $tabs );
 	} else {
 		$active_tab = '';
 	}
