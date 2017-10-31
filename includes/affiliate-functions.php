@@ -1520,6 +1520,36 @@ function affwp_get_active_affiliate_area_tab() {
 }
 
 /**
+ * Show a tab in the Affiliate Area
+ *
+ * @since  1.8
+ * @return boolean
+ */
+function affwp_affiliate_area_show_tab( $tab = '' ) {
+
+	$tabs = affwp_get_affiliate_area_tabs();
+	$show = array_key_exists( $tab, $tabs );
+
+	return apply_filters( 'affwp_affiliate_area_show_tab', true, $tab );
+}
+
+/**
+ * Render a specified tab of the affiliate area
+ *
+ * @since  2.1.7
+ * @return void
+ */
+function affwp_render_affiliate_dashboard_tab( $tab = '' ) {
+
+	ob_start();
+	affiliate_wp()->templates->get_template_part( 'dashboard-tab', $tab );
+	$content = ob_get_clean();
+
+	echo apply_filters( 'affwp_render_affiliate_dashboard_tab', $content, $tab );
+
+}
+
+/**
  * Retrieves an array of payouts for the given affiliate.
  *
  * @since 1.9
