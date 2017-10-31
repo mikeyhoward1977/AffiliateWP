@@ -1471,7 +1471,7 @@ function affwp_get_affiliate_area_page_url( $tab = '' ) {
  * @return array $tabs Array of tabs.
  */
 function affwp_get_affiliate_area_tabs() {
-	
+
 	/**
 	 * Filters the Affiliate Area tabs list.
 	 *
@@ -1479,7 +1479,7 @@ function affwp_get_affiliate_area_tabs() {
 	 *
 	 * @param array $tabs Array of tabs.
 	 */
-	$tabs = apply_filters( 'affwp_affiliate_area_tabs', 
+	$tabs = apply_filters( 'affwp_affiliate_area_tabs',
 		array(
 			'urls'      => __( 'Affiliate URLs', 'affiliate-wp' ),
 			'stats'     => __( 'Statistics', 'affiliate-wp' ),
@@ -1494,7 +1494,7 @@ function affwp_get_affiliate_area_tabs() {
 
 	return $tabs;
 }
-	
+
 /**
  * Retrieves the active Affiliate Area tab slug.
  *
@@ -1504,10 +1504,15 @@ function affwp_get_affiliate_area_tabs() {
  */
 function affwp_get_active_affiliate_area_tab() {
 	$active_tab = ! empty( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : '';
-
 	$tabs = affwp_get_affiliate_area_tabs();
 
 	foreach ( $tabs as $tab_slug => $tab_title ) {
+
+		// This ensures that tabs registered prior to 2.1.7 (when tab titles were added to the array) continue to function
+		if( is_int( $tab_slug ) ) {
+			$tabs[ sanitize_key( $tab_title ) ] = $tab_title;
+		}
+
 		if ( false === affwp_affiliate_area_show_tab( $tab_slug ) ) {
 			unset( $tabs[ $tab_slug ] );
 		}

@@ -62,7 +62,7 @@
 						<a href="<?php echo esc_url( affwp_get_affiliate_area_page_url( $tab_slug ) ); ?>"><?php echo $tab_title; ?></a>
 					</li>
 					<?php endif; ?>
-				<?php endforeach; 
+				<?php endforeach;
 			}
 
 			/**
@@ -84,7 +84,7 @@
 			<?php endif; ?>
 
 		</ul>
-		
+
 		<?php
 		if ( ! empty( $active_tab ) && affwp_affiliate_area_show_tab( $active_tab ) ) :
 			echo affwp_render_affiliate_dashboard_tab( $active_tab );
