@@ -676,8 +676,6 @@ function affwp_render_affiliate_dashboard_tab( $tab = '' ) {
 
 }
 
-add_filter( 'affwp_render_affiliate_dashboard_tab', 'test_render', 10, 2 );
-
 /**
  * Cleans the cache for a given object.
  *
