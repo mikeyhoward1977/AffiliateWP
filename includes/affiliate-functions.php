@@ -1475,14 +1475,22 @@ function affwp_get_affiliate_area_tabs() {
 	/**
 	 * Filters the Affiliate Area tabs list.
 	 *
-	 * @since 1.8.1
+	 * @since 2.1.7
 	 *
 	 * @param array $tabs Array of tabs.
 	 */
-	$tabs = apply_filters( 'affwp_affiliate_area_tabs', array(
-		'urls', 'stats', 'graphs', 'referrals',
-		'payouts', 'visits', 'creatives', 'settings'
-	) );
+	$tabs = apply_filters( 'affwp_affiliate_area_tabs', 
+		array(
+			'urls'      => __( 'Affiliate URLs', 'affiliate-wp' ),
+			'stats'     => __( 'Statistics', 'affiliate-wp' ),
+			'graphs'    => __( 'Graphs', 'affiliate-wp' ),
+			'referrals' => __( 'Referrals', 'affiliate-wp' ),
+			'payouts'   => __( 'Payouts', 'affiliate-wp' ),
+			'visits'    => __( 'Visits', 'affiliate-wp' ),
+			'creatives' => __( 'Creatives', 'affiliate-wp' ),
+			'settings'  => __( 'Settings', 'affiliate-wp' ),
+		)
+	);
 
 	return $tabs;
 }
