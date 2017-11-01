@@ -247,10 +247,7 @@ p.affwp-error {
 		display: none;
 	}
 
-	#affwp-affiliate-dashboard-referrals td:last-child,
-	#affwp-affiliate-dashboard-visits td:last-child,
-	#affwp-affiliate-dashboard-payouts td:last-child,
-	#affwp-affiliate-dashboard-campaign-stats td:last-child {
+	.affwp-table-responsive td:last-child {
 		margin-bottom: 20px;
 	}
 
