@@ -32,6 +32,7 @@ $affiliate_id = affwp_get_affiliate_id();
 	<table id="affwp-affiliate-dashboard-referrals" class="affwp-table affwp-table-responsive">
 		<thead>
 			<tr>
+				<th class="referral-amount"><?php _e( 'Reference', 'affiliate-wp' ); ?></th>
 				<th class="referral-amount"><?php _e( 'Amount', 'affiliate-wp' ); ?></th>
 				<th class="referral-description"><?php _e( 'Description', 'affiliate-wp' ); ?></th>
 				<th class="referral-status"><?php _e( 'Status', 'affiliate-wp' ); ?></th>
@@ -50,6 +51,7 @@ $affiliate_id = affwp_get_affiliate_id();
 
 				<?php foreach ( $referrals as $referral ) : ?>
 					<tr>
+						<td class="referral-reference" data-th="<?php _e( 'Reference', 'affiliate-wp' ); ?>"><?php echo $referral->reference; ?></td>
 						<td class="referral-amount" data-th="<?php _e( 'Amount', 'affiliate-wp' ); ?>"><?php echo affwp_currency_filter( affwp_format_amount( $referral->amount ) ); ?></td>
 						<td class="referral-description" data-th="<?php _e( 'Description', 'affiliate-wp' ); ?>"><?php echo wp_kses_post( nl2br( $referral->description ) ); ?></td>
 						<td class="referral-status <?php echo $referral->status; ?>" data-th="<?php _e( 'Status', 'affiliate-wp' ); ?>"><?php echo affwp_get_referral_status_label( $referral ); ?></td>
