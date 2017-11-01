@@ -134,7 +134,7 @@ function affwp_get_affiliate_name( $affiliate = 0 ) {
  * @since 2.1.7
  *
  * @uses affwp_get_affiliate_id
- * @uses affwp_get_affiliate
+ * @uses get_userdata
  *
  * @param int|AffWP\Affiliate $affiliate Optional. Affiliate ID or object. Default is the current affiliate.
  * @return string The affiliate user's first name  if set. An empty string if the affiliate ID
@@ -160,7 +160,7 @@ function affwp_get_affiliate_last_name( $affiliate = 0 ) {
  * @since 2.1.7
  *
  * @uses affwp_get_affiliate_id
- * @uses affwp_get_affiliate
+ * @uses get_userdata
  *
  * @param int|AffWP\Affiliate $affiliate Optional. Affiliate ID or object. Default is the current affiliate.
  * @return string The affiliate user's first name  if set. An empty string if the affiliate ID
