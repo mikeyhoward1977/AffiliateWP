@@ -127,6 +127,59 @@ function affwp_get_affiliate_name( $affiliate = 0 ) {
 	}
 }
 
+
+/**
+ * Retrieves the affiliate first name, if set.
+ *
+ * @since 2.1.7
+ *
+ * @uses affwp_get_affiliate_id
+ * @uses affwp_get_affiliate
+ *
+ * @param int|AffWP\Affiliate $affiliate Optional. Affiliate ID or object. Default is the current affiliate.
+ * @return string The affiliate user's first name  if set. An empty string if the affiliate ID
+ *                is invalid or first name is not set.
+ */
+function affwp_get_affiliate_last_name( $affiliate = 0 ) {
+
+	if ( ! $affiliate = affwp_get_affiliate( $affiliate ) ) {
+		return '';
+	}
+
+	if ( ! $user_info = get_userdata( $affiliate->user_id ) ) {
+		return '';
+	}
+
+	return esc_html( $user_info->last_name );
+	
+}
+
+/**
+ * Retrieves the affiliate first name, if set.
+ *
+ * @since 2.1.7
+ *
+ * @uses affwp_get_affiliate_id
+ * @uses affwp_get_affiliate
+ *
+ * @param int|AffWP\Affiliate $affiliate Optional. Affiliate ID or object. Default is the current affiliate.
+ * @return string The affiliate user's first name  if set. An empty string if the affiliate ID
+ *                is invalid or first name is not set.
+ */
+function affwp_get_affiliate_first_name( $affiliate = 0 ) {
+
+	if ( ! $affiliate = affwp_get_affiliate( $affiliate ) ) {
+		return '';
+	}
+
+	if ( ! $user_info = get_userdata( $affiliate->user_id ) ) {
+		return '';
+	}
+
+	return esc_html( $user_info->first_name );
+	
+}
+
 /**
  * Determines whether or not the affiliate is active.
  *
