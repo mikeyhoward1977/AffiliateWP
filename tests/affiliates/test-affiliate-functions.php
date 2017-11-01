@@ -243,6 +243,18 @@ class Tests extends UnitTestCase {
 	}
 
 	/**
+	 * @covers ::affwp_get_affiliate_first_name()
+	 */
+	public function test_affwp_get_affiliate_first_name() {
+		update_user_meta( self::$users[1], 'first_name', 'Alf' );
+
+		$this->assertSame( 'Alf', affwp_get_affiliate_first_name( self::$affiliates[1] ) );
+
+		// Clean up.
+		update_user_meta( self::$users[1], 'first_name', '' );
+	}
+
+	/**
 	 * @covers ::affwp_get_affiliate_name()
 	 */
 	public function test_affwp_get_affiliate_name_should_return_last_name() {
@@ -252,6 +264,18 @@ class Tests extends UnitTestCase {
 
 		// Clean up.
 		update_user_meta( self::$users[2], 'last_name', '' );
+	}
+
+	/**
+	 * @covers ::affwp_get_affiliate_last_name()
+	 */
+	public function test_affwp_get_affiliate_last_name() {
+		update_user_meta( self::$users[1], 'last_name', 'Alf' );
+
+		$this->assertSame( 'Alf', affwp_get_affiliate_last_name( self::$affiliates[1] ) );
+
+		// Clean up.
+		update_user_meta( self::$users[1], 'last_name', '' );
 	}
 
 	/**
