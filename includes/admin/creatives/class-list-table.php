@@ -71,7 +71,7 @@ class AffWP_Creatives_Table extends List_Table {
 	public function __construct( $args = array() ) {
 		$args = wp_parse_args( $args, array(
 			'singular' => 'creative',
-			'plurla'   => 'creatives',
+			'plural'   => 'creatives',
 		) );
 
 		parent::__construct( $args );
@@ -339,9 +339,9 @@ class AffWP_Creatives_Table extends List_Table {
 			return;
 		}
 		
-		// if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'bulk-creatives' ) && ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'affwp-creative-nonce' ) ) {
-		// 	return;
-		// }
+		if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'bulk-creatives' ) && ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'affwp-creative-nonce' ) ) {
+		 	return;
+		}
 
 		$ids = isset( $_GET['creative_id'] ) ? $_GET['creative_id'] : false;
 
