@@ -56,7 +56,7 @@ final class Affiliate_WP {
 	 * @since  1.0
 	 * @var    string
 	 */
-	private $version = '2.1.6.1';
+	private $version = '2.1.7';
 
 	/**
 	 * The affiliates DB instance variable.

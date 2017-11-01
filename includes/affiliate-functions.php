@@ -1500,9 +1500,7 @@ function affwp_get_affiliate_area_page_url( $tab = '' ) {
 
 	$affiliate_area_page_url = get_permalink( $affiliate_area_page_id );
 
-	if ( ! empty( $tab )
-		&& in_array( $tab, array( 'urls', 'stats', 'graphs', 'referrals', 'payouts', 'visits', 'creatives', 'settings' ) )
-	) {
+	if ( ! empty( $tab ) && array_key_exists( $tab, affwp_get_affiliate_area_tabs() ) ) {
 		$affiliate_area_page_url = add_query_arg( array( 'tab' => $tab ), $affiliate_area_page_url );
 	}
 
@@ -1519,6 +1517,38 @@ function affwp_get_affiliate_area_page_url( $tab = '' ) {
 }
 
 /**
+ * Retrieves an array of tabs for the affiliate area
+ *
+ * @since 2.1.7
+ *
+ * @return array $tabs Array of tabs.
+ */
+function affwp_get_affiliate_area_tabs() {
+
+	/**
+	 * Filters the Affiliate Area tabs list.
+	 *
+	 * @since 2.1.7
+	 *
+	 * @param array $tabs Array of tabs.
+	 */
+	$tabs = apply_filters( 'affwp_affiliate_area_tabs',
+		array(
+			'urls'      => __( 'Affiliate URLs', 'affiliate-wp' ),
+			'stats'     => __( 'Statistics', 'affiliate-wp' ),
+			'graphs'    => __( 'Graphs', 'affiliate-wp' ),
+			'referrals' => __( 'Referrals', 'affiliate-wp' ),
+			'payouts'   => __( 'Payouts', 'affiliate-wp' ),
+			'visits'    => __( 'Visits', 'affiliate-wp' ),
+			'creatives' => __( 'Creatives', 'affiliate-wp' ),
+			'settings'  => __( 'Settings', 'affiliate-wp' ),
+		)
+	);
+
+	return $tabs;
+}
+
+/**
  * Retrieves the active Affiliate Area tab slug.
  *
  * @since 1.8.1
@@ -1527,35 +1557,57 @@ function affwp_get_affiliate_area_page_url( $tab = '' ) {
  */
 function affwp_get_active_affiliate_area_tab() {
 	$active_tab = ! empty( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : '';
+	$tabs = affwp_get_affiliate_area_tabs();
 
-	/**
-	 * Filters the Affiliate Area tabs list.
-	 *
-	 * @since 1.8.1
-	 *
-	 * @param array $tabs Array of tabs.
-	 */
-	$tabs = apply_filters( 'affwp_affiliate_area_tabs', array(
-		'urls', 'stats', 'graphs', 'referrals',
-		'payouts', 'visits', 'creatives', 'settings'
-	) );
+	foreach ( $tabs as $tab_slug => $tab_title ) {
 
-	// If the tab can't be shown, remove it from play.
-	foreach ( $tabs as $index => $tab ) {
-		if ( false === affwp_affiliate_area_show_tab( $tab ) ) {
-			unset( $tabs[ $index ] );
+		// This ensures that tabs registered prior to 2.1.7 (when tab titles were added to the array) continue to function
+		if( is_int( $tab_slug ) ) {
+			$tabs[ sanitize_key( $tab_title ) ] = $tab_title;
+		}
+
+		if ( false === affwp_affiliate_area_show_tab( $tab_slug ) ) {
+			unset( $tabs[ $tab_slug ] );
 		}
 	}
 
-	if ( $active_tab && in_array( $active_tab, $tabs ) ) {
+	if ( $active_tab && array_key_exists( $active_tab, $tabs ) ) {
 		$active_tab = $active_tab;
 	} elseif ( ! empty( $tabs ) ) {
 		$active_tab = reset( $tabs );
+		$active_tab = key( $tabs );
 	} else {
 		$active_tab = '';
 	}
 
 	return $active_tab;
+}
+
+/**
+ * Show a tab in the Affiliate Area
+ *
+ * @since  1.8
+ * @return boolean
+ */
+function affwp_affiliate_area_show_tab( $tab = '' ) {
+	return apply_filters( 'affwp_affiliate_area_show_tab', true, $tab );
+}
+
+/**
+ * Render a specified tab of the affiliate area
+ *
+ * @since  2.1.7
+ * @return void
+ */
+function affwp_render_affiliate_dashboard_tab( $tab = '' ) {
+
+	ob_start();
+	affiliate_wp()->templates->get_template_part( 'dashboard-tab', $tab );
+	$content = ob_get_clean();
+
+	$content = apply_filters( 'affwp_render_affiliate_dashboard_tab_' . $tab, $content, $tab );
+	echo apply_filters( 'affwp_render_affiliate_dashboard_tab', $content, $tab );
+
 }
 
 /**
