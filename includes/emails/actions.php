@@ -268,9 +268,9 @@ function affwp_notify_on_new_referral( $affiliate_id = 0, $referral ) {
 add_action( 'affwp_referral_accepted', 'affwp_notify_on_new_referral', 10, 2 );
 
 /**
- * Send email to aadmins on new referrals
+ * Send email to admins on new referrals
  *
- * @since 2.17
+ * @since 2.1.7
  * @param int $affiliate_id The ID of the registered affiliate
  * @param array $referral
  */
