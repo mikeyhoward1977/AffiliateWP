@@ -1159,7 +1159,7 @@ msgstr "Referral tarief voor deze %s"
 #: includes/admin/affiliates/new.php:53
 #, fuzzy
 msgid "User Password"
-msgstr "Wachwoord"
+msgstr "Wachtwoord"
 
 #: includes/admin/affiliates/new.php:57
 msgid ""
@@ -5678,7 +5678,7 @@ msgstr "Log in op je account"
 
 #: templates/login.php:30 templates/register.php:96
 msgid "Password"
-msgstr "Wachwoord"
+msgstr "Wachtwoord"
 
 #: templates/login.php:36
 msgid "Remember Me"
