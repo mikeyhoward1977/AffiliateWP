@@ -17,7 +17,7 @@ class Import_Affiliates extends Batch\Import\CSV implements Batch\With_PreFetch 
 	 * Batch process ID.
 	 *
 	 * @access public
-	 * @since  2.1.6.2
+	 * @since  2.1.7
 	 * @var    string
 	 */
 	public $batch_id = 'import-affiliates';

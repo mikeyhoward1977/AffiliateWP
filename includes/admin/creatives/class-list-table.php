@@ -321,6 +321,8 @@ class AffWP_Creatives_Table extends List_Table {
 		/**
 		 * Filters the bulk actions to return in the creatives list table.
 		 *
+		 * @since 2.1.7
+		 *
 		 * @param array $actions Bulk actions.
 		 */
 		return apply_filters( 'affwp_creative_bulk_actions', $actions );
@@ -375,7 +377,7 @@ class AffWP_Creatives_Table extends List_Table {
 			 * The dynamic portion of the hook name, `$this->current_action()` refers
 			 * to the current bulk action being performed.
 			 *
-			 * @since 2.2
+			 * @since 2.1.7
 			 *
 			 * @param int $id The ID of the object.
 			 */
