@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: AffiliateWP\n"
 "Report-Msgid-Bugs-To: https://affiliatewp.com/support/\n"
 "POT-Creation-Date: 2017-11-01 22:56:22+00:00\n"
-"PO-Revision-Date: 2017-07-11 18:20+0200\n"
+"PO-Revision-Date: 2017-11-02 09:35+0100\n"
 "Last-Translator: Fernando Tellado <fernando@tellado.es>\n"
 "Language-Team: Fernando Tellado <admin@ayudawordpress.com>\n"
 "Language: es_ES\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Loco-Source-Locale: es_ES\n"
-"X-Generator: Poedit 2.0\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
@@ -52,8 +52,7 @@ msgstr "Falló la verificación nonce"
 #: includes/admin/affiliates/actions.php:155
 #: includes/admin/affiliates/actions.php:159
 #: includes/admin/class-addon-updater.php:283
-#: includes/admin/class-notices.php:564
-#: includes/admin/creatives/actions.php:16
+#: includes/admin/class-notices.php:564 includes/admin/creatives/actions.php:16
 #: includes/admin/creatives/actions.php:44
 #: includes/admin/creatives/actions.php:48
 #: includes/admin/creatives/actions.php:52
@@ -65,9 +64,8 @@ msgstr "Falló la verificación nonce"
 #: includes/admin/tools/import/class-batch-import-affiliates.php:111
 #: includes/admin/tools/import/class-batch-import-referrals.php:103
 #: includes/admin/tools/import/import.php:24
-#: includes/admin/tools/import/import.php:30
-#: includes/admin/tools/tools.php:668 includes/admin/tools/tools.php:676
-#: includes/admin/tools/tools.php:686
+#: includes/admin/tools/import/import.php:30 includes/admin/tools/tools.php:668
+#: includes/admin/tools/tools.php:676 includes/admin/tools/tools.php:686
 msgid "Error"
 msgstr "Error"
 
@@ -603,10 +601,9 @@ msgstr "%1$s a %2$s"
 
 #: includes/abstracts/class-affwp-reports-tab.php:499
 #: includes/admin/referrals/class-list-table.php:568
-#: includes/admin/referrals/referrals.php:64
-#: includes/admin/tools/tools.php:152 includes/admin/tools/tools.php:308
-#: includes/admin/tools/tools.php:335 includes/admin/tools/tools.php:359
-#: includes/admin/visits/visits.php:55
+#: includes/admin/referrals/referrals.php:64 includes/admin/tools/tools.php:152
+#: includes/admin/tools/tools.php:308 includes/admin/tools/tools.php:335
+#: includes/admin/tools/tools.php:359 includes/admin/visits/visits.php:55
 msgid "Affiliate name"
 msgstr "Nombre de afiliado"
 
@@ -691,8 +688,7 @@ msgstr "No tienes permisos para borrar cuentas de afiliados"
 
 #: includes/admin/affiliates/actions.php:73
 #: includes/admin/affiliates/actions.php:159
-#: includes/admin/class-notices.php:564
-#: includes/admin/creatives/actions.php:48
+#: includes/admin/class-notices.php:564 includes/admin/creatives/actions.php:48
 #: includes/admin/referrals/actions.php:20
 #: includes/admin/referrals/actions.php:51
 #: includes/admin/referrals/actions.php:82
@@ -703,8 +699,8 @@ msgstr "La revisión de seguridad falló"
 msgid "No affiliate IDs specified for deletion"
 msgstr "Ningún ID de afiliado selecionado para eliminación"
 
-#: includes/admin/affiliates/affiliates.php:59
-#: includes/admin/class-menu.php:11 includes/admin/class-menu.php:14
+#: includes/admin/affiliates/affiliates.php:59 includes/admin/class-menu.php:11
+#: includes/admin/class-menu.php:14
 #: includes/admin/reports/tabs/class-affiliates-reports-tab.php:23
 msgid "Affiliates"
 msgstr "Afiliados"
@@ -976,8 +972,7 @@ msgstr ""
 "nombre. Esto puede cambiarse en la <a href=\"%1$s\" alt=\"%2$s\">pantalla de "
 "edición del usuario</a>."
 
-#: includes/admin/affiliates/edit.php:42
-#: includes/admin/affiliates/edit.php:147
+#: includes/admin/affiliates/edit.php:42 includes/admin/affiliates/edit.php:147
 msgid "A link to the user edit screen for this user."
 msgstr "Un enlace a la pantalla de edición de usuario de este usuario."
 
@@ -1055,8 +1050,7 @@ msgstr "Predeterminados del sitio"
 msgid "The affiliate&#8217;s referral rate type."
 msgstr "El tipo de tasa de referido del afiliado."
 
-#: includes/admin/affiliates/edit.php:174
-#: includes/admin/affiliates/new.php:100
+#: includes/admin/affiliates/edit.php:174 includes/admin/affiliates/new.php:100
 #: includes/admin/settings/class-settings.php:523
 #: includes/integrations/class-edd.php:624
 #: includes/integrations/class-memberpress.php:177
@@ -1068,8 +1062,7 @@ msgstr "El tipo de tasa de referido del afiliado."
 msgid "Referral Rate"
 msgstr "Tasa de referido"
 
-#: includes/admin/affiliates/edit.php:179
-#: includes/admin/affiliates/new.php:105
+#: includes/admin/affiliates/edit.php:179 includes/admin/affiliates/new.php:105
 msgid ""
 "The affiliate&#8217;s referral rate, such as 20 for 20%. If left blank, the "
 "site default will be used."
@@ -1089,8 +1082,7 @@ msgstr ""
 "Correo electrónico del afiliado. Actualizarlo cambiara el correo electrónico "
 "mostrado en la pagina de perfil del usuario."
 
-#: includes/admin/affiliates/edit.php:200
-#: includes/admin/affiliates/new.php:113
+#: includes/admin/affiliates/edit.php:200 includes/admin/affiliates/new.php:113
 #: includes/admin/settings/class-settings.php:830
 #: includes/admin/tools/export/class-batch-export-affiliates.php:96
 #: includes/admin/tools/export/class-batch-export-referrals.php:146
@@ -1102,8 +1094,7 @@ msgstr ""
 msgid "Payment Email"
 msgstr "Correo electrónico para pagos"
 
-#: includes/admin/affiliates/edit.php:205
-#: includes/admin/affiliates/new.php:118
+#: includes/admin/affiliates/edit.php:205 includes/admin/affiliates/new.php:118
 msgid ""
 "Affiliate&#8217;s payment email for systems such as PayPal, Moneybookers, or "
 "others. Leave blank to use the affiliate&#8217;s user email."
@@ -1120,13 +1111,11 @@ msgid "Promotion methods entered by the affiliate during registration."
 msgstr ""
 "Los métodos de promoción introducidos por el afiliado durante el registro."
 
-#: includes/admin/affiliates/edit.php:226
-#: includes/admin/affiliates/new.php:126
+#: includes/admin/affiliates/edit.php:226 includes/admin/affiliates/new.php:126
 msgid "Affiliate Notes"
 msgstr "Notas del afiliado"
 
-#: includes/admin/affiliates/edit.php:231
-#: includes/admin/affiliates/new.php:131
+#: includes/admin/affiliates/edit.php:231 includes/admin/affiliates/new.php:131
 msgid ""
 "Enter any notes for this affiliate. Notes are only visible to the admin."
 msgstr ""
@@ -1147,20 +1136,19 @@ msgid "New Affiliate"
 msgstr "Nuevo afiliado"
 
 #: includes/admin/affiliates/new.php:18
-#, fuzzy
 msgid ""
 "Use this form to create a new affiliate account. Each affiliate is tied "
 "directly to a user account, so if the user account for the affiliate does "
 "not yet exist, <a href=\"%s\" target=\"_blank\">create one</a>."
 msgstr ""
-"Usa esta pantalla para registrar nuevos afiliados. Cada afiliado esta ligado "
-"directamente a una cuenta de usuario, así que, si no existe aún cuenta de "
-"usuario para un afiliado <a href=\"%s\" target=\"_blank\">crea una</a>."
+"Usa este formulario para crear una nueva cuenta de afiliado. Cada afiliado "
+"esta ligado directamente a una cuenta de usuario, así que, si no existe aún "
+"cuenta de usuario para un afiliado <a href=\"%s\" target=\"_blank\">crea "
+"una</a>."
 
 #: includes/admin/affiliates/new.php:25
-#, fuzzy
 msgid "User login name"
-msgstr "Nombre de usuario"
+msgstr "Nombre de usuario para acceder"
 
 #: includes/admin/affiliates/new.php:32
 msgid ""
@@ -1171,25 +1159,24 @@ msgstr ""
 "la cuenta de usuario asociada."
 
 #: includes/admin/affiliates/new.php:40
-#, fuzzy
 msgid "User email"
-msgstr "Correo electrónico del cliente"
+msgstr "Correo electrónico del usuario"
 
 #: includes/admin/affiliates/new.php:45
-#, fuzzy
 msgid "Enter an email address for the new user."
-msgstr "Introduce una tasa de referido para %s"
+msgstr "Introduce una dirección de correo electrónico para el nuevo usuario."
 
 #: includes/admin/affiliates/new.php:53
-#, fuzzy
 msgid "User Password"
-msgstr "Contraseña"
+msgstr "Contraseña del usuario"
 
 #: includes/admin/affiliates/new.php:57
 msgid ""
 "The password will be auto-generated and can be reset by the user or an "
 "administrator after the account is created."
 msgstr ""
+"La contraseña se generará automáticamente y puede restablecerla el usuario o "
+"un administrador una vez se haya creado la cuenta."
 
 #: includes/admin/affiliates/new.php:74
 msgid "The status assigned to the affiliate&#8217;s account."
@@ -1958,18 +1945,16 @@ msgid "Apply"
 msgstr "Solicitar"
 
 #: includes/admin/referrals/class-list-table.php:574
-#: includes/admin/referrals/referrals.php:67
-#: includes/admin/tools/tools.php:310 includes/admin/tools/tools.php:337
-#: includes/admin/tools/tools.php:361 includes/admin/visits/visits.php:58
-#: includes/class-graph.php:419
+#: includes/admin/referrals/referrals.php:67 includes/admin/tools/tools.php:310
+#: includes/admin/tools/tools.php:337 includes/admin/tools/tools.php:361
+#: includes/admin/visits/visits.php:58 includes/class-graph.php:419
 msgid "From - mm/dd/yyyy"
 msgstr "Desde - mm/dd/yyyy"
 
 #: includes/admin/referrals/class-list-table.php:575
-#: includes/admin/referrals/referrals.php:68
-#: includes/admin/tools/tools.php:311 includes/admin/tools/tools.php:338
-#: includes/admin/tools/tools.php:362 includes/admin/visits/visits.php:59
-#: includes/class-graph.php:421
+#: includes/admin/referrals/referrals.php:68 includes/admin/tools/tools.php:311
+#: includes/admin/tools/tools.php:338 includes/admin/tools/tools.php:362
+#: includes/admin/visits/visits.php:59 includes/class-graph.php:421
 msgid "To - mm/dd/yyyy"
 msgstr "Hasta - mm/dd/yyyy"
 
@@ -2971,51 +2956,45 @@ msgstr ""
 "Accede a tu área de afiliado para ver las ganancias o desactiva estos avisos:"
 
 #: includes/admin/settings/class-settings.php:695
-#, fuzzy
 msgid "Notify Admin of Referrals"
-msgstr "Avisos a administradores"
+msgstr "Aviso a administradores de referidos"
 
 #: includes/admin/settings/class-settings.php:696
-#, fuzzy
 msgid "Notify site admin when new referrals are earned."
-msgstr "Avisar a los administrares de nuevos registros de afiliados."
+msgstr "Avisar a los administrares cuando se consigan nuevos referidos."
 
 #: includes/admin/settings/class-settings.php:700
-#, fuzzy
 msgid "New Referral Admin Email Subject"
 msgstr "Asunto de correo electrónico de nuevo referido"
 
 #: includes/admin/settings/class-settings.php:701
-#, fuzzy
 msgid ""
 "Enter the subject line for the email sent to site the site administrator "
 "when affiliates earn referrals."
-msgstr "Introduce el mensaje a enviar cuando los afiliados ganen referidos."
+msgstr ""
+"Introduce el asunto del corro electrónico a enviar al administrador del "
+"sitio cuando los afiliados ganen referidos."
 
 #: includes/admin/settings/class-settings.php:703
 #: includes/emails/actions.php:306
-#, fuzzy
 msgid "Referral Earned!"
 msgstr "¡Has conseguido un referido!"
 
 #: includes/admin/settings/class-settings.php:706
-#, fuzzy
 msgid "New Referral Admin Email Content"
 msgstr "Contenido del correo electrónico de nuevo referido"
 
 #: includes/admin/settings/class-settings.php:707
-#, fuzzy
 msgid ""
 "Enter the email to send to site administrators when new referrals are "
 "earned. HTML is accepted. Available template tags:"
 msgstr ""
-"Introduce el mensaje a enviar a los nuevos referidos. Puedes usar HTML. "
-"Etiquetas de plantilla disponibles:"
+"Introduce el mensaje a enviar a los administradores del sitio cuando se "
+"ganen nuevos referidos. Puedes usar HTML. Etiquetas de plantilla disponibles:"
 
 #: includes/admin/settings/class-settings.php:709
-#, fuzzy
 msgid "{name} has been awarded a new referral of {amount} on {site_name}."
-msgstr "Usted ha obtenido un nuevo referido de %s en %s!"
+msgstr "{name} ha obtenido un nuevo referido de {amount} en {site_name}."
 
 #: includes/admin/settings/class-settings.php:723
 msgid "Allow Affiliate Registration"
@@ -3168,14 +3147,13 @@ msgid "Opt into Beta Versions"
 msgstr "Probar las versiones beta"
 
 #: includes/admin/settings/class-settings.php:789
-#, fuzzy
 msgid ""
 "Receive update notifications for beta releases. When beta versions are "
 "available, an update notification will be shown on your Plugins page."
 msgstr ""
 "Recibe avisos de actualización cuando haya versiones beta. Cuando haya "
 "disponibles versiones beta se mostrará un aviso de actualización en tu "
-"página de plugins.\n"
+"página de plugins."
 
 #: includes/admin/settings/class-settings.php:793
 msgid "Remove Data on Uninstall"
@@ -3465,9 +3443,8 @@ msgid "Email"
 msgstr "Correo electrónico"
 
 #: includes/admin/tools/export/class-batch-export-affiliates.php:94
-#, fuzzy
 msgid "First Name"
-msgstr "Nombre/Nombre completo"
+msgstr "Nombre"
 
 #: includes/admin/tools/export/class-batch-export-affiliates.php:95
 #: includes/misc-functions.php:1087 tests/misc/test-misc-functions.php:372
@@ -3814,14 +3791,13 @@ msgid "Export payouts to a CSV file."
 msgstr "Exportar afiliados a un archivo CSV."
 
 #: includes/admin/tools/tools.php:343
-#, fuzzy
 msgid ""
 "To search for an affiliate, enter the affiliate&#8217;s login name, first "
 "name, or last name. Leave blank to export payouts for all affiliates."
 msgstr ""
-"Para buscar un afiliado inroduce el nombre de acceso, nombre o apellido del "
-"afiliado. Déjalo en blanco para exportar los referidos de todos los "
-"afiliados."
+"Para buscar un afiliado introduce el nombre de usuario de acceso, el nombre "
+"o el apellido del afiliado. Déjalo en blanco para exportar los pagos de "
+"todos los afiliados."
 
 #: includes/admin/tools/tools.php:353
 msgid "Export Visits"
@@ -3836,14 +3812,13 @@ msgid "Unconverted"
 msgstr "Sin convertir"
 
 #: includes/admin/tools/tools.php:368
-#, fuzzy
 msgid ""
 "To search for an affiliate, enter the affiliate&#8217;s login name, first "
 "name, or last name. Leave blank to export visits for all affiliates."
 msgstr ""
-"Para buscar un afiliado inroduce el nombre de acceso, nombre o apellido del "
-"afiliado. Déjalo en blanco para exportar los referidos de todos los "
-"afiliados."
+"Para buscar un afiliado introduce el nombre de usuario de acceso, nombre o "
+"apellido del afiliado. Déjalo en blanco para exportar llas visitas de todos "
+"los afiliados."
 
 #: includes/admin/tools/tools.php:378
 msgid "Export Settings"
@@ -5418,7 +5393,7 @@ msgstr "Yen Japonés (&yen;)"
 
 #: includes/misc-functions.php:50
 msgid "Kenyan Shilling"
-msgstr ""
+msgstr "Kenyan Shilling"
 
 #: includes/misc-functions.php:51
 msgid "Kazakhstani Tenge"
@@ -5600,16 +5575,16 @@ msgid ""
 "The user you entered does not exist. Enter an email below to create a new "
 "user and affiliate at the same time."
 msgstr ""
+"El usuario que has introducido no existe. Introduce abajo un correo "
+"electrónico para crear un nuevo usuario y afiliado al mismo tiempo."
 
 #: includes/scripts.php:136
-#, fuzzy
 msgid "An affiliate already exists for this username."
-msgstr "Ya existe un afiliado para esta cuenta de usuario."
+msgstr "Ya existe un afiliado para este nombre de usuario."
 
 #: includes/scripts.php:137
-#, fuzzy
 msgid "View Affiliate"
-msgstr "Nuevo afiliado"
+msgstr "Ver afiliado"
 
 #: includes/scripts.php:178
 msgid "Please enter a valid URL for this site"
@@ -6303,9 +6278,9 @@ msgstr "Directo"
 #~ msgstr "Un panel de información para tus afiliados"
 
 #~ msgid ""
-#~ "The Affiliate Area, shown on any page containing the <em>[affiliate_area]"
-#~ "</em> shortcode, gives your affiliates access to their performance "
-#~ "reports."
+#~ "The Affiliate Area, shown on any page containing the "
+#~ "<em>[affiliate_area]</em> shortcode, gives your affiliates access to "
+#~ "their performance reports."
 #~ msgstr ""
 #~ "El área de afiliados se mostrara en cualquier pagina que contenga el "
 #~ "shortcode <em>[affiliate_area]</em> dando a tus afiliados acceso a sus "
