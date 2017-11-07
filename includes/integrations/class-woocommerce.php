@@ -21,6 +21,7 @@ class Affiliate_WP_WooCommerce extends Affiliate_WP_Base {
 		$this->context = 'woocommerce';
 
 		add_action( 'woocommerce_checkout_order_processed', array( $this, 'add_pending_referral' ), 10 );
+		add_action( 'woocommerce_new_order', array( $this, 'add_pending_referral' ), 10 );
 
 		// There should be an option to choose which of these is used
 		add_action( 'woocommerce_order_status_completed', array( $this, 'mark_referral_complete' ), 10 );
@@ -67,6 +68,14 @@ class Affiliate_WP_WooCommerce extends Affiliate_WP_Base {
 	 * @since   1.0
 	*/
 	public function add_pending_referral( $order_id = 0 ) {
+
+		if( function_exists( 'doing_action' ) ) {
+
+			if( doing_action( 'woocommerce_new_order' ) && did_action( 'woocommerce_checkout_order_processed' ) ) {
+				return; // prevent the pending referral from being created twice
+			}
+
+		}
 
 		$this->order = apply_filters( 'affwp_get_woocommerce_order', new WC_Order( $order_id ) );
 
