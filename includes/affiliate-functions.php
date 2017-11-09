@@ -1164,11 +1164,24 @@ function affwp_add_affiliate( $data = array() ) {
 			$username = sanitize_user( $data['user_email'] );
 		}
 
-		$user_id = wp_insert_user( array(
+		$user_args = array(
 			'user_email' => sanitize_text_field( $data['user_email'] ),
 			'user_login' => $username,
 			'user_pass'  => wp_generate_password( 24 ),
-		) );
+		);
+
+		/**
+		 * Filters the arguments used for creating new users when adding an affiliate.
+		 *
+		 * @since 2.1.8
+		 *
+		 * @param array $user_args Arguments passed to wp_insert_user().
+		 * @param array $data      Arguments passed to affwp_add_affiliate().
+		 */
+		$user_args = apply_filters( 'affwp_add_affiliate_user_args', $user_args, $data );
+
+		// Create the user account.
+		$user_id = wp_insert_user( $user_args );
 
 		if ( is_wp_error( $user_id ) ) {
 			return false;
