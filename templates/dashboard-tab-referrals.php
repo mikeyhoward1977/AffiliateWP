@@ -69,7 +69,7 @@ $affiliate_id = affwp_get_affiliate_id();
 			<?php else : ?>
 
 				<tr>
-					<td class="affwp-table-no-data" colspan="4"><?php _e( 'You have not made any referrals yet.', 'affiliate-wp' ); ?></td>
+					<td class="affwp-table-no-data" colspan="5"><?php _e( 'You have not made any referrals yet.', 'affiliate-wp' ); ?></td>
 				</tr>
 
 			<?php endif; ?>
