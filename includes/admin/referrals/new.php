@@ -50,7 +50,7 @@
 				</th>
 
 				<td>
-					<input type="text" name="date" id="date" class="affwp-datepicker" autocomplete="off" placeholder="<?php echo esc_attr( date_i18n( 'm/d/y', strtotime( 'today' ) ) ); ?>"/>
+					<input type="text" name="date" id="date" class="affwp-datepicker" autocomplete="off" placeholder="<?php echo esc_attr( affwp_date_i18n( strtotime( 'today' ), 'm/d/y' ) ); ?>"/>
 				</td>
 
 			</tr>
@@ -90,6 +90,19 @@
 				<td>
 					<input type="text" name="context" id="context" />
 					<p class="description"><?php _e( 'Enter a context for this referral (optional). Usually this is used to help identify the payment system that was used for the transaction.', 'affiliate-wp' ); ?></p>
+				</td>
+
+			</tr>
+
+			<tr class="form-row form-required">
+
+				<th scope="row">
+					<label for="context"><?php _e( 'Custom', 'affiliate-wp' ); ?></label>
+				</th>
+
+				<td>
+					<input type="text" name="custom" id="custom" />
+					<p class="description"><?php _e( 'Any custom data that should be stored with the referral (optional).', 'affiliate-wp' ); ?></p>
 				</td>
 
 			</tr>

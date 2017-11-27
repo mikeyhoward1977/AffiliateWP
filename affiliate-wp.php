@@ -5,7 +5,7 @@
  * Description: Affiliate Plugin for WordPress
  * Author: AffiliateWP, LLC
  * Author URI: https://affiliatewp.com
- * Version: 2.0.2
+ * Version: 2.1.8
  * Text Domain: affiliate-wp
  * Domain Path: languages
  *
@@ -24,7 +24,7 @@
  * @package AffiliateWP
  * @category Core
  * @author Pippin Williamson
- * @version 2.0.2
+ * @version 2.1.8
  */
 
 // Exit if accessed directly
@@ -56,7 +56,7 @@ final class Affiliate_WP {
 	 * @since  1.0
 	 * @var    string
 	 */
-	private $version = '2.0.2';
+	private $version = '2.1.8';
 
 	/**
 	 * The affiliates DB instance variable.
@@ -346,6 +346,7 @@ final class Affiliate_WP {
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-affwp-visit.php';
 
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/actions.php';
+		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/abstracts/class-affwp-registry.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/admin/settings/class-settings.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/abstracts/class-db.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-affiliates-db.php';
@@ -388,12 +389,13 @@ final class Affiliate_WP {
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/emails/class-affwp-emails.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/emails/functions.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/emails/actions.php';
+		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/date-functions.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-graph.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-referrals-graph.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-visits-graph.php';
+		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/admin/reports/class-payouts-graph.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-integrations.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-login.php';
-		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-logging.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-referrals-db.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-register.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/class-templates.php';

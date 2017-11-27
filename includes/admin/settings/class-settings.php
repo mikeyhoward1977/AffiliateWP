@@ -424,6 +424,19 @@ class Affiliate_WP_Settings {
 
 		$emails_tags_list = affwp_get_emails_tags_list();
 
+		$referral_pretty_urls_desc = sprintf( __( 'Show pretty affiliate referral URLs to affiliates. For example: <strong>%s or %s</strong>', 'affiliate-wp' ),
+			home_url( '/' ) . affiliate_wp()->tracking->get_referral_var() . '/1',
+			home_url( '/' ) . trailingslashit( affiliate_wp()->tracking->get_referral_var() ) . $username
+		);
+
+		/*
+		 * If both WooCommerce and Polylang are active, show a modified
+		 * description for the pretty affiliate URLs setting.
+		 */
+		if ( function_exists( 'WC' ) && class_exists( 'Polylang' ) ) {
+			$referral_pretty_urls_desc .= '<p>' . __( 'Note: Pretty affiliate URLs may not always work as expected when using AffiliateWP in combination with WooCommerce and Polylang.', 'affiliate-wp' ) . '</p>';
+		}
+
 		$settings = array(
 			/**
 			 * Filters the default "General" settings.
@@ -492,7 +505,7 @@ class Affiliate_WP_Settings {
 					),
 					'referral_pretty_urls' => array(
 						'name' => __( 'Pretty Affiliate URLs', 'affiliate-wp' ),
-						'desc' => sprintf( __( 'Show pretty affiliate referral URLs to affiliates. For example: <strong>%s or %s</strong>', 'affiliate-wp' ), home_url( '/' ) . affiliate_wp()->tracking->get_referral_var() . '/1', home_url( '/' ) . trailingslashit( affiliate_wp()->tracking->get_referral_var() ) . $username ),
+						'desc' => $referral_pretty_urls_desc,
 						'type' => 'checkbox'
 					),
 					'referral_credit_last' => array(
@@ -677,6 +690,23 @@ class Affiliate_WP_Settings {
 						'desc' => __( 'Enter the email to send on new referrals. HTML is accepted. Available template tags:', 'affiliate-wp' ) . '<br />' . $emails_tags_list,
 						'type' => 'rich_editor',
 						'std' => __( 'Congratulations {name}!', 'affiliate-wp' ) . "\n\n" . __( 'You have been awarded a new referral of', 'affiliate-wp' ) . ' {amount} ' . sprintf( __( 'on %s!', 'affiliate-wp' ), home_url() ) . "\n\n" . __( 'Log into your affiliate area to view your earnings or disable these notifications:', 'affiliate-wp' ) . ' {login_url}'
+					),
+					'admin_referral_notifications' => array(
+						'name' => __( 'Notify Admin of Referrals', 'affiliate-wp' ),
+						'desc' => __( 'Notify site admin when new referrals are earned.', 'affiliate-wp' ),
+						'type' => 'checkbox'
+					),
+					'new_admin_referral_subject' => array(
+						'name' => __( 'New Referral Admin Email Subject', 'affiliate-wp' ),
+						'desc' => __( 'Enter the subject line for the email sent to site the site administrator when affiliates earn referrals.', 'affiliate-wp' ),
+						'type' => 'text',
+						'std' => __( 'Referral Earned!', 'affiliate-wp' )
+					),
+					'new_admin_referral_email' => array(
+						'name' => __( 'New Referral Admin Email Content', 'affiliate-wp' ),
+						'desc' => __( 'Enter the email to send to site administrators when new referrals are earned. HTML is accepted. Available template tags:', 'affiliate-wp' ) . '<br />' . $emails_tags_list,
+						'type' => 'rich_editor',
+						'std' => __( '{name} has been awarded a new referral of {amount} on {site_name}.', 'affiliate-wp' )
 					)
 				)
 			),
@@ -756,8 +786,7 @@ class Affiliate_WP_Settings {
 					),
 					'betas' => array(
 						'name' => __( 'Opt into Beta Versions', 'affiliate-wp' ),
-						'desc' => __( 'Receive update notifications for beta releases. When beta versions are available, an update notification will be shown on your Plugins page.
-', 'affiliate-wp' ),
+						'desc' => __( 'Receive update notifications for beta releases. When beta versions are available, an update notification will be shown on your Plugins page.', 'affiliate-wp' ),
 						'type' => 'checkbox'
 					),
 					'uninstall_on_delete' => array(
@@ -1381,7 +1410,7 @@ class Affiliate_WP_Settings {
 
 	}
 
-	public function check_license() {
+	public function check_license( $force = false ) {
 
 		if( ! empty( $_POST['affwp_settings'] ) ) {
 			return; // Don't fire when saving settings
@@ -1392,8 +1421,7 @@ class Affiliate_WP_Settings {
 		$request_url = 'https://affiliatewp.com';
 
 		// Run the license check a maximum of once per day
-		if( false === $status && site_url() !== $request_url ) {
-
+		if( ( false === $status || $force ) && site_url() !== $request_url ) {
 			// data to send in our API request
 			$api_params = array(
 				'edd_action'=> 'check_license',

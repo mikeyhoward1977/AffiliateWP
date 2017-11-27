@@ -71,7 +71,7 @@ class AffWP_Creatives_Table extends List_Table {
 	public function __construct( $args = array() ) {
 		$args = wp_parse_args( $args, array(
 			'singular' => 'creative',
-			'plurla'   => 'creatives',
+			'plural'   => 'creatives',
 		) );
 
 		parent::__construct( $args );
@@ -112,6 +112,7 @@ class AffWP_Creatives_Table extends List_Table {
 	 */
 	public function get_columns() {
 		$columns = array(
+			'cb'        => '<input type="checkbox" />',
 			'name'      => __( 'Name', 'affiliate-wp' ),
 			'url'       => __( 'URL', 'affiliate-wp' ),
 			'shortcode' => __( 'Shortcode', 'affiliate-wp' ),
@@ -163,6 +164,19 @@ class AffWP_Creatives_Table extends List_Table {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Renders the checkbox column in the creatives list table.
+	 *
+	 * @access public
+	 * @since  2.2
+	 *
+	 * @param \AffWP\Creative $creative The current creative object.
+	 * @return string Displays a checkbox.
+	 */
+	function column_cb( $creative ) {
+		return '<input type="checkbox" name="creative_id[]" value="' . absint( $creative->creative_id ) . '" />';
 	}
 
 	/**
@@ -290,6 +304,31 @@ class AffWP_Creatives_Table extends List_Table {
 	}
 
 	/**
+	 * Retrieve the bulk actions
+	 *
+	 * @access public
+	 * @since 2.2
+	 * @return array $actions Array of the bulk actions
+	 */
+	public function get_bulk_actions() {
+
+		$actions = array(
+			'activate'   => __( 'Activate', 'affiliate-wp' ),
+			'deactivate' => __( 'Deactivate', 'affiliate-wp' ),
+			'delete'     => __( 'Delete', 'affiliate-wp' )
+		);
+
+		/**
+		 * Filters the bulk actions to return in the creatives list table.
+		 *
+		 * @since 2.1.7
+		 *
+		 * @param array $actions Bulk actions.
+		 */
+		return apply_filters( 'affwp_creative_bulk_actions', $actions );
+	}
+
+	/**
 	 * Process the bulk actions
 	 *
 	 * @access public
@@ -298,12 +337,12 @@ class AffWP_Creatives_Table extends List_Table {
 	 */
 	public function process_bulk_action() {
 
-		if( empty( $_REQUEST['_wpnonce'] ) ) {
+		if ( empty( $_REQUEST['_wpnonce'] ) ) {
 			return;
 		}
-
-		if( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'affwp-creative-nonce' ) ) {
-			return;
+		
+		if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'bulk-creatives' ) && ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'affwp-creative-nonce' ) ) {
+		 	return;
 		}
 
 		$ids = isset( $_GET['creative_id'] ) ? $_GET['creative_id'] : false;
@@ -331,6 +370,18 @@ class AffWP_Creatives_Table extends List_Table {
 			if ( 'deactivate' === $this->current_action() ) {
 				affwp_set_creative_status( $id, 'inactive' );
 			}
+
+			/**
+			 * Fires after a creative bulk action is performed.
+			 *
+			 * The dynamic portion of the hook name, `$this->current_action()` refers
+			 * to the current bulk action being performed.
+			 *
+			 * @since 2.1.7
+			 *
+			 * @param int $id The ID of the object.
+			 */
+			do_action( 'affwp_creatives_do_bulk_action_' . $this->current_action(), $id );
 
 		}
 
@@ -376,6 +427,10 @@ class AffWP_Creatives_Table extends List_Table {
 
 		$creatives = affiliate_wp()->creatives->get_creatives( $args );
 
+		// Retrieve the "current" total count for pagination purposes.
+		$args['number']      = -1;
+		$this->current_count = affiliate_wp()->creatives->count( $args );
+
 		return $creatives;
 
 	}
@@ -414,18 +469,17 @@ class AffWP_Creatives_Table extends List_Table {
 				$total_items = $this->inactive_count;
 				break;
 			case 'any':
-				$total_items = $this->total_count;
+				$total_items = $this->current_count;
 				break;
 		}
 
 		$this->items = $data;
 
 		$this->set_pagination_args( array(
-				'total_items' => $total_items,
-				'per_page'    => $per_page,
-				'total_pages' => ceil( $total_items / $per_page )
-			)
-		);
+			'total_items' => $total_items,
+			'per_page'    => $per_page,
+			'total_pages' => ceil( $total_items / $per_page )
+		) );
 
 	}
 }

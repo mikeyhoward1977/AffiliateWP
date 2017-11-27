@@ -41,6 +41,20 @@ class Affiliate_WP_RCP extends Affiliate_WP_Base {
 
 		$affiliate_discount = false;
 
+		$member           = new RCP_Member( $user_id );
+		$subscription_key = rcp_get_subscription_key( $user_id );
+		$subscription     = rcp_get_subscription( $user_id );
+
+		$key = $member->get_pending_subscription_key();
+		if( empty( $key ) ) {
+			$key = $subscription_key;
+		}
+
+		$pending_subscription = $member->get_pending_subscription_name();
+		if( ! empty( $pending_subscription ) ) {
+			$subscription = $pending_subscription;
+		}
+
 		if( function_exists( 'rcp_get_registration' ) ) {
 
 			global $rcp_levels_db;
@@ -53,6 +67,8 @@ class Affiliate_WP_RCP extends Affiliate_WP_Base {
 				return;
 
 			}
+
+			$price = rcp_get_registration()->get_total( true, false );
 
 		} else {
 
@@ -67,12 +83,9 @@ class Affiliate_WP_RCP extends Affiliate_WP_Base {
 			$rcp_discounts = new RCP_Discounts;
 			$discount_obj  = $rcp_discounts->get_by( 'code', $_POST['rcp_discount'] );
 			$affiliate_id  = $wpdb->get_var( $wpdb->prepare( "SELECT meta_value FROM $wpdb->usermeta WHERE meta_key = %s", 'affwp_discount_rcp_' . $discount_obj->id ) );
-			$user_id       = affwp_get_affiliate_user_id( $affiliate_id );
-			$discount_aff  = get_user_meta( $user_id, 'affwp_discount_rcp_' . $discount_obj->id, true );
-
-			$subscription_key = rcp_get_subscription_key( $user_id );
-			$subscription = rcp_get_subscription( $user_id );
-			$visit_id    = affiliate_wp()->tracking->get_visit_id();
+			$aff_user_id   = affwp_get_affiliate_user_id( $affiliate_id );
+			$discount_aff  = get_user_meta( $aff_user_id, 'affwp_discount_rcp_' . $discount_obj->id, true );
+			$visit_id      = affiliate_wp()->tracking->get_visit_id();
 
 			if( $discount_aff && affiliate_wp()->tracking->is_valid_affiliate( $affiliate_id ) ) {
 
@@ -80,18 +93,11 @@ class Affiliate_WP_RCP extends Affiliate_WP_Base {
 
 				$this->affiliate_id = $affiliate_id;
 
-				$key = get_user_meta( $user_id, 'rcp_pending_subscription_key', true );
-				if( empty( $key ) ) {
-					$key = $subscription_key;
-				}
-
 				$amount = $this->calculate_referral_amount( $price, $key, absint( $_POST['rcp_level'] ) );
 
 				if( 0 == $amount && affiliate_wp()->settings->get( 'ignore_zero_referrals' ) ) {
 
-					if( $this->debug ) {
-						$this->log( 'Referral not created due to 0.00 amount.' );
-					}
+					$this->log( 'Referral not created due to 0.00 amount.' );
 
 					return false; // Ignore a zero amount referral
 				}
@@ -115,19 +121,9 @@ class Affiliate_WP_RCP extends Affiliate_WP_Base {
 
 			if ( $this->is_affiliate_email( $user->user_email ) ) {
 
-				if( $this->debug ) {
-					$this->log( 'Referral not created because affiliate\'s own account was used.' );
-				}
+				$this->log( 'Referral not created because affiliate\'s own account was used.' );
 
 				return; // Customers cannot refer themselves
-			}
-
-			$subscription_key = rcp_get_subscription_key( $user_id );
-			$subscription     = rcp_get_subscription( $user_id );
-
-			$key = get_user_meta( $user_id, 'rcp_pending_subscription_key', true );
-			if( empty( $key ) ) {
-				$key = $subscription_key;
 			}
 
 			$total = $this->calculate_referral_amount( $price, $key, $subscription_id );
@@ -434,4 +430,7 @@ class Affiliate_WP_RCP extends Affiliate_WP_Base {
 	}
 
 }
-new Affiliate_WP_RCP;
+
+if ( function_exists( 'rcp_options_install' ) ) {
+	new Affiliate_WP_RCP;
+}

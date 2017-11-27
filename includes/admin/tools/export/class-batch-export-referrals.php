@@ -211,7 +211,7 @@ class Export_Referrals extends Batch\Export\CSV implements Batch\With_PreFetch {
 					'reference'     => $referral->reference,
 					'context'       => $referral->context,
 					'status'        => $referral->status,
-					'date'          => $referral->date
+					'date'          => $referral->date_i18n( 'datetime' ),
 				), $referral );
 
 				// Add slashing.
@@ -224,7 +224,7 @@ class Export_Referrals extends Batch\Export\CSV implements Batch\With_PreFetch {
 
 		}
 
-		return $data;
+		return $this->prepare_data( $data );
 	}
 
 	/**

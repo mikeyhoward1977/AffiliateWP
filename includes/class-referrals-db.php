@@ -102,7 +102,7 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 	public function get_column_defaults() {
 		return array(
 			'affiliate_id' => 0,
-			'date'         => date( 'Y-m-d H:i:s' ),
+			'date'         => gmdate( 'Y-m-d H:i:s' ),
 			'currency'     => affwp_get_currency()
 		);
 	}
@@ -144,7 +144,19 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 			$args['products'] = maybe_serialize( $args['products'] );
 		}
 
-		$add  = $this->insert( $args, 'referral' );
+		if ( ! empty( $args['custom'] ) ) {
+			$args['custom']	 = maybe_serialize( $args['custom'] );
+		}
+
+		if ( empty( $args['date'] ) ) {
+			unset( $args['date'] );
+		} else {
+			$time = strtotime( $args['date'] );
+
+			$args['date'] = gmdate( 'Y-m-d H:i:s', $time - affiliate_wp()->utils->wp_offset );
+		}
+
+		$add = $this->insert( $args, 'referral' );
 
 		if ( $add ) {
 
@@ -184,31 +196,42 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 			$args['products'] = maybe_serialize( $data['products'] );
 		}
 
-		if ( ! empty( $data['date'] ) ) {
-			$args['date'] = date_i18n( 'Y-m-d H:i:s', strtotime( $data['date'] ) );
+		if ( ! empty( $data['date' ] ) && $data['date'] !== $referral->date ) {
+			$timestamp    = strtotime( $data['date'] ) - affiliate_wp()->utils->wp_offset;
+			$args['date'] = gmdate( 'Y-m-d H:i:s', $timestamp );
 		}
 
 		$args['affiliate_id']  = ! empty( $data['affiliate_id' ] ) ? absint( $data['affiliate_id'] )             : $referral->affiliate_id;
 		$args['visit_id']      = ! empty( $data['visit_id' ] )     ? absint( $data['visit_id'] )                 : $referral->visit_id;
 		$args['description']   = ! empty( $data['description' ] )  ? sanitize_text_field( $data['description'] ) : '';
-		$args['status']        = ! empty( $data['status'] )        ? sanitize_key( $data['status'] )             : '';
-		$args['amount']        = ! empty( $data['amount'] )        ? affwp_sanitize_amount( $data['amount'] )    : '';
+		$args['amount']        = ! empty( $data['amount'] )        ? affwp_sanitize_amount( $data['amount'] )    : $referral->amount;
 		$args['currency']      = ! empty( $data['currency'] )      ? sanitize_text_field( $data['currency'] )    : '';
 		$args['custom']        = ! empty( $data['custom'] )        ? sanitize_text_field( $data['custom'] )      : '';
 		$args['context']       = ! empty( $data['context'] )       ? sanitize_text_field( $data['context'] )     : '';
 		$args['campaign']      = ! empty( $data['campaign'] )      ? sanitize_text_field( $data['campaign'] )    : '';
 		$args['reference']     = ! empty( $data['reference'] )     ? sanitize_text_field( $data['reference'] )   : '';
 
+		/*
+		 * Deliberately defer updating the status – it will be updated instead
+		 * in affwp_set_referral_status() if changed.
+		 *
+		 * Prior to 2.1, the status was updated in the first update() call, which
+		 * resulted in affwp_set_referral_status() failing to trigger the earnings
+		 * adjustments. Now the status is only updated once as needed. See #2257.
+		 */
+		$new_status = ! empty( $data['status'] ) ? sanitize_key( $data['status'] ) : $referral->status;
+
 		$update = $this->update( $referral->ID, $args, '', 'referral' );
 
 		if( $update ) {
 
-			if( ! empty( $args['status'] ) && $referral->status !== $args['status'] ) {
+			if( ! empty( $new_status ) && $referral->status !== $new_status ) {
 
-				affwp_set_referral_status( $referral->ID, $args['status'] );
+				affwp_set_referral_status( $referral->ID, $new_status );
 
-			} elseif( 'paid' === $referral->status ) {
+			} elseif( 'paid' === $new_status && 'paid' === $referral->status ) {
 
+				// If the 'paid' status is unchanged, but the amount is, make earnings adjustments.
 				if( $referral->amount > $args['amount'] ) {
 
 					$change = $referral->amount - $args['amount'];
@@ -221,8 +244,9 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 
 				}
 
-			} elseif( 'unpaid' === $referral->status ) {
+			} elseif( 'unpaid' === $new_status && 'unpaid' === $referral->status ) {
 
+				// If the 'unpaid' status is unchanged, but the amount is, make earnings adjustments.
 				if ( $referral->amount > $args['amount'] ) {
 
 					affwp_decrease_affiliate_unpaid_earnings( $referral->affiliate_id, $referral->amount - $args['amount'] );
@@ -249,10 +273,14 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 	 *
 	 * @param string $column  Column name. See get_columns().
 	 * @param string $context Optional. Context for which to retrieve a referral. Default empty.
-	 * @return object|null Database query result object or null on failure.
+	 * @return object|false Database query result object or false on failure.
 	*/
 	public function get_by( $column, $row_id, $context = '' ) {
 		global $wpdb;
+
+		if( empty( $column ) || empty( $row_id ) ) {
+			return false;
+		}
 
 		$and = '';
 		if( ! empty( $context ) ) {
@@ -294,6 +322,8 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 	 *                                        Default empty.
 	 *     @type string       $context        Specific context to query referrals for. Default empty.
 	 *     @type string       $campaign       Specific campaign to query referrals for. Default empty.
+	 *     @type string       $description    Description to search referrals for. Fuzzy matching is permitted when
+	 *                                        `$search` is true.
 	 *     @type string|array $status         Referral status or array of statuses to query referrals for.
 	 *                                        Default empty (all).
 	 *     @type string       $orderby        Column to order results by. Accepts any valid referrals table column.
@@ -301,31 +331,33 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 	 *     @type string       $order          How to order results. Accepts 'ASC' (ascending) or 'DESC' (descending).
 	 *                                        Default 'DESC'.
 	 *     @type bool         $search         Whether a search query is being performed. Default false.
-	 *     @type string       $fields         Fields to query for. Accepts 'ids' or '*' (all). Default '*'.
+	 *     @type string|array $fields         Specific fields to retrieve. Accepts 'ids', a single referral field, or an
+	 *                                        array of fields. Default '*' (all).
 	 * }
 	 * @param   bool  $count  Optional. Whether to return only the total number of results found. Default false.
-	 * @return \AffWP\Referral[]|int|false
+	 * @return array|int Array of referral objects or field(s) (if found), int if `$count` is true.
 	*/
 	public function get_referrals( $args = array(), $count = false ) {
 
 		global $wpdb;
 
 		$defaults = array(
-			'number'       => 20,
-			'offset'       => 0,
-			'referral_id'  => 0,
-			'payout_id'    => 0,
-			'affiliate_id' => 0,
-			'amount'       => 0,
+			'number'         => 20,
+			'offset'         => 0,
+			'referral_id'    => 0,
+			'payout_id'      => 0,
+			'affiliate_id'   => 0,
+			'amount'         => 0,
 			'amount_compare' => '=',
-			'reference'    => '',
-			'context'      => '',
-			'campaign'     => '',
-			'status'       => '',
-			'orderby'      => 'referral_id',
-			'order'        => 'DESC',
-			'search'       => false,
-			'fields'       => '',
+			'description'    => '',
+			'reference'      => '',
+			'context'        => '',
+			'campaign'       => '',
+			'status'         => '',
+			'orderby'        => 'referral_id',
+			'order'          => 'DESC',
+			'search'         => false,
+			'fields'         => '',
 		);
 
 		$args  = wp_parse_args( $args, $defaults );
@@ -380,14 +412,14 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 
 			$amount = $args['amount'];
 
-			$where .= empty( $where ) ? " WHERE" : " AND";
+			$where .= empty( $where ) ? "WHERE " : "AND ";
 
 			if ( is_array( $amount ) && ! empty( $amount['min'] ) && ! empty( $amount['max'] ) ) {
 
 				$minimum = absint( $amount['min'] );
 				$maximum = absint( $amount['max'] );
 
-				$where .= " `amount` BETWEEN {$minimum} AND {$maximum}";
+				$where .= "`amount` BETWEEN {$minimum} AND {$maximum} ";
 			} else {
 
 				$amount  = absint( $amount );
@@ -401,100 +433,40 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 					}
 				}
 
-				$where .= " `amount` {$compare} {$amount}";
+				$where .= "`amount` {$compare} {$amount} ";
 			}
 		}
 
 		if( ! empty( $args['status'] ) ) {
 
-			if( empty( $where ) ) {
-				$where .= " WHERE";
-			} else {
-				$where .= " AND";
-			}
+			$where .= empty( $where ) ? "WHERE " : "AND ";
 
 			if( is_array( $args['status'] ) ) {
-				$where .= " `status` IN('" . implode( "','", array_map( 'esc_sql', $args['status'] ) ) . "') ";
+				$where .= "`status` IN('" . implode( "','", array_map( 'esc_sql', $args['status'] ) ) . "') ";
 			} else {
-				$where .= " `status` = '" . esc_sql( $args['status'] ) . "' ";
+				$where .= "`status` = '" . esc_sql( $args['status'] ) . "' ";
 			}
 
 		}
 
+		// Referrals for a date or date range
 		if( ! empty( $args['date'] ) ) {
-
-			if( is_array( $args['date'] ) ) {
-
-				if( ! empty( $args['date']['start'] ) ) {
-
-					if( false !== strpos( $args['date']['start'], ':' ) ) {
-						$format = 'Y-m-d H:i:s';
-					} else {
-						$format = 'Y-m-d 00:00:00';
-					}
-
-					$start = esc_sql( date( $format, strtotime( $args['date']['start'] ) ) );
-
-					if ( ! empty( $where ) ) {
-						$where .= " AND `date` >= '{$start}'";
-					} else {
-						$where .= " WHERE `date` >= '{$start}'";
-					}
-
-				}
-
-				if ( ! empty( $args['date']['end'] ) ) {
-
-					if ( false !== strpos( $args['date']['end'], ':' ) ) {
-						$format = 'Y-m-d H:i:s';
-					} else {
-						$format = 'Y-m-d 23:59:59';
-					}
-
-					$end = esc_sql( date( $format, strtotime( $args['date']['end'] ) ) );
-
-					if( ! empty( $where ) ) {
-						$where .= " AND `date` <= '{$end}'";
-					} else {
-						$where .= " WHERE `date` <= '{$end}'";
-					}
-
-				}
-
-			} else {
-
-				$year  = date( 'Y', strtotime( $args['date'] ) );
-				$month = date( 'm', strtotime( $args['date'] ) );
-				$day   = date( 'd', strtotime( $args['date'] ) );
-
-				if( empty( $where ) ) {
-					$where .= " WHERE";
-				} else {
-					$where .= " AND";
-				}
-
-				$where .= " $year = YEAR ( date ) AND $month = MONTH ( date ) AND $day = DAY ( date )";
-			}
-
+			$where = $this->prepare_date_query( $where, $args['date'] );
 		}
 
 		if( ! empty( $args['reference'] ) ) {
 
-			if( empty( $where ) ) {
-				$where .= " WHERE";
-			} else {
-				$where .= " AND";
-			}
+			$where .= empty( $where ) ? "WHERE " : "AND ";
 
 			if( is_array( $args['reference'] ) ) {
-				$where .= " `reference` IN(" . implode( ',', array_map( 'esc_sql', $args['reference'] ) ) . ") ";
+				$where .= "`reference` IN(" . implode( ',', array_map( 'esc_sql', $args['reference'] ) ) . ") ";
 			} else {
 				$reference = esc_sql( $args['reference'] );
 
 				if( ! empty( $args['search'] ) ) {
-					$where .= " `reference` LIKE '%%" . $reference . "%%' ";
+					$where .= "`reference` LIKE '%%" . $reference . "%%' ";
 				} else {
-					$where .= " `reference` = '" . $reference . "' ";
+					$where .= "`reference` = '" . $reference . "' ";
 				}
 			}
 
@@ -502,21 +474,17 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 
 		if( ! empty( $args['context'] ) ) {
 
-			if( empty( $where ) ) {
-				$where .= " WHERE";
-			} else {
-				$where .= " AND";
-			}
+			$where .= empty( $where ) ? "WHERE " : "AND ";
 
 			if( is_array( $args['context'] ) ) {
-				$where .= " `context` IN('" . implode( "','", array_map( 'esc_sql', $args['context'] ) ) . "') ";
+				$where .= "`context` IN('" . implode( "','", array_map( 'esc_sql', $args['context'] ) ) . "') ";
 			} else {
 				$context = esc_sql( $args['context'] );
 
 				if ( ! empty( $args['search'] ) ) {
-					$where .= " `context` LIKE '%%" . $context . "%%' ";
+					$where .= "`context` LIKE '%%" . $context . "%%' ";
 				} else {
-					$where .= " `context` = '" . $context . "' ";
+					$where .= "`context` = '" . $context . "' ";
 				}
 			}
 
@@ -524,24 +492,34 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 
 		if( ! empty( $args['campaign'] ) ) {
 
-			if( empty( $where ) ) {
-				$where .= " WHERE";
-			} else {
-				$where .= " AND";
-			}
+			$where .= empty( $where ) ? "WHERE " : "AND ";
 
 			if( is_array( $args['campaign'] ) ) {
-				$where .= " `campaign` IN(" . implode( ',', array_map( 'esc_sql', $args['campaign'] ) ) . ") ";
+				$where .= "`campaign` IN(" . implode( ',', array_map( 'esc_sql', $args['campaign'] ) ) . ") ";
 			} else {
 				$campaign = esc_sql( $args['campaign'] );
 
 				if ( ! empty( $args['search'] ) ) {
-					$where .= " `campaign` LIKE '%%" . $campaign . "%%' ";
+					$where .= "`campaign` LIKE '%%" . $campaign . "%%' ";
 				} else {
-					$where .= " `campaign` = '" . $campaign . "' ";
+					$where .= "`campaign` = '" . $campaign . "' ";
 				}
 			}
 
+		}
+
+		// Description.
+		if( ! empty( $args['description'] ) ) {
+
+			$where .= empty( $where ) ? "WHERE " : "AND ";
+
+			$description = esc_sql( $args['description'] );
+
+			if( ! empty( $args['search'] ) ) {
+				$where .= "LOWER(`description`) LIKE LOWER('%%" . $description . "%%') ";
+			} else {
+				$where .= "`description` = '" . $description . "' ";
+			}
 		}
 
 		$orderby = array_key_exists( $args['orderby'], $this->get_columns() ) ? $args['orderby'] : $this->primary_key;
@@ -562,13 +540,17 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 		$args['orderby'] = $orderby;
 		$args['order']   = $order;
 
-		$fields = "*";
+		// Fields.
+		$callback = '';
 
-		if ( ! empty( $args['fields'] ) ) {
-			if ( 'ids' === $args['fields'] ) {
-				$fields = "$this->primary_key";
-			} elseif ( array_key_exists( $args['fields'], $this->get_columns() ) ) {
-				$fields = $args['fields'];
+		if ( 'ids' === $args['fields'] ) {
+			$fields   = "$this->primary_key";
+			$callback = 'intval';
+		} else {
+			$fields = $this->parse_fields( $args['fields'] );
+
+			if ( '*' === $fields ) {
+				$callback = 'affwp_get_referral';
 			}
 		}
 
@@ -576,7 +558,8 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 
 		$last_changed = wp_cache_get( 'last_changed', $this->cache_group );
 		if ( ! $last_changed ) {
-			wp_cache_set( 'last_changed', microtime(), $this->cache_group );
+			$last_changed = microtime();
+			wp_cache_set( 'last_changed', $last_changed, $this->cache_group );
 		}
 
 		$cache_key = "{$key}:{$last_changed}";
@@ -587,7 +570,7 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 
 			$clauses = compact( 'fields', 'join', 'where', 'orderby', 'order', 'count' );
 
-			$results = $this->get_results( $clauses, $args, 'affwp_get_referral' );
+			$results = $this->get_results( $clauses, $args, $callback );
 		}
 
 		wp_cache_add( $cache_key, $results, $this->cache_group, HOUR_IN_SECONDS );
@@ -614,10 +597,12 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 	*/
 	public function paid_earnings( $date = '', $affiliate_id = 0, $format = true ) {
 
-		$args                 = array();
-		$args['status']       = 'paid';
-		$args['affiliate_id'] = $affiliate_id;
-		$args['number']       = '-1';
+		$args = array(
+			'status'       => 'paid',
+			'affiliate_id' => $affiliate_id,
+			'number'       => -1,
+			'fields'       => 'amount',
+		);
 
 		if( 'alltime' == $date ) {
 			return $this->get_alltime_earnings();
@@ -650,8 +635,7 @@ class Affiliate_WP_Referrals_DB extends Affiliate_WP_DB  {
 		}
 
 		$referrals = $this->get_referrals( $args );
-
-		$earnings  = array_sum( wp_list_pluck( $referrals, 'amount' ) );
+		$earnings  = array_sum( $referrals );
 
 		if( $format ) {
 			$earnings = affwp_currency_filter( affwp_format_amount( $earnings ) );

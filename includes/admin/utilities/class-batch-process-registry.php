@@ -1,6 +1,8 @@
 <?php
 namespace AffWP\Utils\Batch_Process;
 
+use AffWP\Utils;
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -10,17 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Implements a batch process registry class.
  *
  * @since 2.0
+ *
+ * @see \AffWP\Utils\Registry
  */
-class Registry {
-
-	/**
-	 * Batches processes ID registry.
-	 *
-	 * @access private
-	 * @since  2.0
-	 * @var    array
-	 */
-	private $batch_ids = array();
+class Registry extends Utils\Registry {
 
 	/**
 	 * Initializes the batch registry.
@@ -58,6 +53,12 @@ class Registry {
 		// Exporters bootstrap.
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/interfaces/interface-base-exporter.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/interfaces/interface-csv-exporter.php';
+		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/interfaces/interface-base-importer.php';
+		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/interfaces/interface-csv-importer.php';
+
+		// Importer / Exporter needed files.
+		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/admin/tools/import/class-batch-import.php';
+		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/admin/tools/import/class-batch-import-csv.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/admin/tools/export/class-batch-export.php';
 		require_once AFFILIATEWP_PLUGIN_DIR . 'includes/admin/tools/export/class-batch-export-csv.php';
 	}
@@ -112,6 +113,25 @@ class Registry {
 			'file'  => AFFILIATEWP_PLUGIN_DIR . 'includes/admin/tools/export/class-batch-export-payouts.php',
 		) );
 
+		// Export Visits.
+		$this->register_process( 'export-visits', array(
+			'class' => 'AffWP\Utils\Batch_Process\Export_Visits',
+			'file'  => AFFILIATEWP_PLUGIN_DIR . 'includes/admin/tools/export/class-batch-export-visits.php',
+		) );
+
+		//
+		// Importers
+		//
+		$this->register_process( 'import-affiliates', array(
+			'class' => 'AffWP\Utils\Batch_Process\Import_Affiliates',
+			'file'  => AFFILIATEWP_PLUGIN_DIR . 'includes/admin/tools/import/class-batch-import-affiliates.php',
+		) );
+
+		$this->register_process( 'import-referrals', array(
+			'class' => 'AffWP\Utils\Batch_Process\Import_Referrals',
+			'file'  => AFFILIATEWP_PLUGIN_DIR . 'includes/admin/tools/import/class-batch-import-referrals.php',
+		) );
+
 		//
 		// Other stuff.
 		//
@@ -160,30 +180,7 @@ class Registry {
 			return new \WP_Error( 'invalid_batch_class_file', __( 'An invalid batch class handler file has been supplied.', 'affiliate-wp' ) );
 		}
 
-		return $this->add_process( $batch_id, $process_args );
-	}
-
-	/**
-	 * Adds a batch process to the registry.
-	 *
-	 * @access public
-	 * @since  2.0
-	 *
-	 * @param int    $batch_id   Batch process ID.
-	 * @param array  $attributes {
-	 *     Batch attributes.
-	 *
-	 *     @type string $class Batch process handler class.
-	 *     @type string $file  Batch process handler class file.
-	 * }
-	 * @return true Always true.
-	 */
-	private function add_process( $batch_id, $attributes ) {
-		foreach ( $attributes as $attribute => $value ) {
-			$this->batch_ids[ $batch_id ][ $attribute ] = $value;
-		}
-
-		return true;
+		return $this->add_item( $batch_id, $process_args );
 	}
 
 	/**
@@ -195,23 +192,7 @@ class Registry {
 	 * @param string $batch_id Batch process ID.
 	 */
 	public function remove_process( $batch_id ) {
-		unset( $this->batch_ids[ $batch_id ] );
-	}
-
-	/**
-	 * Retrieves a batch process and its associated attributes.
-	 *
-	 * @access public
-	 * @since  2.0
-	 *
-	 * @param string $batch_id Batch process ID.
-	 * @return array|false Array of attributes for the batch process if registered, otherwise false.
-	 */
-	public function get( $batch_id ) {
-		if ( array_key_exists( $batch_id, $this->batch_ids ) ) {
-			return $this->batch_ids[ $batch_id ];
-		}
-		return false;
+		$this->remove_item( $batch_id );
 	}
 
 }

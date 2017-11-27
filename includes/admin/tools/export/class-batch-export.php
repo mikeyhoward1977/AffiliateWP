@@ -146,8 +146,9 @@ class Export extends \Affiliate_WP_Export {
 	public function headers() {
 		ignore_user_abort( true );
 
-		if ( ! affwp_is_func_disabled( 'set_time_limit' ) && ! ini_get( 'safe_mode' ) )
+		if ( ! affwp_is_func_disabled( 'set_time_limit' ) ) {
 			set_time_limit( 0 );
+		}
 
 		nocache_headers();
 		header( 'Content-Type: text/csv; charset=utf-8' );
@@ -270,10 +271,11 @@ class Export extends \Affiliate_WP_Export {
 	 *
 	 * @access public
 	 * @since  2.0
-	 * @abstract
+	 *
+	 * @param string $batch_id Batch process ID.
 	 */
-	public function finish() {
-		$this->delete_counts();
+	public function finish( $batch_id ) {
+		affiliate_wp()->utils->data->delete_by_match( "^{$batch_id}[0-9a-z\_]+" );
 	}
 
 	/**

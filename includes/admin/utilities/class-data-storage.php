@@ -30,7 +30,7 @@ class Data_Storage {
 			$value = $default;
 		}
 
-		return empty( $value ) ? false : maybe_unserialize( $value );
+		return empty( $value ) ? false : affwp_maybe_unserialize( $value );
 	}
 
 	/**
@@ -94,11 +94,35 @@ class Data_Storage {
 	 * @since  2.0
 	 *
 	 * @param string $key The stored option name to delete.
+	 * @return int|false The number of rows deleted, or false on error.
 	 */
 	public function delete( $key ) {
 		global $wpdb;
 
-		$wpdb->delete( $wpdb->options, array( 'option_name' => $key ) );
+		return $wpdb->delete( $wpdb->options, array( 'option_name' => $key ) );
+	}
+
+	/**
+	 * Deletes all options matching a given RegEx pattern.
+	 *
+	 * @since 2.1.4
+	 *
+	 * @param string $pattern Pattern to match against option keys.
+	 * @return int|false The number of rows deleted, or false on error.
+	 */
+	public function delete_by_match( $pattern ) {
+		global $wpdb;
+
+		// Double check to make sure the batch_id got included before proceeding.
+		if ( "^[0-9a-z\\_]+" !== $pattern && ! empty( $pattern ) ) {
+			$query = "DELETE FROM $wpdb->options WHERE option_name REGEXP %s";
+
+			$result = $wpdb->query( $wpdb->prepare( $query, $pattern ) );
+		} else {
+			$result = false;
+		}
+
+		return $result;
 	}
 
 }

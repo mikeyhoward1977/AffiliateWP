@@ -71,7 +71,11 @@ class Tests extends UnitTestCase {
 	 * Runs during test teardown.
 	 */
 	public function tearDown() {
-		affiliate_wp()->settings->set( array( 'referral_url_blacklist' => '' ) );
+		affiliate_wp()->settings->set( array(
+			'referral_url_blacklist' => '',
+			'thousands_separator'    => ',',
+			'decimal_separator'      => '.',
+		) );
 
 		parent::tearDown();
 	}
@@ -105,6 +109,84 @@ class Tests extends UnitTestCase {
 	 */
 	public function test_get_referral_with_invalid_referral_id_should_return_false() {
 		$this->assertFalse( affwp_get_referral( 0 ) );
+	}
+
+	/**
+	 * @covers ::affwp_get_referral()
+	 */
+	public function test_get_referral_with_string_custom_value_should_retrieve_the_string_unserialized() {
+		$referral = $this->factory->referral->create_and_get( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => 'foobar',
+		) );
+
+		$this->assertFalse( is_serialized( $referral->custom ) );
+	}
+
+	/**
+	 * @covers ::affwp_get_referral()
+	 */
+	public function test_get_referral_with_array_custom_value_should_retrieve_the_array_unserialized() {
+		$referral = $this->factory->referral->create_and_get( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => array( 'foo', 'bar' ),
+		) );
+
+		$this->assertFalse( is_serialized( $referral->custom ) );
+	}
+
+	/**
+	 * @covers ::affwp_get_referral()
+	 */
+	public function test_get_referral_with_non_whitelisted_class_serialized_in_custom_should_retrieve_empty_custom() {
+		$referral = $this->factory->referral->create_and_get( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => $this->factory->affiliate->create_and_get()
+		) );
+
+		$this->assertSame( '', $referral->custom );
+	}
+
+	/**
+	 * @covers ::affwp_get_referral()
+	 */
+	public function test_get_referral_with_array_non_whitelisted_custom_should_retrieve_empty_custom() {
+		$referral = $this->factory->referral->create_and_get( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => array( $this->factory->affiliate->create_and_get() )
+		) );
+
+		$this->assertSame( '', $referral->custom );
+	}
+
+	/**
+	 * @covers ::affwp_get_referral()
+	 */
+	public function test_get_referral_with_stdclass_custom_should_retrieve_the_serialized_object() {
+		$object = new \stdClass();
+		$object->foo = 'bar';
+
+		$referral = $this->factory->referral->create_and_get( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => $object,
+		) );
+
+		$this->assertEquals( $object, $referral->custom );
+	}
+
+	/**
+	 * @covers ::affwp_get_referral()
+	 */
+	public function test_get_referral_with_array_stdclass_custom_should_retrieve_the_serialized_object() {
+		$object = new \stdClass();
+		$object->foo = 'bar';
+
+		$referral = $this->factory->referral->create_and_get( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => array( $object ),
+		) );
+
+		$this->assertEquals( array( $object ), $referral->custom );
 	}
 
 	/**
@@ -176,6 +258,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_get_referral_status_with_no_referral_should_return_false() {
 		$this->assertFalse( affwp_get_referral_status( null ) );
@@ -183,6 +266,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_invalid_referral_id_should_return_false() {
 		$this->assertFalse( affwp_set_referral_status( 0 ) );
@@ -190,6 +274,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_valid_referral_id_and_valid_status_should_return_true() {
 		$this->assertTrue( affwp_set_referral_status( self::$_referral_id , 'unpaid' ) );
@@ -197,6 +282,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_invalid_referral_object_should_return_false() {
 		$this->assertFalse( affwp_set_referral_status( affwp_get_referral() ) );
@@ -204,6 +290,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_valid_referral_object_and_valid_status_should_return_true() {
 		$referral = affwp_get_referral( self::$_referral_id );
@@ -213,6 +300,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_get_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_should_update_status() {
 		$this->assertEquals( 'pending', affwp_get_referral_status( self::$_referral_id ) );
@@ -226,6 +314,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_new_status_paid_should_increase_earnings() {
 		$referral     = affwp_get_referral( self::$_referral_id );
@@ -240,6 +329,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_new_status_paid_should_increase_referral_count() {
 		$referral     = affwp_get_referral( self::$_referral_id );
@@ -254,6 +344,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_new_status_unpaid_should_increase_unpaid_earnings() {
 		$referral            = affwp_get_referral( self::$_referral_id );
@@ -274,6 +365,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_new_status_not_unpaid_old_status_unpaid_should_decrease_unpaid_earnings() {
 		// Start off with an unpaid referral.
@@ -287,6 +379,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_new_status_unpaid_old_status_pending_should_be_marked_accepted() {
 		affiliate_wp()->referrals->update( self::$_referral_id, array(
@@ -306,6 +399,7 @@ class Tests extends UnitTestCase {
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_new_status_not_paid_old_status_paid_should_decrease_earnings() {
 		// Inflate earnings.
@@ -314,20 +408,21 @@ class Tests extends UnitTestCase {
 		// Start with 'paid' (default 'pending').
 		affwp_set_referral_status( self::$_referral_id, 'paid' );
 
-		$referral = affwp_get_referral( self::$_referral_id );
-		$old_earnings = affwp_get_affiliate_earnings( self::$_affiliate_id );
+		$referral_amount = affwp_get_referral( self::$_referral_id )->amount;
+		$old_earnings    = affwp_get_affiliate_earnings( self::$_affiliate_id );
 
 		// Switch to 'unpaid'.
-		affwp_set_referral_status( $referral, 'unpaid' );
+		affwp_set_referral_status( self::$_referral_id, 'unpaid' );
 
 		$new_earnings = affwp_get_affiliate_earnings( self::$_affiliate_id );
 
 		// New earnings = $old_earnings minus the deducted referral amount.
-		$this->assertEquals( $old_earnings - $referral->amount, $new_earnings );
+		$this->assertEquals( $old_earnings - $referral_amount, $new_earnings );
 	}
 
 	/**
 	 * @covers ::affwp_set_referral_status()
+	 * @group referrals-status
 	 */
 	public function test_set_referral_status_with_new_status_not_paid_old_status_paid_should_decrease_referral_count() {
 		// Inflate referral count.
@@ -397,9 +492,6 @@ class Tests extends UnitTestCase {
 		$result = affwp_get_referral( $referral_id );
 
 		$this->assertSame( self::$_visit_id, $result->visit_id );
-
-		// Clean up.
-		affwp_delete_referral( $referral_id );
 	}
 
 	/**
@@ -423,7 +515,50 @@ class Tests extends UnitTestCase {
 
 		// Clean up.
 		affiliate_wp()->referrals->update_referral( self::$_referral_id, array( 'visit_id' => 0 ) );
-		affwp_delete_referral( $referral_id );
+	}
+
+	/**
+	 * @covers ::affwp_add_referral()
+	 */
+	public function test_add_referral_with_empty_custom_field_should_store_empty_custom_value() {
+		$referral_id = affwp_add_referral( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => '',
+		) );
+
+		$result = affwp_get_referral( $referral_id );
+
+		$this->assertSame( '', $result->custom );
+	}
+
+	/**
+	 * @covers ::affwp_add_referral()
+	 */
+	public function test_add_referral_with_string_custom_value_should_store_that_value() {
+		$referral_id = affwp_add_referral( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => 'foo'
+		) );
+
+		$result = affwp_get_referral( $referral_id );
+
+		$this->assertSame( 'foo', $result->custom );
+	}
+
+	/**
+	 * @covers ::affwp_add_referral()
+	 */
+	public function test_add_referral_with_array_custom_value_should_store_that_array() {
+		$custom = array( 'foo', 'bar' );
+
+		$referral_id = affwp_add_referral( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'custom'       => $custom,
+		) );
+
+		$result = affwp_get_referral( $referral_id );
+
+		$this->assertEqualSets( $custom, $result->custom );
 	}
 
 	/**
@@ -562,5 +697,68 @@ class Tests extends UnitTestCase {
 		affiliate_wp()->settings->set( array( 'referral_url_blacklist' => WP_TESTS_DOMAIN ) );
 
 		$this->assertTrue( affwp_is_url_banned( WP_TESTS_DOMAIN ) );
+	}
+
+	/**
+	 * @covers ::affwp_calc_referral_amount()
+	 */
+	public function test_calc_referral_amount_should_normalize_a_percentage_rate_using_default_period_decimal_separator() {
+		$result = affwp_calc_referral_amount( 10, self::$_affiliate_id, 0, '0.50' );
+
+		$this->assertSame( '0.05', $result );
+	}
+
+	/**
+	 * @covers ::affwp_calc_referral_amount()
+	 */
+	public function test_calc_referral_amount_should_normalize_a_percentage_rate_using_comma_decimal_separator() {
+		$affiliate_id = $this->factory->affiliate->create();
+
+		affiliate_wp()->settings->set( array(
+			'thousands_separator' => '.',
+			'decimal_separator'   => ',',
+		) );
+
+		$result = affwp_calc_referral_amount( 10, $affiliate_id, 0, '0,50' );
+
+		$this->assertSame( '0.05', $result );
+	}
+
+	/**
+	 * @covers ::affwp_calc_referral_amount()
+	 */
+	public function test_calc_referral_amount_should_normalize_a_flat_rate_using_default_period_decimal_separator() {
+		$affiliate_id = $this->factory->affiliate->create( array(
+			'rate_type' => 'flat',
+		) );
+
+		$result = affwp_calc_referral_amount( 10, $affiliate_id, 0, '0.50' );
+
+		$this->assertSame( '0.50', $result );
+	}
+
+	/**
+	 * @covers ::affwp_calc_referral_amount()
+	 */
+	public function test_calc_referral_amount_should_normalize_a_flat_rate_using_comma_decimal_separator() {
+		affiliate_wp()->settings->set( array(
+			'thousands_separator' => '.',
+			'decimal_separator'   => ',',
+		) );
+
+		affwp_update_affiliate( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'rate_type'    => 'flat',
+		) );
+
+		$result = affwp_calc_referral_amount( 10, self::$_affiliate_id, 0, '0,50' );
+
+		$this->assertSame( '0.50', $result );
+
+		// Clean up.
+		affwp_update_affiliate( array(
+			'affiliate_id' => self::$_affiliate_id,
+			'rate_type'    => 'percentage',
+		) );
 	}
 }

@@ -148,7 +148,7 @@ $disabled = disabled( (bool) $payout, true, false );
 				</th>
 
 				<td>
-					<input type="text" name="date" id="date" value="<?php echo esc_attr( date_i18n( get_option( 'date_format' ), strtotime( $referral->date ) ) ); ?>" disabled="disabled" />
+					<input type="text" name="date" id="date" value="<?php echo esc_attr( $referral->date_i18n( 'datetime' ) ); ?>" disabled="disabled" />
 				</td>
 
 			</tr>
@@ -182,8 +182,8 @@ $disabled = disabled( (bool) $payout, true, false );
 							<?php
 							/* translators: 1: Visit date */
 							printf( _x( 'Date: %1$s (%2$s)', 'visit', 'affiliate-wp' ),
-								date_i18n( get_option( 'date_format' ), strtotime( $visit->date ) ),
-								date_i18n( get_option( 'time_format' ), strtotime( $visit->date ) )
+								$visit->date_i18n( 'date' ),
+								$visit->date_i18n( 'time' )
 							);
 							?>
 						</p>
@@ -232,6 +232,19 @@ $disabled = disabled( (bool) $payout, true, false );
 				<td>
 					<input type="text" name="context" id="context" value="<?php echo esc_attr( $referral->context ); ?>" <?php echo $readonly; ?> />
 					<p class="description"><?php _e( 'Context for this referral (optional). Usually this is used to identify the payment system or integration that was used for the transaction.', 'affiliate-wp' ); ?></p>
+				</td>
+
+			</tr>
+
+			<tr class="form-row form-required">
+				<?php $readonly = __checked_selected_helper( true, ! empty( $referral->custom ), false, 'readonly' ); ?>
+				<th scope="row">
+					<label for="context"><?php _e( 'Custom', 'affiliate-wp' ); ?></label>
+				</th>
+
+				<td>
+					<input type="text" name="custom" id="custom" value="<?php echo esc_attr( $referral->custom ); ?>" <?php echo $readonly; ?> />
+					<p class="description"><?php _e( 'Custom data stored for this referral (optional).', 'affiliate-wp' ); ?></p>
 				</td>
 
 			</tr>

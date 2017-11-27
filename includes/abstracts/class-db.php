@@ -92,14 +92,18 @@ abstract class Affiliate_WP_DB {
 	 *
 	 * @access public
 	 *
-	 * @param  string      $column Column name. See get_columns().
-	 * @param  int|string  $row_id Row ID.
-	 * @return object|null         Database query result object or null on failure.
+	 * @param  string       $column Column name. See get_columns().
+	 * @param  int|string   $row_id Row ID.
+	 * @return object|false Database query result object or false on failure.
 	 */
 	public function get_by( $column, $row_id ) {
 		global $wpdb;
 
 		if ( ! array_key_exists( $column, $this->get_columns() ) || empty( $row_id ) ) {
+			return false;
+		}
+
+		if( empty( $column ) || empty( $row_id ) ) {
 			return false;
 		}
 
@@ -170,33 +174,34 @@ abstract class Affiliate_WP_DB {
 
 			$results = absint( $results );
 
-		} elseif ( '*' !== $clauses['fields'] ) {
+		} else {
 
-			$results = $wpdb->get_col(
-				$wpdb->prepare(
-					"SELECT {$clauses['fields']} FROM {$this->table_name} {$clauses['join']} {$clauses['where']} ORDER BY {$clauses['orderby']} {$clauses['order']} LIMIT %d, %d;",
-					absint( $args['offset'] ),
-					absint( $args['number'] )
-				)
-			);
+			$fields = $clauses['fields'];
 
-			if ( 'ids' === $args['fields'] ) {
-				$results = array_map( 'intval', $results );
-			}
-
- 		} else {
-
+			// Run the query.
 			$results = $wpdb->get_results(
 				$wpdb->prepare(
-					"SELECT * FROM {$this->table_name} {$clauses['join']} {$clauses['where']} ORDER BY {$clauses['orderby']} {$clauses['order']} LIMIT %d, %d;",
+					"SELECT {$fields} FROM {$this->table_name} {$clauses['join']} {$clauses['where']} ORDER BY {$clauses['orderby']} {$clauses['order']} LIMIT %d, %d;",
 					absint( $args['offset'] ),
 					absint( $args['number'] )
 				)
 			);
 
+			/*
+			 * If the query is for a single field, pluck the field into an array.
+			 *
+			 * Note that only the single field was selected in the query, but get_results()
+			 * returns an array of objects, thus the pluck.
+			 */
+			if ( '*' !== $fields && false === strpos( $fields, ',' ) ) {
+				$results = wp_list_pluck( $results, $fields );
+			}
+
+			// Run the results through the fields-dictated callback.
 			if ( ! empty( $callback ) && is_callable( $callback ) ) {
 				$results = array_map( $callback, $results );
 			}
+
 		}
 
 		return $results;
@@ -420,5 +425,111 @@ abstract class Affiliate_WP_DB {
 		}
 
 		return $_object;
+	}
+
+	/**
+	 * Parses a string of one or more valid object fields into a SQL-friendly format.
+	 *
+	 * @access public
+	 * @since  2.1
+	 *
+	 * @param string|array $fields Object fields.
+	 * @return string SQL-ready fields list. If empty, default is '*'.
+	 */
+	public function parse_fields( $fields ) {
+
+		$fields_sql = '';
+
+		if ( ! is_array( $fields ) ) {
+			$fields = array( $fields );
+		}
+
+		$count     = count( $fields );
+		$whitelist = array_keys( $this->get_columns() );
+
+		foreach ( $fields as $index => $field ) {
+			if ( ! in_array( $field, $whitelist, true ) ) {
+				unset( $fields[ $index ] );
+			}
+		}
+
+		$fields_sql = implode( ', ', $fields );
+
+		if ( empty ( $fields_sql ) ) {
+			$fields_sql = '*';
+		}
+
+		return $fields_sql;
+	}
+
+	/**
+	 * Prepares the date query section of the WHERE clause if set.
+	 *
+	 * @since 2.1.9
+	 *
+	 * @param string       $where WHERE clause for the query up to this point.
+	 * @param string|array $date {
+	 *     Date string or array of start and end dates to query by.
+	 *
+	 *     @type string $start Starting date string.
+	 *     @type string $end   Ending date string.
+	 * }
+	 * @param string       $field Optional. Field to query by (this will be 'date' for all
+	 *                            except affiliate queries). Default 'date'.
+	 * @return string WHERE clause string for date conditions.
+	 */
+	public function prepare_date_query( $where, $date, $field = 'date' ) {
+
+		if ( empty( $field ) ) {
+			$field = 'date';
+		} else {
+			sanitize_key( $field );
+		}
+
+		$gmt_offset = affiliate_wp()->utils->wp_offset;
+
+		if ( is_array( $date ) ) {
+
+			if( ! empty( $date['start'] ) ) {
+
+				$where .= empty( $where ) ? "WHERE " : "AND ";
+
+				if ( false !== strpos( $date['start'], ':' ) ) {
+					$format = 'Y-m-d H:i:s';
+				} else {
+					$format = 'Y-m-d 00:00:00';
+				}
+
+				$start = esc_sql( gmdate( $format, strtotime( $date['start'] ) - $gmt_offset ) );
+
+				$where .= "`{$field}` >= '{$start}' ";
+			}
+
+			if ( ! empty( $date['end'] ) ) {
+
+				$where .= empty( $where ) ? "WHERE " : "AND ";
+
+				if ( false !== strpos( $date['end'], ':' ) ) {
+					$format = 'Y-m-d H:i:s';
+				} else {
+					$format = 'Y-m-d 23:59:59';
+				}
+
+				$end = esc_sql( gmdate( $format, strtotime( $date['end'] ) - $gmt_offset ) );
+
+				$where .= "`{$field}` <= '{$end}' ";
+			}
+
+		} else {
+
+			$year  = gmdate( 'Y', strtotime( $date ) - $gmt_offset );
+			$month = gmdate( 'm', strtotime( $date ) - $gmt_offset );
+			$day   = gmdate( 'd', strtotime( $date ) - $gmt_offset );
+
+			$where .= empty( $where ) ? "WHERE " : "AND ";
+			$where .= "$year = YEAR ( {$field} ) AND $month = MONTH ( {$field} ) AND $day = DAY ( {$field} ) ";
+		}
+
+		return $where;
 	}
 }
